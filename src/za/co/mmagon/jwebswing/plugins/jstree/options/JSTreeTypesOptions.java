@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  * This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.
@@ -39,6 +40,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @version 1.0
  *
  */
+@ComponentInformation(name = "JS Tree Types Plugin",
+                      description = "This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeTypesOptions extends JavaScriptPart
 {
 

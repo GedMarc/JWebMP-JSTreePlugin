@@ -17,6 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.jstree.options;
 
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  * Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a node with the same
@@ -27,11 +28,14 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @version 1.0
  *
  */
+@ComponentInformation(name = "JS Tree Unique Plugin",
+                      description = "Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a node with the same name.",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeUniqueOptions extends JavaScriptPart
 {
 
     private static final long serialVersionUID = 1L;
-    
+
     /**
      * Indicates if the comparison should be case sensitive. Default is false.
      */
@@ -44,7 +48,8 @@ public class JSTreeUniqueOptions extends JavaScriptPart
 
     /**
      * Indicates if the comparison should be case sensitive. Default is false.
-     * @return 
+     *
+     * @return
      */
     public Boolean getCaseSensitive()
     {
@@ -53,12 +58,12 @@ public class JSTreeUniqueOptions extends JavaScriptPart
 
     /**
      * Indicates if the comparison should be case sensitive. Default is false.
-     * @param caseSensitive 
+     *
+     * @param caseSensitive
      */
     public void setCaseSensitive(Boolean caseSensitive)
     {
         this.caseSensitive = caseSensitive;
     }
-    
-    
+
 }

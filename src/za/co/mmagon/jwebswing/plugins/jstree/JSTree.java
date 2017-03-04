@@ -20,11 +20,12 @@ import java.util.Map;
 import za.co.mmagon.JWebSwingSiteBinder;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.servlets.interfaces.IDataComponent;
+import za.co.mmagon.jwebswing.htmlbuilder.css.themes.Theme;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 import za.co.mmagon.jwebswing.plugins.jstree.events.JSTreeRefreshEvent;
 import za.co.mmagon.jwebswing.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 import za.co.mmagon.jwebswing.plugins.jstree.themes.JSTreeDefaultTheme;
 import za.co.mmagon.jwebswing.plugins.jstree.themes.JSTreeTheme;
-import za.co.mmagon.jwebswing.htmlbuilder.css.themes.Theme;
 
 /**
  * An implementation of the jsTree project.
@@ -33,6 +34,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.css.themes.Theme;
  * @since 29 Aug 2015
  * @version 1.0
  */
+@ComponentInformation(name = "jsTree",
+                      description = "jsTree is jquery plugin, that provides interactive trees. It is absolutely free, open source and distributed under the MIT license. jsTree is easily extendable, themable and configurable, it supports HTML & JSON data sources and AJAX loading.",
+                      url = "https://www.jstree.com/")
 public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures, JSTreeEvents, JSTree> implements IDataComponent<JSTreeData>
 {
 

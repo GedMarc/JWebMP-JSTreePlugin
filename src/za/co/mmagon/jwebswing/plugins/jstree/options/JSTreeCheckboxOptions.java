@@ -18,6 +18,7 @@ package za.co.mmagon.jwebswing.plugins.jstree.options;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  * This plugin renders checkbox icons in front of each node, making multiple selection much easier.
@@ -37,6 +38,11 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @version 1.0
  *
  */
+@ComponentInformation(name = "JS Tree Checkbox Plugin",
+                      description = "This plugin renders checkbox icons in front of each node, making multiple selection much easier.\n"
+                      + "It also supports tri-state behavior, meaning that if a node has a few of its children checked it will be rendered as undetermined, and state will be propagated up. You can also fine tune the cascading options with the cascade config option.\n"
+                      + "Keep in mind when cascading checkbox will check even disabled nodes.",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeCheckboxOptions extends JavaScriptPart
 {
 

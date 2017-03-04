@@ -22,8 +22,9 @@ import za.co.mmagon.jwebswing.Event;
 import za.co.mmagon.jwebswing.base.ajax.AjaxCall;
 import za.co.mmagon.jwebswing.base.ajax.AjaxResponse;
 import za.co.mmagon.jwebswing.base.angular.AngularAttributes;
-import za.co.mmagon.jwebswing.plugins.jstree.JSTreeEvents;
+import za.co.mmagon.jwebswing.base.angular.AngularPageConfigurator;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.events.enumerations.EventTypes;
+import za.co.mmagon.jwebswing.plugins.jstree.JSTreeEvents;
 import za.co.mmagon.logger.LogFactory;
 
 /**
@@ -62,8 +63,8 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
         if (!isConfigured())
         {
             getComponent().getPage().getOptions().setjQueryEnabled(true);
-            getComponent().getPage().getOptions().setAngularEnabled(true);
-            getComponent().getAngularDirectives().add(getDirective());
+            AngularPageConfigurator.setAngularRequired(getComponent(), true);
+            getComponent().getPage().getAngular().getAngularDirectives().add(getDirective());
             component.addAttribute(AngularAttributes.ngJSTreeOnChanged, "perform($event," + renderVariables() + ");");
         }
         super.preConfigure();
@@ -78,7 +79,7 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
     {
         if (directive == null)
         {
-            directive = new JSTreeOnChangedPluginDirective(getComponent().getPage().getAngular());
+            directive = new JSTreeOnChangedPluginDirective();
         }
         return directive;
     }

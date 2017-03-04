@@ -17,8 +17,8 @@
 package za.co.mmagon.jwebswing.plugins.jstree.plugins.onchangedevent;
 
 import za.co.mmagon.FileTemplates;
-import za.co.mmagon.jwebswing.base.angular.AngularFeature;
 import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  * Maps to the angular function of right click
@@ -26,6 +26,9 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  * @author GedMarc
  * @since 25 Jun 2016
  */
+@ComponentInformation(name = "JS Tree On Changed Plugin",
+                      description = "This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named changed, which will give information about selected and deselected nodes since the last changed.jstree event",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeOnChangedPluginDirective extends AngularDirectiveBase
 {
 
@@ -36,7 +39,7 @@ public class JSTreeOnChangedPluginDirective extends AngularDirectiveBase
      *
      * @param angular
      */
-    public JSTreeOnChangedPluginDirective(AngularFeature angular)
+    public JSTreeOnChangedPluginDirective()
     {
         super("ngActivate");
     }

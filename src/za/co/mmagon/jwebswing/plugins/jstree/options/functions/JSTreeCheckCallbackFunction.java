@@ -17,6 +17,7 @@
 package za.co.mmagon.jwebswing.plugins.jstree.options.functions;
 
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptLiteralFunction;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  *
@@ -25,6 +26,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptLiteralFunction;
  * @version 1.0
  *
  */
+@ComponentInformation(name = "JS Tree Callback Plugin",
+                      description = "This plugin overrides the activate_node function (the one that gets called when a user tries to select a node) and enables preventing the function invokation by using a callback.",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 {
 
@@ -100,9 +104,11 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
     {
         this.create = create;
     }
+
     /**
      * If rename is allowed
-     * @return 
+     *
+     * @return
      */
     public Boolean getRename()
     {
@@ -111,7 +117,8 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 
     /**
      * If rename is allowed
-     * @param rename 
+     *
+     * @param rename
      */
     public void setRename(Boolean rename)
     {
@@ -120,7 +127,8 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 
     /**
      * If delete is allowed
-     * @return 
+     *
+     * @return
      */
     public Boolean getDelete()
     {
@@ -129,7 +137,8 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 
     /**
      * if delete is allowed
-     * @param delete 
+     *
+     * @param delete
      */
     public void setDelete(Boolean delete)
     {
@@ -138,7 +147,8 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 
     /**
      * if move is allowed
-     * @return 
+     *
+     * @return
      */
     public Boolean getMove()
     {
@@ -147,7 +157,8 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 
     /**
      * if move is allowed
-     * @param move 
+     *
+     * @param move
      */
     public void setMove(Boolean move)
     {
@@ -156,7 +167,8 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 
     /**
      * if copy is allowed
-     * @return 
+     *
+     * @return
      */
     public Boolean getCopy()
     {
@@ -165,7 +177,8 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 
     /**
      * If copy is allowed
-     * @param copy 
+     *
+     * @param copy
      */
     public void setCopy(Boolean copy)
     {

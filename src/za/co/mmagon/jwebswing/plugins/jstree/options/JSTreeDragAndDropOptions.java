@@ -19,6 +19,7 @@ package za.co.mmagon.jwebswing.plugins.jstree.options;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptLiteralFunction;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  * This plugin makes it possible to drag and drop tree nodes and rearrange the tree.
@@ -28,6 +29,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptLiteralFunction;
  * @version 1.0
  *
  */
+@ComponentInformation(name = "JS Tree Drag And Drop Plugin",
+                      description = "This plugin makes it possible to drag and drop tree nodes and rearrange the tree.",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeDragAndDropOptions extends JavaScriptPart
 {
 

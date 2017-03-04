@@ -18,6 +18,7 @@ package za.co.mmagon.jwebswing.plugins.jstree.options;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  * This plugin adds the possibility to search for items in the tree and even to show only matching nodes.
@@ -27,6 +28,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @version 1.0
  *
  */
+@ComponentInformation(name = "JS Tree Search Plugin",
+                      description = "This plugin adds the possibility to search for items in the tree and even to show only matching nodes.",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeSearchOptions extends JavaScriptPart
 {
 

@@ -18,6 +18,7 @@ package za.co.mmagon.jwebswing.plugins.jstree.options;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
 /**
  * This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.
@@ -29,6 +30,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * @version 1.0
  *
  */
+@ComponentInformation(name = "JS Tree Context Menu Plugin",
+                      description = "This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.",
+                      url = "https://www.jstree.com/plugins/")
 public class JSTreeContextMenuOptions extends JavaScriptPart
 {
 

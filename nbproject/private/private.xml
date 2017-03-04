@@ -3,5 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="JWebswing Static"/>
+        <group name="JWebSwing Plugins">
+            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/JSTree.java</file>
+            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/JSTreePageConfigurator.java</file>
+            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/plugins/onchangedevent/JSTreeOnChangedPluginAdapter.java</file>
+        </group>
     </open-files>
 </project-private>
