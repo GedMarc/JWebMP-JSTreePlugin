@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -36,7 +36,7 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
                    pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-JSTreePlugin/wiki",
                    pluginOriginalHomepage = "https://www.jstree.com/",
                    pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/JSTreePlugin.jar/download",
-                   pluginIconUrl = "bower_components/jstree/icon.png",
+                   pluginIconUrl = "bower_components/jstree/icon.jpg",
                    pluginIconImageUrl = "bower_components/jstree/example.png",
                    pluginLastUpdatedDate = "2017/03/04"
 )
