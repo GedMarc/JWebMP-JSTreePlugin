@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@ import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.servlets.interfaces.IDataComponent;
 import za.co.mmagon.jwebswing.htmlbuilder.css.themes.Theme;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
+import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
 import za.co.mmagon.jwebswing.plugins.jstree.events.JSTreeRefreshEvent;
 import za.co.mmagon.jwebswing.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 import za.co.mmagon.jwebswing.plugins.jstree.themes.JSTreeDefaultTheme;
@@ -60,9 +61,12 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
     @Override
     public void preConfigure()
     {
-        getPage().getOptions().setjQueryEnabled(true);
-        getOptions().getCore().getData().setUrl(JWebSwingSiteBinder.getDataLocation().replace("/", "") + "?component=" + getID());
-        getOptions().getCore().getData().setData(new JSTreeCoreDataFunction());
+        if (!isConfigured())
+        {
+            JQueryPageConfigurator.setRequired(this, true);
+            getOptions().getCore().getData().setUrl(JWebSwingSiteBinder.getDataLocation().replace("/", "") + "?component=" + getID());
+            getOptions().getCore().getData().setData(new JSTreeCoreDataFunction());
+        }
         super.preConfigure();
     }
 

@@ -3,19 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="JWebswing Static"/>
-        <group name="JWebSwing Plugins">
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeDragAndDropOptions.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/JSTree.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/plugins/onchangedevent/JSTreeOnChangedPluginDirective.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeDefaultOptions.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeContextMenuOptions.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeCheckboxOptions.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeTypesOptions.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/JSTreePageConfigurator.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeUniqueOptions.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeCoreOptions.java</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/plugins/onchangedevent/JSTreeOnChangedPlugin.js</file>
-            <file>file:/C:/AESoft/Programs/JWebSwingPlugins/JSTreePlugin/src/za/co/mmagon/jwebswing/plugins/jstree/options/JSTreeSearchOptions.java</file>
-        </group>
+        <group name="JWebSwing Plugins"/>
     </open-files>
 </project-private>
