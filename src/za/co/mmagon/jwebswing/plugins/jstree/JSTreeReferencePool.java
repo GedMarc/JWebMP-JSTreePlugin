@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,6 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree;
 
-import za.co.mmagon.jwebswing.components.newcomponents.*;
 import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.base.references.JavascriptReference;
 import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
@@ -30,8 +29,8 @@ import za.co.mmagon.jwebswing.base.servlets.interfaces.ReferencePool;
 public enum JSTreeReferencePool implements ReferencePool
 {
     JSTreeJavascript(new JavascriptReference("JSTree", 3.32, "bower_components/jstree/dist/jstree.js", "https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js", 10),
-   null)
-    ;
+                     null);
+
     private JSTreeReferencePool()
     {
     }
