@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,8 +16,9 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree.options;
 
-import za.co.mmagon.jwebswing.plugins.jstree.options.functions.JSTreeCoreDataFunction;
+import za.co.mmagon.jwebswing.base.client.HttpMethodTypes;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
+import za.co.mmagon.jwebswing.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 
 /**
  *
@@ -53,9 +54,9 @@ public class JSTreeAjaxConfigOptions extends JavaScriptPart
      */
     private String dataType;
     /**
-     * 
+     *
      */
-    private String type;
+    private HttpMethodTypes type;
 
     public JSTreeAjaxConfigOptions()
     {
@@ -152,6 +153,16 @@ public class JSTreeAjaxConfigOptions extends JavaScriptPart
     public void setDataType(String dataType)
     {
         this.dataType = dataType;
+    }
+
+    public HttpMethodTypes getType()
+    {
+        return type;
+    }
+
+    public void setType(HttpMethodTypes type)
+    {
+        this.type = type;
     }
 
 }

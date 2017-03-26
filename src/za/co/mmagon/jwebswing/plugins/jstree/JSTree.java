@@ -18,6 +18,7 @@ package za.co.mmagon.jwebswing.plugins.jstree;
 
 import java.util.Map;
 import za.co.mmagon.JWebSwingSiteBinder;
+import za.co.mmagon.jwebswing.base.client.HttpMethodTypes;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.servlets.interfaces.IDataComponent;
 import za.co.mmagon.jwebswing.htmlbuilder.css.themes.Theme;
@@ -64,6 +65,7 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
         if (!isConfigured())
         {
             JQueryPageConfigurator.setRequired(this, true);
+            getOptions().getCore().getData().setType(HttpMethodTypes.POST);
             getOptions().getCore().getData().setUrl(JWebSwingSiteBinder.getDataLocation().replace("/", "") + "?component=" + getID());
             getOptions().getCore().getData().setData(new JSTreeCoreDataFunction());
         }
