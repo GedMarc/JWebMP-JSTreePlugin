@@ -11,7 +11,7 @@
 		factory(jQuery);
 	}
 }(function ($, undefined) {
-	"use strict"; 
+	"use strict";
 /*!
  * jsTree 3.3.3
  * http://jstree.com/
@@ -6145,7 +6145,7 @@
 					h = e.height(),
 					dw = $(window).width() + $(window).scrollLeft(),
 					dh = $(window).height() + $(window).scrollTop();
-				// може да �?е �?пе�?ти е една проверка - дали н�?ма н�?кой от кла�?овете вече нагоре
+				// може да се спести е една проверка - дали няма някой от класовете вече нагоре
 				if(right_to_left) {
 					o[x - (w + 10 + o.outerWidth()) < 0 ? "addClass" : "removeClass"]("vakata-context-left");
 				}
@@ -6278,7 +6278,7 @@
 						.parentsUntil(".vakata-context", "li").addBack().addClass("vakata-context-hover");
 					$.vakata.context._show_submenu(this);
 				})
-				// те�?тово - дали не натоварва?
+				// тестово - дали не натоварва?
 				.on("mouseleave", "li", function (e) {
 					if($.contains(this, e.relatedTarget)) { return; }
 					$(this).find(".vakata-context-hover").addBack().removeClass("vakata-context-hover");

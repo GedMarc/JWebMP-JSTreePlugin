@@ -62,7 +62,7 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
     {
         if (!isConfigured())
         {
-            AngularPageConfigurator.setAngularRequired(getComponent(), true);
+            AngularPageConfigurator.setRequired(getComponent(), true);
             getComponent().getPage().getAngular().getAngularDirectives().add(getDirective());
             component.addAttribute(AngularAttributes.ngJSTreeOnChanged, "perform($event," + renderVariables() + ");");
         }
