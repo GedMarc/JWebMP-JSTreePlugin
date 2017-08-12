@@ -16,79 +16,78 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree.options;
 
-import java.util.ArrayList;
-import java.util.List;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author GedMarc
- * @since 22 Dec 2016
  * @version 1.0
- *
+ * @since 22 Dec 2016
  */
 @ComponentInformation(name = "JS Tree Sort Plugin",
-                      description = "This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.",
-                      url = "https://www.jstree.com/plugins/")
+		description = "This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.",
+		url = "https://www.jstree.com/plugins/")
 public class JSTreeDefaultOptions extends JavaScriptPart
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * configure which plugins will be active on an instance. Should be an array of strings, where each element is a plugin name. The default is
-     */
-    private List<String> plugins;
+	/**
+	 * configure which plugins will be active on an instance. Should be an array of strings, where each element is a plugin name. The default is
+	 */
+	private List<String> plugins;
 
-    public JSTreeDefaultOptions()
-    {
+	public JSTreeDefaultOptions()
+	{
 
-    }
+	}
 
-    /**
-     * configure which plugins will be active on an instance. Should be an array of strings, where each element is a plugin name. The default is
-     *
-     * @return
-     */
-    public List<String> getPlugins()
-    {
-        if (plugins == null)
-        {
-            plugins = new ArrayList<>();
-        }
-        return plugins;
-    }
+	/**
+	 * configure which plugins will be active on an instance. Should be an array of strings, where each element is a plugin name. The default is
+	 *
+	 * @return
+	 */
+	public List<String> getPlugins()
+	{
+		if (plugins == null)
+		{
+			plugins = new ArrayList<>();
+		}
+		return plugins;
+	}
 
-    /**
-     * configure which plugins will be active on an instance. Should be an array of strings, where each element is a plugin name. The default is
-     *
-     * @param plugins
-     */
-    public void setPlugins(List<String> plugins)
-    {
-        this.plugins = plugins;
-    }
+	/**
+	 * configure which plugins will be active on an instance. Should be an array of strings, where each element is a plugin name. The default is
+	 *
+	 * @param plugins
+	 */
+	public void setPlugins(List<String> plugins)
+	{
+		this.plugins = plugins;
+	}
 
-    /**
-     * Adds the sort plugin to these options
-     *
-     * @return
-     */
-    public JSTreeDefaultOptions addSortPlugin()
-    {
-        plugins.add("Sort");
-        return this;
-    }
+	/**
+	 * Adds the sort plugin to these options
+	 *
+	 * @return
+	 */
+	public JSTreeDefaultOptions addSortPlugin()
+	{
+		plugins.add("Sort");
+		return this;
+	}
 
-    /**
-     * Adds the whole row plugin to the tree
-     *
-     * @return
-     */
-    public JSTreeDefaultOptions addWholeRowPlugin()
-    {
-        plugins.add("Sort");
-        return this;
-    }
+	/**
+	 * Adds the whole row plugin to the tree
+	 *
+	 * @return
+	 */
+	public JSTreeDefaultOptions addWholeRowPlugin()
+	{
+		plugins.add("Sort");
+		return this;
+	}
 }

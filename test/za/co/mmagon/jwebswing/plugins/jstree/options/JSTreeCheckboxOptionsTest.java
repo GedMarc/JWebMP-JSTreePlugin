@@ -16,86 +16,84 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree.options;
 
-import za.co.mmagon.jwebswing.plugins.jstree.options.JSTreeCheckboxOptions;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
 public class JSTreeCheckboxOptionsTest
 {
 
-    public JSTreeCheckboxOptionsTest()
-    {
-    }
+	public JSTreeCheckboxOptionsTest()
+	{
+	}
 
-    @Test
-    public void testGetVisible()
-    {
-        JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
-        options.setVisible(true);
-        System.out.println(options);
-        Assert.assertEquals("{\n"
-                + "  \"visible\" : true\n"
-                + "}"
-                + "", options.toString());
-    }
+	@Test
+	public void testGetVisible()
+	{
+		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
+		options.setVisible(true);
+		System.out.println(options);
+		Assert.assertEquals("{\n"
+				                    + "  \"visible\" : true\n"
+				                    + "}"
+				                    + "", options.toString());
+	}
 
-    @Test
-    public void testGetThreeState()
-    {
-        JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
-        options.setThreeState(true);
-        System.out.println(options);
-        Assert.assertEquals("{\n"
-                + "  \"three_state\" : true\n"
-                + "}", options.toString());
-    }
+	@Test
+	public void testGetThreeState()
+	{
+		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
+		options.setThreeState(true);
+		System.out.println(options);
+		Assert.assertEquals("{\n"
+				                    + "  \"three_state\" : true\n"
+				                    + "}", options.toString());
+	}
 
-    @Test
-    public void testGetWholeNode()
-    {
-        JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
-        options.setWholeNode(true);
-        System.out.println(options);
-        Assert.assertEquals("{\n"
-                + "  \"whole_node\" : true\n"
-                + "}", options.toString());
-    }
+	@Test
+	public void testGetWholeNode()
+	{
+		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
+		options.setWholeNode(true);
+		System.out.println(options);
+		Assert.assertEquals("{\n"
+				                    + "  \"whole_node\" : true\n"
+				                    + "}", options.toString());
+	}
 
-    @Test
-    public void testGetKeepSelectedStyle()
-    {
-        JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
-        options.setKeepSelectedStyle(true);
-        System.out.println(options);
-        Assert.assertEquals("{\n"
-                + "  \"keep_selected_style\" : true\n"
-                + "}", options.toString());
-    }
+	@Test
+	public void testGetKeepSelectedStyle()
+	{
+		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
+		options.setKeepSelectedStyle(true);
+		System.out.println(options);
+		Assert.assertEquals("{\n"
+				                    + "  \"keep_selected_style\" : true\n"
+				                    + "}", options.toString());
+	}
 
-    @Test
-    public void testGetCascade()
-    {
-        JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
-        options.setCascade(true);
-        System.out.println(options);
-        Assert.assertEquals("{\n"
-                + "  \"cascade\" : true\n"
-                + "}", options.toString());
-    }
+	@Test
+	public void testGetCascade()
+	{
+		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
+		options.setCascade(true);
+		System.out.println(options);
+		Assert.assertEquals("{\n"
+				                    + "  \"cascade\" : true\n"
+				                    + "}", options.toString());
+	}
 
-    @Test
-    public void testGetTieSelection()
-    {
-        JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
-        options.setTieSelection(true);
-        System.out.println(options);
-        Assert.assertEquals("{\n"
-                + "  \"tie_selection\" : true\n"
-                + "}", options.toString());
-    }
+	@Test
+	public void testGetTieSelection()
+	{
+		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
+		options.setTieSelection(true);
+		System.out.println(options);
+		Assert.assertEquals("{\n"
+				                    + "  \"tie_selection\" : true\n"
+				                    + "}", options.toString());
+	}
 
 }

@@ -27,32 +27,32 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
  * @since 25 Jun 2016
  */
 @ComponentInformation(name = "JS Tree On Changed Plugin",
-                      description = "This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named changed, which will give information about selected and deselected nodes since the last changed.jstree event",
-                      url = "https://www.jstree.com/plugins/")
+		description = "This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named changed, which will give information about selected and deselected nodes since the last changed.jstree event",
+		url = "https://www.jstree.com/plugins/")
 public class JSTreeOnChangedPluginDirective extends AngularDirectiveBase
 {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * Constructs a new right click directive based on the angular object passed in
-     *
-     * @param angular
-     */
-    public JSTreeOnChangedPluginDirective()
-    {
-        super("ngActivate");
-    }
-
-    /**
-     * Renders the right click directive from the JavaScript file
-     *
-     * @return
-     */
-    @Override
-    public String renderFunction()
-    {
-        return FileTemplates.getFileTemplate(JSTreeOnChangedPluginDirective.class, "JSTreeOnChangedPlugin").toString();
-    }
-
+	
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Constructs a new right click directive based on the angular object passed in
+	 *
+	 * @param angular
+	 */
+	public JSTreeOnChangedPluginDirective()
+	{
+		super("ngActivate");
+	}
+	
+	/**
+	 * Renders the right click directive from the JavaScript file
+	 *
+	 * @return
+	 */
+	@Override
+	public String renderFunction()
+	{
+		return FileTemplates.getFileTemplate(JSTreeOnChangedPluginDirective.class, "JSTreeOnChangedPlugin").toString();
+	}
+	
 }

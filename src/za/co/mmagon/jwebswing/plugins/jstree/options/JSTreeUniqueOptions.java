@@ -24,46 +24,45 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
  * name.
  *
  * @author GedMarc
- * @since 23 Dec 2016
  * @version 1.0
- *
+ * @since 23 Dec 2016
  */
 @ComponentInformation(name = "JS Tree Unique Plugin",
-                      description = "Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a node with the same name.",
-                      url = "https://www.jstree.com/plugins/")
+		description = "Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a node with the same name.",
+		url = "https://www.jstree.com/plugins/")
 public class JSTreeUniqueOptions extends JavaScriptPart
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Indicates if the comparison should be case sensitive. Default is false.
-     */
-    private Boolean caseSensitive;
+	/**
+	 * Indicates if the comparison should be case sensitive. Default is false.
+	 */
+	private Boolean caseSensitive;
 
-    public JSTreeUniqueOptions()
-    {
+	public JSTreeUniqueOptions()
+	{
 
-    }
+	}
 
-    /**
-     * Indicates if the comparison should be case sensitive. Default is false.
-     *
-     * @return
-     */
-    public Boolean getCaseSensitive()
-    {
-        return caseSensitive;
-    }
+	/**
+	 * Indicates if the comparison should be case sensitive. Default is false.
+	 *
+	 * @return
+	 */
+	public Boolean getCaseSensitive()
+	{
+		return caseSensitive;
+	}
 
-    /**
-     * Indicates if the comparison should be case sensitive. Default is false.
-     *
-     * @param caseSensitive
-     */
-    public void setCaseSensitive(Boolean caseSensitive)
-    {
-        this.caseSensitive = caseSensitive;
-    }
+	/**
+	 * Indicates if the comparison should be case sensitive. Default is false.
+	 *
+	 * @param caseSensitive
+	 */
+	public void setCaseSensitive(Boolean caseSensitive)
+	{
+		this.caseSensitive = caseSensitive;
+	}
 
 }

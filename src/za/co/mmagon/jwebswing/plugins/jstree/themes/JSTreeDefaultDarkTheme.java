@@ -20,20 +20,18 @@ import za.co.mmagon.jwebswing.base.references.CSSReference;
 import za.co.mmagon.jwebswing.htmlbuilder.css.themes.Theme;
 
 /**
- *
  * @author GedMarc
- * @since Aug 27, 2016
  * @version 1.0
- * 
+ * @since Aug 27, 2016
  */
 public class JSTreeDefaultDarkTheme extends Theme implements JSTreeTheme
 {
-
-    private static final long serialVersionUID = 1L;
-
-    public JSTreeDefaultDarkTheme ()
-    {
-        super("default-dark", "");
-        getCssReferences().add(new CSSReference("JSTreeDefaultDarkTheme", 3.32, "bower_components/jstree/dist/themes/default-dark/style.css"));
-    }
+	
+	private static final long serialVersionUID = 1L;
+	
+	public JSTreeDefaultDarkTheme()
+	{
+		super("default-dark", "");
+		getCssReferences().add(new CSSReference("JSTreeDefaultDarkTheme", 3.32, "bower_components/jstree/dist/themes/default-dark/style.css"));
+	}
 }

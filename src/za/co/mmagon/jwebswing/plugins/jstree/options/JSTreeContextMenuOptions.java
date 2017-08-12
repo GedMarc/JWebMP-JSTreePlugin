@@ -26,103 +26,102 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
  * You can find all the contextmenu plugin config options in the API.
  *
  * @author GedMarc
- * @since 23 Dec 2016
  * @version 1.0
- *
+ * @since 23 Dec 2016
  */
 @ComponentInformation(name = "JS Tree Context Menu Plugin",
-                      description = "This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.",
-                      url = "https://www.jstree.com/plugins/")
+		description = "This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.",
+		url = "https://www.jstree.com/plugins/")
 public class JSTreeContextMenuOptions extends JavaScriptPart
 {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * a boolean indicating if the node should be selected when the context menu is invoked on it. Defaults to true.
-     */
-    @JsonProperty("select_node")
-    private Boolean selectNode;
-    /**
-     * a boolean indicating if the menu should be shown aligned with the node. Defaults to true, otherwise the mouse coordinates are used.
-     */
-    @JsonProperty("show_at_node")
-    private Boolean showAtNode;
-    /**
-     * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
-     * too).
-     */
-    private JSTreeContextMenuItemsOptions items;
+	/**
+	 * a boolean indicating if the node should be selected when the context menu is invoked on it. Defaults to true.
+	 */
+	@JsonProperty("select_node")
+	private Boolean selectNode;
+	/**
+	 * a boolean indicating if the menu should be shown aligned with the node. Defaults to true, otherwise the mouse coordinates are used.
+	 */
+	@JsonProperty("show_at_node")
+	private Boolean showAtNode;
+	/**
+	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
+	 * too).
+	 */
+	private JSTreeContextMenuItemsOptions items;
 
-    public JSTreeContextMenuOptions()
-    {
+	public JSTreeContextMenuOptions()
+	{
 
-    }
+	}
 
-    /**
-     * a boolean indicating if the node should be selected when the context menu is invoked on it. Defaults to true.
-     *
-     * @return
-     */
-    public Boolean getSelectNode()
-    {
-        return selectNode;
-    }
+	/**
+	 * a boolean indicating if the node should be selected when the context menu is invoked on it. Defaults to true.
+	 *
+	 * @return
+	 */
+	public Boolean getSelectNode()
+	{
+		return selectNode;
+	}
 
-    /**
-     * a boolean indicating if the node should be selected when the context menu is invoked on it. Defaults to true.
-     *
-     * @param selectNode
-     */
-    public void setSelectNode(Boolean selectNode)
-    {
-        this.selectNode = selectNode;
-    }
+	/**
+	 * a boolean indicating if the node should be selected when the context menu is invoked on it. Defaults to true.
+	 *
+	 * @param selectNode
+	 */
+	public void setSelectNode(Boolean selectNode)
+	{
+		this.selectNode = selectNode;
+	}
 
-    /**
-     * a boolean indicating if the menu should be shown aligned with the node. Defaults to true, otherwise the mouse coordinates are used.
-     *
-     * @return
-     */
-    public Boolean getShowAtNode()
-    {
-        return showAtNode;
-    }
+	/**
+	 * a boolean indicating if the menu should be shown aligned with the node. Defaults to true, otherwise the mouse coordinates are used.
+	 *
+	 * @return
+	 */
+	public Boolean getShowAtNode()
+	{
+		return showAtNode;
+	}
 
-    /**
-     * a boolean indicating if the menu should be shown aligned with the node. Defaults to true, otherwise the mouse coordinates are used.
-     *
-     * @param showAtNode
-     */
-    public void setShowAtNode(Boolean showAtNode)
-    {
-        this.showAtNode = showAtNode;
-    }
+	/**
+	 * a boolean indicating if the menu should be shown aligned with the node. Defaults to true, otherwise the mouse coordinates are used.
+	 *
+	 * @param showAtNode
+	 */
+	public void setShowAtNode(Boolean showAtNode)
+	{
+		this.showAtNode = showAtNode;
+	}
 
-    /**
-     * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
-     * too).
-     *
-     * @return never null
-     */
-    public JSTreeContextMenuItemsOptions getItems()
-    {
-        if (items == null)
-        {
-            items = new JSTreeContextMenuItemsOptions();
-        }
-        return items;
-    }
+	/**
+	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
+	 * too).
+	 *
+	 * @return never null
+	 */
+	public JSTreeContextMenuItemsOptions getItems()
+	{
+		if (items == null)
+		{
+			items = new JSTreeContextMenuItemsOptions();
+		}
+		return items;
+	}
 
-    /**
-     * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
-     * too).
-     *
-     * @param items
-     */
-    public void setItems(JSTreeContextMenuItemsOptions items)
-    {
-        this.items = items;
-    }
+	/**
+	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
+	 * too).
+	 *
+	 * @param items
+	 */
+	public void setItems(JSTreeContextMenuItemsOptions items)
+	{
+		this.items = items;
+	}
 
 }

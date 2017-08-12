@@ -16,29 +16,27 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree.options.functions;
 
-import za.co.mmagon.jwebswing.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
 public class JSTreeCheckCallbackFunctionTest
 {
 
-    public JSTreeCheckCallbackFunctionTest()
-    {
-    }
+	public JSTreeCheckCallbackFunctionTest()
+	{
+	}
 
-    @Test
-    public void testFunctionRender()
-    {
-        JSTreeCheckCallbackFunction f = new JSTreeCheckCallbackFunction();
-        f.setCopy(true);
-        System.out.println(f);
-        Assert.assertEquals("function (operation, node, node_parent, node_position, more) {if(operation === 'copy_node') return true;return false;}",
-                 f.toString());
-    }
+	@Test
+	public void testFunctionRender()
+	{
+		JSTreeCheckCallbackFunction f = new JSTreeCheckCallbackFunction();
+		f.setCopy(true);
+		System.out.println(f);
+		Assert.assertEquals("function (operation, node, node_parent, node_position, more) {if(operation === 'copy_node') return true;return false;}",
+		                    f.toString());
+	}
 
 }

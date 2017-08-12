@@ -19,28 +19,26 @@ package za.co.mmagon.jwebswing.plugins.jstree.options.functions;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptLiteralFunction;
 
 /**
- *
  * @author GedMarc
- * @since 22 Dec 2016
  * @version 1.0
- *
+ * @since 22 Dec 2016
  */
 public class JSTreeCoreDataFunction extends JavascriptLiteralFunction
 {
-
-    private static final long serialVersionUID = 1L;
-
-    public JSTreeCoreDataFunction()
-    {
-        getFunctionArugments().add("node");
-        getFunctionArugments().add("donefunction");
-    }
-
-    @Override
-    public StringBuilder getLiteralFunction()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.append("return node;");
-        return sb;
-    }
+	
+	private static final long serialVersionUID = 1L;
+	
+	public JSTreeCoreDataFunction()
+	{
+		getFunctionArugments().add("node");
+		getFunctionArugments().add("donefunction");
+	}
+	
+	@Override
+	public StringBuilder getLiteralFunction()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append("return node;");
+		return sb;
+	}
 }

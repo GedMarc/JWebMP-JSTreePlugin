@@ -17,30 +17,29 @@
 package za.co.mmagon.jwebswing.plugins.jstree.events;
 
 import za.co.mmagon.jwebswing.Event;
-import za.co.mmagon.jwebswing.plugins.jstree.JSTree;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.events.enumerations.EventTypes;
+import za.co.mmagon.jwebswing.plugins.jstree.JSTree;
 
 /**
  * Refreshes the data in the tree
  *
  * @author GedMarc
- * @since 29 Dec 2016
  * @version 1.0
- *
+ * @since 29 Dec 2016
  */
 public class JSTreeRefreshEvent extends Event
 {
-
-    private static final long serialVersionUID = 1L;
-
-    public JSTreeRefreshEvent(JSTree tree)
-    {
-        super("JSTreeRefreshEvent", EventTypes.undefined, tree);
-    }
-
-    @Override
-    protected void assignFunctionsToComponent()
-    {
-        addQuery(JSTree.class.cast(getComponent()).getJQueryID() + "jstree('refresh');");
-    }
+	
+	private static final long serialVersionUID = 1L;
+	
+	public JSTreeRefreshEvent(JSTree tree)
+	{
+		super("JSTreeRefreshEvent", EventTypes.undefined, tree);
+	}
+	
+	@Override
+	protected void assignFunctionsToComponent()
+	{
+		addQuery(new StringBuilder(JSTree.class.cast(getComponent()).getJQueryID() + "jstree('refresh');"));
+	}
 }

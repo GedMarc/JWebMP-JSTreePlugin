@@ -16,28 +16,26 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree.options.functions;
 
-import za.co.mmagon.jwebswing.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 import org.junit.Assert;
 import org.junit.Test;
 
 /**
- *
  * @author GedMarc
  */
 public class JSTreeCoreDataFunctionTest
 {
-    
-    public JSTreeCoreDataFunctionTest()
-    {
-    }
 
-    @Test
-    public void testCoreDataFunction()
-    {
-        JSTreeCoreDataFunction f = new JSTreeCoreDataFunction();
-        System.out.println(f);
-        Assert.assertEquals("function (node, donefunction) {return node;}"
-        ,f.toString());
-    }
-    
+	public JSTreeCoreDataFunctionTest()
+	{
+	}
+
+	@Test
+	public void testCoreDataFunction()
+	{
+		JSTreeCoreDataFunction f = new JSTreeCoreDataFunction();
+		System.out.println(f);
+		Assert.assertEquals("function (node, donefunction) {return node;}"
+				, f.toString());
+	}
+
 }

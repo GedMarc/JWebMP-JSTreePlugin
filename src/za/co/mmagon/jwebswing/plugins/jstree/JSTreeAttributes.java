@@ -19,27 +19,26 @@ package za.co.mmagon.jwebswing.plugins.jstree;
 import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
 
 /**
- *
  * @author GedMarc
  */
 public enum JSTreeAttributes implements AttributeDefinitions
 {
-    Visibility;
-
-    private JSTreeAttributes()
-    {
-    }
-
-    private JSTreeAttributes(boolean isKeyword)
-    {
-        this.isKeyword = isKeyword;
-    }
-
-    private boolean isKeyword;
-
-    @Override
-    public boolean isKeyword()
-    {
-        return isKeyword;
-    }
+	Visibility;
+	
+	private boolean isKeyword;
+	
+	private JSTreeAttributes()
+	{
+	}
+	
+	private JSTreeAttributes(boolean isKeyword)
+	{
+		this.isKeyword = isKeyword;
+	}
+	
+	@Override
+	public boolean isKeyword()
+	{
+		return isKeyword;
+	}
 }

@@ -18,90 +18,89 @@ package za.co.mmagon.jwebswing.plugins.jstree;
 
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
-import java.util.List;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptPartType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author GedMarc
- * @since 22 Dec 2016
  * @version 1.0
- *
+ * @since 22 Dec 2016
  */
 public class JSTreeData extends JavaScriptPart
 {
-
-    private static final long serialVersionUID = 1L;
-    /**
-     * The list of nodes
-     */
-
-    private List<JSTreeNode> nodes;
-
-    /**
-     * Constructs a new instance of tree data
-     *
-     * @throws RuntimeException If tree is null
-     */
-    public JSTreeData()
-    {
-    }
-
-    /**
-     * Returns all the nodes currently associated with this tree
-     *
-     * @return
-     */
-    @JsonRawValue
-    @JsonValue
-    public List<JSTreeNode> getNodes()
-    {
-        if (nodes == null)
-        {
-            setNodes(new ArrayList<>());
-        }
-        return nodes;
-    }
-
-    /**
-     * Sets the nodes currently associated with this tree
-     *
-     * @param nodes
-     */
-    public void setNodes(List<JSTreeNode> nodes)
-    {
-        this.nodes = nodes;
-    }
-
-    @Override
-    public JavascriptPartType getJavascriptType()
-    {
-        return JavascriptPartType.JSON;
-    }
-
-    public JSTreeNode findNode(String id)
-    {
-        JSTreeNode found;
-        found = findNode(getNodes(), id);
-        return found;
-    }
-
-    private JSTreeNode findNode(List<JSTreeNode> nodes, String id)
-    {
-        JSTreeNode found;
-        for (JSTreeNode next : nodes)
-        {
-            if (next.getId().equals(id))
-            {
-                return next;
-            }
-            if ((found = next.getChildNodes().findNode(id)) != null)
-            {
-                return found;
-            }
-        }
-        return null;
-    }
+	
+	private static final long serialVersionUID = 1L;
+	/**
+	 * The list of nodes
+	 */
+	
+	private List<JSTreeNode> nodes;
+	
+	/**
+	 * Constructs a new instance of tree data
+	 *
+	 * @throws RuntimeException If tree is null
+	 */
+	public JSTreeData()
+	{
+	}
+	
+	/**
+	 * Returns all the nodes currently associated with this tree
+	 *
+	 * @return
+	 */
+	@JsonRawValue
+	@JsonValue
+	public List<JSTreeNode> getNodes()
+	{
+		if (nodes == null)
+		{
+			setNodes(new ArrayList<>());
+		}
+		return nodes;
+	}
+	
+	/**
+	 * Sets the nodes currently associated with this tree
+	 *
+	 * @param nodes
+	 */
+	public void setNodes(List<JSTreeNode> nodes)
+	{
+		this.nodes = nodes;
+	}
+	
+	@Override
+	public JavascriptPartType getJavascriptType()
+	{
+		return JavascriptPartType.JSON;
+	}
+	
+	public JSTreeNode findNode(String id)
+	{
+		JSTreeNode found;
+		found = findNode(getNodes(), id);
+		return found;
+	}
+	
+	private JSTreeNode findNode(List<JSTreeNode> nodes, String id)
+	{
+		JSTreeNode found;
+		for (JSTreeNode next : nodes)
+		{
+			if (next.getId().equals(id))
+			{
+				return next;
+			}
+			if ((found = next.getChildNodes().findNode(id)) != null)
+			{
+				return found;
+			}
+		}
+		return null;
+	}
 }

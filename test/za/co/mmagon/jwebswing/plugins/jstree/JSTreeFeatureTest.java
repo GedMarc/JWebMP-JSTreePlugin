@@ -16,33 +16,31 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree;
 
-import za.co.mmagon.jwebswing.plugins.jstree.JSTree;
 import org.junit.Test;
 import za.co.mmagon.BaseTestClass;
 import za.co.mmagon.jwebswing.Page;
 
 /**
- *
  * @author GedMarc
  */
 public class JSTreeFeatureTest extends BaseTestClass
 {
-
-    public JSTreeFeatureTest()
-    {
-    }
-
-    @Test
-    public void testGetOptions()
-    {
-        Page p = getInstance();
-        JSTree tree = new JSTree();
-        p.getBody().add(tree);
-    }
-
-    @Test
-    public void testAssignments()
-    {
-    }
-
+	
+	public JSTreeFeatureTest()
+	{
+	}
+	
+	@Test
+	public void testGetOptions()
+	{
+		Page p = getInstance();
+		JSTree tree = new JSTree();
+		p.getBody().add(tree);
+	}
+	
+	@Test
+	public void testAssignments()
+	{
+	}
+	
 }

@@ -17,20 +17,18 @@
 package za.co.mmagon.jwebswing.plugins.jstree.options;
 
 /**
- *
  * @author GedMarc
- * @since 23 Dec 2016
  * @version 1.0
- *
+ * @since 23 Dec 2016
  */
 public enum JSTreeDragAndDropInsidePosition
 {
-    First,
-    Last;
+	First,
+	Last;
 
-    @Override
-    public String toString()
-    {
-        return name().toLowerCase();
-    }
+	@Override
+	public String toString()
+	{
+		return name().toLowerCase();
+	}
 }

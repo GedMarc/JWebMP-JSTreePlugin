@@ -24,100 +24,99 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  * Use any combination of the following: opened, selected, disabled.
  *
  * @author GedMarc
- * @since 02 Jan 2017
  * @version 1.0
- *
+ * @since 02 Jan 2017
  */
 public class JSTreeNodeStateOptions extends JavaScriptPart
 {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * is the node open
-     */
-    private Boolean opened;
-    /**
-     * is the node disabled
-     */
-    private Boolean disabled;
-    /**
-     * is the node selected
-     */
-    private Boolean selected;
-
-    public JSTreeNodeStateOptions()
-    {
-
-    }
-
-    /**
-     * is the node open
-     *
-     * @return
-     */
-    public Boolean isOpened()
-    {
-        return opened;
-    }
-
-    /**
-     * is the node open
-     *
-     * @param opened
-     *
-     * @return
-     */
-    public JSTreeNodeStateOptions setOpened(Boolean opened)
-    {
-        this.opened = opened;
-        return this;
-    }
-
-    /**
-     * is the node disabled
-     *
-     * @return
-     */
-    public Boolean isDisabled()
-    {
-        return disabled;
-    }
-
-    /**
-     * is the node disabled
-     *
-     * @param disabled
-     *
-     * @return
-     */
-    public JSTreeNodeStateOptions setDisabled(Boolean disabled)
-    {
-        this.disabled = disabled;
-        return this;
-    }
-
-    /**
-     * is the node selected
-     *
-     * @return
-     */
-    public Boolean isSelected()
-    {
-        return selected;
-    }
-
-    /**
-     * is the node selected
-     *
-     * @param selected
-     *
-     * @return
-     */
-    public JSTreeNodeStateOptions setSelected(Boolean selected)
-    {
-        this.selected = selected;
-        return this;
-    }
-
+	
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * is the node open
+	 */
+	private Boolean opened;
+	/**
+	 * is the node disabled
+	 */
+	private Boolean disabled;
+	/**
+	 * is the node selected
+	 */
+	private Boolean selected;
+	
+	public JSTreeNodeStateOptions()
+	{
+	
+	}
+	
+	/**
+	 * is the node open
+	 *
+	 * @return
+	 */
+	public Boolean isOpened()
+	{
+		return opened;
+	}
+	
+	/**
+	 * is the node open
+	 *
+	 * @param opened
+	 *
+	 * @return
+	 */
+	public JSTreeNodeStateOptions setOpened(Boolean opened)
+	{
+		this.opened = opened;
+		return this;
+	}
+	
+	/**
+	 * is the node disabled
+	 *
+	 * @return
+	 */
+	public Boolean isDisabled()
+	{
+		return disabled;
+	}
+	
+	/**
+	 * is the node disabled
+	 *
+	 * @param disabled
+	 *
+	 * @return
+	 */
+	public JSTreeNodeStateOptions setDisabled(Boolean disabled)
+	{
+		this.disabled = disabled;
+		return this;
+	}
+	
+	/**
+	 * is the node selected
+	 *
+	 * @return
+	 */
+	public Boolean isSelected()
+	{
+		return selected;
+	}
+	
+	/**
+	 * is the node selected
+	 *
+	 * @param selected
+	 *
+	 * @return
+	 */
+	public JSTreeNodeStateOptions setSelected(Boolean selected)
+	{
+		this.selected = selected;
+		return this;
+	}
+	
 }

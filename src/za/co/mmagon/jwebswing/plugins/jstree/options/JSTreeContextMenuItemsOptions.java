@@ -50,290 +50,289 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavascriptLiteralFunction;
  * appear once the current item is hovered
  *
  * @author GedMarc
- * @since 23 Dec 2016
  * @version 1.0
- *
+ * @since 23 Dec 2016
  */
 public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 {
 
-    private static final long serialVersionUID = 1L;
-    /**
-     * a boolean indicating if there should be a separator before this item
-     */
-    @JsonProperty("separator_before")
-    private Boolean separatorBefore;
-    /**
-     * a boolean indicating if there should be a separator after this item
-     */
-    @JsonProperty("separator_after")
-    private Boolean separatorAfter;
-    /**
-     * a boolean indicating if this action should be disabled
-     */
-    @JsonProperty("_disabled")
-    private Boolean disabled;
-    /**
-     * a string - the name of the action (could be a function returning a string)
-     */
-    private String label;
-    /**
-     * a string - an optional tooltip for the item
-     */
-    @JsonProperty("title")
-    private String tooltip;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * a boolean indicating if there should be a separator before this item
+	 */
+	@JsonProperty("separator_before")
+	private Boolean separatorBefore;
+	/**
+	 * a boolean indicating if there should be a separator after this item
+	 */
+	@JsonProperty("separator_after")
+	private Boolean separatorAfter;
+	/**
+	 * a boolean indicating if this action should be disabled
+	 */
+	@JsonProperty("_disabled")
+	private Boolean disabled;
+	/**
+	 * a string - the name of the action (could be a function returning a string)
+	 */
+	private String label;
+	/**
+	 * a string - an optional tooltip for the item
+	 */
+	@JsonProperty("title")
+	private String tooltip;
 
-    /**
-     * a function to be executed if this item is chosen, the function will receive
-     */
-    private JavascriptLiteralFunction action;
-    /**
-     * a string, can be a path to an icon or a className,
-     * <p>
-     * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
-     */
-    private String icon;
-    /**
-     * shortcutKeycode which will trigger the action if the menu is open (for example 113 for rename, which equals F2)
-     */
-    @JsonProperty("shortcut")
-    private Integer shortcutKeycode;
-    /**
-     * shortcut label (like for example F2 for rename)
-     */
-    @JsonProperty("shortcut_label")
-    private String shortcutLabel;
-    /**
-     * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
-     * once the current item is hovered
-     */
-    private JSTreeContextMenuItemsOptions submenu;
+	/**
+	 * a function to be executed if this item is chosen, the function will receive
+	 */
+	private JavascriptLiteralFunction action;
+	/**
+	 * a string, can be a path to an icon or a className,
+	 * <p>
+	 * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
+	 */
+	private String icon;
+	/**
+	 * shortcutKeycode which will trigger the action if the menu is open (for example 113 for rename, which equals F2)
+	 */
+	@JsonProperty("shortcut")
+	private Integer shortcutKeycode;
+	/**
+	 * shortcut label (like for example F2 for rename)
+	 */
+	@JsonProperty("shortcut_label")
+	private String shortcutLabel;
+	/**
+	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
+	 * once the current item is hovered
+	 */
+	private JSTreeContextMenuItemsOptions submenu;
 
-    public JSTreeContextMenuItemsOptions()
-    {
+	public JSTreeContextMenuItemsOptions()
+	{
 
-    }
+	}
 
-    /**
-     * a boolean indicating if there should be a separator before this item
-     *
-     * @return
-     */
-    public Boolean getSeparatorBefore()
-    {
-        return separatorBefore;
-    }
+	/**
+	 * a boolean indicating if there should be a separator before this item
+	 *
+	 * @return
+	 */
+	public Boolean getSeparatorBefore()
+	{
+		return separatorBefore;
+	}
 
-    /**
-     * a boolean indicating if there should be a separator before this item
-     *
-     * @param separatorBefore
-     */
-    public void setSeparatorBefore(Boolean separatorBefore)
-    {
-        this.separatorBefore = separatorBefore;
-    }
+	/**
+	 * a boolean indicating if there should be a separator before this item
+	 *
+	 * @param separatorBefore
+	 */
+	public void setSeparatorBefore(Boolean separatorBefore)
+	{
+		this.separatorBefore = separatorBefore;
+	}
 
-    /**
-     * a boolean indicating if there should be a separator after this item
-     *
-     * @return
-     */
-    public Boolean getSeparatorAfter()
-    {
-        return separatorAfter;
-    }
+	/**
+	 * a boolean indicating if there should be a separator after this item
+	 *
+	 * @return
+	 */
+	public Boolean getSeparatorAfter()
+	{
+		return separatorAfter;
+	}
 
-    /**
-     * a boolean indicating if there should be a separator after this item
-     *
-     * @param separatorAfter
-     */
-    public void setSeparatorAfter(Boolean separatorAfter)
-    {
-        this.separatorAfter = separatorAfter;
-    }
+	/**
+	 * a boolean indicating if there should be a separator after this item
+	 *
+	 * @param separatorAfter
+	 */
+	public void setSeparatorAfter(Boolean separatorAfter)
+	{
+		this.separatorAfter = separatorAfter;
+	}
 
-    /**
-     * a boolean indicating if this action should be disabled
-     *
-     * @return
-     */
-    public Boolean getDisabled()
-    {
-        return disabled;
-    }
+	/**
+	 * a boolean indicating if this action should be disabled
+	 *
+	 * @return
+	 */
+	public Boolean getDisabled()
+	{
+		return disabled;
+	}
 
-    /**
-     * a boolean indicating if this action should be disabled
-     *
-     * @param disabled
-     */
-    public void setDisabled(Boolean disabled)
-    {
-        this.disabled = disabled;
-    }
+	/**
+	 * a boolean indicating if this action should be disabled
+	 *
+	 * @param disabled
+	 */
+	public void setDisabled(Boolean disabled)
+	{
+		this.disabled = disabled;
+	}
 
-    /**
-     * a string - the name of the action (could be a function returning a string)
-     *
-     * @return
-     */
-    public String getLabel()
-    {
-        return label;
-    }
+	/**
+	 * a string - the name of the action (could be a function returning a string)
+	 *
+	 * @return
+	 */
+	public String getLabel()
+	{
+		return label;
+	}
 
-    /**
-     * a string - the name of the action (could be a function returning a string)
-     *
-     * @param label
-     */
-    public void setLabel(String label)
-    {
-        this.label = label;
-    }
+	/**
+	 * a string - the name of the action (could be a function returning a string)
+	 *
+	 * @param label
+	 */
+	public void setLabel(String label)
+	{
+		this.label = label;
+	}
 
-    /**
-     * a string - an optional tooltip for the item
-     *
-     * @return
-     */
-    public String getTooltip()
-    {
-        return tooltip;
-    }
+	/**
+	 * a string - an optional tooltip for the item
+	 *
+	 * @return
+	 */
+	public String getTooltip()
+	{
+		return tooltip;
+	}
 
-    /**
-     * a string - an optional tooltip for the item
-     *
-     * @param tooltip
-     */
-    public void setTooltip(String tooltip)
-    {
-        this.tooltip = tooltip;
-    }
+	/**
+	 * a string - an optional tooltip for the item
+	 *
+	 * @param tooltip
+	 */
+	public void setTooltip(String tooltip)
+	{
+		this.tooltip = tooltip;
+	}
 
-    /**
-     * a function to be executed if this item is chosen, the function will receive
-     *
-     * @return
-     */
-    public JavascriptLiteralFunction getAction()
-    {
-        return action;
-    }
+	/**
+	 * a function to be executed if this item is chosen, the function will receive
+	 *
+	 * @return
+	 */
+	public JavascriptLiteralFunction getAction()
+	{
+		return action;
+	}
 
-    /**
-     * a function to be executed if this item is chosen, the function will receive
-     *
-     * @param action
-     */
-    public void setAction(JavascriptLiteralFunction action)
-    {
-        this.action = action;
-    }
+	/**
+	 * a function to be executed if this item is chosen, the function will receive
+	 *
+	 * @param action
+	 */
+	public void setAction(JavascriptLiteralFunction action)
+	{
+		this.action = action;
+	}
 
-    /**
-     * a string, can be a path to an icon or a className,
-     * <p>
-     * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
-     *
-     * @return
-     */
-    public String getIcon()
-    {
-        return icon;
-    }
+	/**
+	 * a string, can be a path to an icon or a className,
+	 * <p>
+	 * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
+	 *
+	 * @return
+	 */
+	public String getIcon()
+	{
+		return icon;
+	}
 
-    /**
-     * a string, can be a path to an icon or a className,
-     * <p>
-     * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
-     *
-     * @param icon
-     */
-    public void setIcon(String icon)
-    {
-        this.icon = icon;
-    }
+	/**
+	 * a string, can be a path to an icon or a className,
+	 * <p>
+	 * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
+	 *
+	 * @param icon
+	 */
+	public void setIcon(Enum icon)
+	{
+		this.icon = icon.toString();
+	}
 
-    /**
-     * a string, can be a path to an icon or a className,
-     * <p>
-     * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
-     *
-     * @param icon
-     */
-    public void setIcon(Enum icon)
-    {
-        this.icon = icon.toString();
-    }
+	/**
+	 * a string, can be a path to an icon or a className,
+	 * <p>
+	 * if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class
+	 *
+	 * @param icon
+	 */
+	public void setIcon(String icon)
+	{
+		this.icon = icon;
+	}
 
-    /**
-     * shortcutKeycode which will trigger the action if the menu is open (for example 113 for rename, which equals F2)
-     *
-     * @return
-     */
-    public Integer getShortcutKeycode()
-    {
-        return shortcutKeycode;
-    }
+	/**
+	 * shortcutKeycode which will trigger the action if the menu is open (for example 113 for rename, which equals F2)
+	 *
+	 * @return
+	 */
+	public Integer getShortcutKeycode()
+	{
+		return shortcutKeycode;
+	}
 
-    /**
-     * shortcutKeycode which will trigger the action if the menu is open (for example 113 for rename, which equals F2)
-     *
-     * @param shortcutKeycode
-     */
-    public void setShortcutKeycode(Integer shortcutKeycode)
-    {
-        this.shortcutKeycode = shortcutKeycode;
-    }
+	/**
+	 * shortcutKeycode which will trigger the action if the menu is open (for example 113 for rename, which equals F2)
+	 *
+	 * @param shortcutKeycode
+	 */
+	public void setShortcutKeycode(Integer shortcutKeycode)
+	{
+		this.shortcutKeycode = shortcutKeycode;
+	}
 
-    /**
-     * shortcut label (like for example F2 for rename)
-     *
-     * @return
-     */
-    public String getShortcutLabel()
-    {
-        return shortcutLabel;
-    }
+	/**
+	 * shortcut label (like for example F2 for rename)
+	 *
+	 * @return
+	 */
+	public String getShortcutLabel()
+	{
+		return shortcutLabel;
+	}
 
-    /**
-     * shortcut label (like for example F2 for rename)
-     *
-     * @param shortcutLabel
-     */
-    public void setShortcutLabel(String shortcutLabel)
-    {
-        this.shortcutLabel = shortcutLabel;
-    }
+	/**
+	 * shortcut label (like for example F2 for rename)
+	 *
+	 * @param shortcutLabel
+	 */
+	public void setShortcutLabel(String shortcutLabel)
+	{
+		this.shortcutLabel = shortcutLabel;
+	}
 
-    /**
-     * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
-     * once the current item is hovered
-     *
-     * @return never null
-     */
-    public JSTreeContextMenuItemsOptions getSubmenu()
-    {
-        if (submenu == null)
-        {
-            submenu = new JSTreeContextMenuItemsOptions();
-        }
-        return submenu;
-    }
+	/**
+	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
+	 * once the current item is hovered
+	 *
+	 * @return never null
+	 */
+	public JSTreeContextMenuItemsOptions getSubmenu()
+	{
+		if (submenu == null)
+		{
+			submenu = new JSTreeContextMenuItemsOptions();
+		}
+		return submenu;
+	}
 
-    /**
-     * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
-     * once the current item is hovered
-     *
-     * @param submenu
-     */
-    public void setSubmenu(JSTreeContextMenuItemsOptions submenu)
-    {
-        this.submenu = submenu;
-    }
+	/**
+	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
+	 * once the current item is hovered
+	 *
+	 * @param submenu
+	 */
+	public void setSubmenu(JSTreeContextMenuItemsOptions submenu)
+	{
+		this.submenu = submenu;
+	}
 
 }
