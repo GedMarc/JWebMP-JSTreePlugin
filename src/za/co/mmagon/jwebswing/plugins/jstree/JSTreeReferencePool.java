@@ -33,11 +33,12 @@ public enum JSTreeReferencePool implements ReferencePool
 	
 	private JavascriptReference javaScriptReference;
 	private CSSReference cssReference;
-	private JSTreeReferencePool()
+	
+	JSTreeReferencePool()
 	{
 	}
 	
-	private JSTreeReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
+	JSTreeReferencePool(JavascriptReference javaScriptReference, CSSReference cssReference)
 	{
 		this.javaScriptReference = javaScriptReference;
 		this.cssReference = cssReference;

@@ -252,9 +252,9 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param icon
 	 */
-	public void setIcon(Enum icon)
+	public void setIcon(String icon)
 	{
-		this.icon = icon.toString();
+		this.icon = icon;
 	}
 
 	/**
@@ -264,9 +264,9 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param icon
 	 */
-	public void setIcon(String icon)
+	public void setIcon(Enum icon)
 	{
-		this.icon = icon;
+		this.icon = icon.toString();
 	}
 
 	/**
