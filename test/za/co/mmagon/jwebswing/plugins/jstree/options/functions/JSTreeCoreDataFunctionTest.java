@@ -16,8 +16,8 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree.options.functions;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author GedMarc
@@ -34,7 +34,7 @@ public class JSTreeCoreDataFunctionTest
 	{
 		JSTreeCoreDataFunction f = new JSTreeCoreDataFunction();
 		System.out.println(f);
-		Assert.assertEquals("function (node, donefunction) {return node;}"
+		Assertions.assertEquals("function (node, donefunction) {return node;}"
 				, f.toString());
 	}
 

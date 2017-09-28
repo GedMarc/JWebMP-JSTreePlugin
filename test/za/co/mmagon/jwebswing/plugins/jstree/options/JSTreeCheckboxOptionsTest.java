@@ -16,8 +16,8 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree.options;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author GedMarc
@@ -35,7 +35,7 @@ public class JSTreeCheckboxOptionsTest
 		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
 		options.setVisible(true);
 		System.out.println(options);
-		Assert.assertEquals("{\n"
+		Assertions.assertEquals("{\n"
 				                    + "  \"visible\" : true\n"
 				                    + "}"
 				                    + "", options.toString());
@@ -47,7 +47,7 @@ public class JSTreeCheckboxOptionsTest
 		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
 		options.setThreeState(true);
 		System.out.println(options);
-		Assert.assertEquals("{\n"
+		Assertions.assertEquals("{\n"
 				                    + "  \"three_state\" : true\n"
 				                    + "}", options.toString());
 	}
@@ -58,7 +58,7 @@ public class JSTreeCheckboxOptionsTest
 		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
 		options.setWholeNode(true);
 		System.out.println(options);
-		Assert.assertEquals("{\n"
+		Assertions.assertEquals("{\n"
 				                    + "  \"whole_node\" : true\n"
 				                    + "}", options.toString());
 	}
@@ -69,7 +69,7 @@ public class JSTreeCheckboxOptionsTest
 		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
 		options.setKeepSelectedStyle(true);
 		System.out.println(options);
-		Assert.assertEquals("{\n"
+		Assertions.assertEquals("{\n"
 				                    + "  \"keep_selected_style\" : true\n"
 				                    + "}", options.toString());
 	}
@@ -80,7 +80,7 @@ public class JSTreeCheckboxOptionsTest
 		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
 		options.setCascade(true);
 		System.out.println(options);
-		Assert.assertEquals("{\n"
+		Assertions.assertEquals("{\n"
 				                    + "  \"cascade\" : true\n"
 				                    + "}", options.toString());
 	}
@@ -91,7 +91,7 @@ public class JSTreeCheckboxOptionsTest
 		JSTreeCheckboxOptions options = new JSTreeCheckboxOptions();
 		options.setTieSelection(true);
 		System.out.println(options);
-		Assert.assertEquals("{\n"
+		Assertions.assertEquals("{\n"
 				                    + "  \"tie_selection\" : true\n"
 				                    + "}", options.toString());
 	}

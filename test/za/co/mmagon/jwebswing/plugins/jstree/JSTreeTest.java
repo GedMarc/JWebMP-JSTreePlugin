@@ -16,8 +16,8 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import za.co.mmagon.BaseTestClass;
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.plugins.jstree.themes.JSTreeDefaultDarkTheme;
@@ -41,7 +41,7 @@ public class JSTreeTest extends BaseTestClass
 		p.getBody().add(tree);
 		System.out.println(p.toString(true));
 		
-		Assert.assertEquals("<!DOCTYPE html>\n"
+		Assertions.assertEquals("<!DOCTYPE html>\n"
 				                    + "<html>\n"
 				                    + "	<body id=\"body\">\n"
 				                    + "		<div id=\"id\"></div>\n"
@@ -72,7 +72,7 @@ public class JSTreeTest extends BaseTestClass
 		JSTreeNode node = new JSTreeNode("id", "text");
 		data.getNodes().add(node);
 		
-		Assert.assertEquals("[{\n"
+		Assertions.assertEquals("[{\n"
 				                    + "  \"id\" : \"id\",\n"
 				                    + "  \"text\" : \"text\",\n"
 				                    + "  \"children\" : false\n"
@@ -94,7 +94,7 @@ public class JSTreeTest extends BaseTestClass
 		tree.setTheme(new JSTreeDefaultDarkTheme());
 		p.getBody().add(tree);
 		System.out.println(p.toString(true));
-		Assert.assertEquals("<!DOCTYPE html>\n"
+		Assertions.assertEquals("<!DOCTYPE html>\n"
 				                    + "<html>\n"
 				                    + "	<head>\n"
 				                    + "		<link href=\"bower_components/jstree/dist/themes/default-dark/style.css\" rel=\"stylesheet\" type=\"text/css\">\n"
