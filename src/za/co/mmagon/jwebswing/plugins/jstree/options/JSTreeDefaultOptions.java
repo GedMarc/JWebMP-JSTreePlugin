@@ -42,7 +42,7 @@ public class JSTreeDefaultOptions extends JavaScriptPart
 
 	public JSTreeDefaultOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

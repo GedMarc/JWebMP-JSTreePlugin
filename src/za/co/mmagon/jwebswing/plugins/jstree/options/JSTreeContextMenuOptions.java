@@ -55,7 +55,7 @@ public class JSTreeContextMenuOptions extends JavaScriptPart
 
 	public JSTreeContextMenuOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

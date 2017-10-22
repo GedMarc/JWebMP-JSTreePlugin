@@ -43,13 +43,13 @@ import java.util.Map;
 		url = "https://www.jstree.com/")
 public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures, JSTreeEvents, JSTree> implements IDataComponent<JSTreeData>
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private JSTreeFeature feature;
-	
+
 	private JSTreeData data;
-	
+
 	/**
 	 * Constructs a new instance of the JS Tree
 	 */
@@ -57,7 +57,7 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 	{
 		addFeature(getFeature());
 	}
-	
+
 	/**
 	 * Adds the AJAX mode
 	 */
@@ -73,7 +73,7 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 		}
 		super.preConfigure();
 	}
-	
+
 	/**
 	 * Returns the data, and any parameters if supplied
 	 *
@@ -97,7 +97,7 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 			//go through the nodes looking for the next id item
 		}
 	}
-	
+
 	/**
 	 * Execute something before get data is called
 	 *
@@ -105,14 +105,14 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 	 */
 	protected void onGetData(Map<String, String[]> params)
 	{
-	
+		//Not Implemented
 	}
-	
+
 	public void setData(JSTreeData data)
 	{
 		this.data = data;
 	}
-	
+
 	public final JSTreeFeature getFeature()
 	{
 		if (feature == null)
@@ -121,13 +121,13 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 		}
 		return feature;
 	}
-	
+
 	@Override
 	public JSTreeOptions getOptions()
 	{
 		return getFeature().getOptions();
 	}
-	
+
 	/**
 	 * Set the tree theme
 	 *
@@ -142,7 +142,7 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 			getOptions().getCore().getThemes().setName(theme.getName());
 		}
 	}
-	
+
 	/**
 	 * Returns a new event that refreshes the tree
 	 *
@@ -151,5 +151,39 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 	public JSTreeRefreshEvent getRefreshEvent()
 	{
 		return new JSTreeRefreshEvent(this);
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JSTree))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JSTree jsTree = (JSTree) o;
+
+		if (!getFeature().equals(jsTree.getFeature()))
+		{
+			return false;
+		}
+		return data.equals(jsTree.data);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getFeature().hashCode();
+		result = 31 * result + data.hashCode();
+		return result;
 	}
 }

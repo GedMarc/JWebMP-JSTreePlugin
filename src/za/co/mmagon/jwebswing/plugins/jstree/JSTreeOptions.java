@@ -34,15 +34,15 @@ import java.util.TreeMap;
  *
  * @author GedMarc
  * @version 1.0
- * <p>
- * <p>
+ * 		<p>
+ * 		<p>
  * @since Dec 22, 2016
  */
 public class JSTreeOptions extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * holds all the default options used when creating new instances
 	 */
@@ -51,26 +51,23 @@ public class JSTreeOptions extends JavaScriptPart
 	 * holds all jstree related functions and variables, including the actual class and methods to create, access and manipulate instances.
 	 */
 	private JSTreeCoreOptions core;
-	
+
 	/**
 	 * stores all loaded jstree plugins (used internally)
 	 */
 	private List<JSTreePlugins> plugins;
 	/**
 	 * specifies the jstree version in use
-	 *
-	 * @deprecated rather not
 	 */
-	@Deprecated()
 	private String version;
-	
+
 	/**
 	 * This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named changed, which will
 	 * give information about selected and deselected nodes since the last changed.jstree event
 	 */
 	@JsonIgnore
 	private boolean extendedChangeDetails;
-	
+
 	/**
 	 * This plugin renders checkbox icons in front of each node, making multiple selection much easier.
 	 * <p>
@@ -85,7 +82,7 @@ public class JSTreeOptions extends JavaScriptPart
 	 * Undetermined state is automatically calculated, but if you are using AJAX and loading on demand and want to render a node as undetermined pass "undetermined" : true in its state.
 	 */
 	private JSTreeCheckboxOptions checkbox;
-	
+
 	/**
 	 * This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.
 	 */
@@ -105,7 +102,7 @@ public class JSTreeOptions extends JavaScriptPart
 	 * This plugin adds the possibility to search for items in the tree and even to show only matching nodes.
 	 */
 	private JSTreeSearchOptions search;
-	
+
 	/**
 	 * This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.
 	 */
@@ -119,30 +116,30 @@ public class JSTreeOptions extends JavaScriptPart
 	 * This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.
 	 */
 	private Map<String, JSTreeTypesOptions> types;
-	
+
 	/**
 	 * Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a node with the
 	 * same name.
 	 */
 	private JSTreeUniqueOptions unique;
-	
+
 	/**
 	 *
 	 */
 	@JsonIgnore
 	private boolean wholeRowSelection;
-	
+
 	/**
 	 * A reference back to the tree
 	 */
 	@JsonIgnore
 	private JSTree tree;
-	
+
 	public JSTreeOptions(JSTree tree)
 	{
 		this.tree = tree;
 	}
-	
+
 	/**
 	 * holds all the default options used when creating new instances
 	 *
@@ -156,7 +153,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return defaults;
 	}
-	
+
 	/**
 	 * holds all the default options used when creating new instances
 	 *
@@ -166,7 +163,7 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		this.defaults = defaults;
 	}
-	
+
 	/**
 	 * stores all loaded jstree plugins (used internally)
 	 *
@@ -180,7 +177,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return plugins;
 	}
-	
+
 	/**
 	 * stores all loaded jstree plugins (used internally)
 	 *
@@ -190,31 +187,27 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		this.plugins = plugins;
 	}
-	
+
 	/**
 	 * specifies the jstree version in use
 	 *
 	 * @return
-	 *
-	 * @deprecated rather not
 	 */
 	public String getVersion()
 	{
 		return version;
 	}
-	
+
 	/**
 	 * specifies the jstree version in use
 	 *
 	 * @param version
-	 *
-	 * @deprecated rather not
 	 */
 	public void setVersion(String version)
 	{
 		this.version = version;
 	}
-	
+
 	/**
 	 * This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named changed, which will
 	 * give information about selected and deselected nodes since the last changed.jstree event
@@ -225,13 +218,15 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		return extendedChangeDetails;
 	}
-	
+
 	/**
 	 * This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named changed, which will
 	 * give information about selected and deselected nodes since the last changed.jstree event
 	 *
-	 * @param extendedChangeDetails if on or off
-	 * @param event                 The event needed if enabled
+	 * @param extendedChangeDetails
+	 * 		if on or off
+	 * @param event
+	 * 		The event needed if enabled
 	 */
 	public void setExtendedChangeDetails(boolean extendedChangeDetails, JSTreeOnChangedPluginAdapter event)
 	{
@@ -246,7 +241,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().remove(JSTreePlugins.Changed);
 		}
 	}
-	
+
 	/**
 	 * A reference back to the tree
 	 *
@@ -256,7 +251,7 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		return tree;
 	}
-	
+
 	/**
 	 * A reference back to the tree
 	 *
@@ -266,7 +261,7 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		this.tree = tree;
 	}
-	
+
 	/**
 	 * This plugin renders checkbox icons in front of each node, making multiple selection much easier.
 	 * <p>
@@ -291,7 +286,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return checkbox;
 	}
-	
+
 	/**
 	 * This plugin renders checkbox icons in front of each node, making multiple selection much easier.
 	 * <p>
@@ -315,7 +310,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		this.checkbox = checkbox;
 	}
-	
+
 	/**
 	 * This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.
 	 *
@@ -330,7 +325,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return contextMenu;
 	}
-	
+
 	/**
 	 * This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.
 	 *
@@ -344,7 +339,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		this.contextMenu = contextMenu;
 	}
-	
+
 	/**
 	 * This plugin makes it possible to drag and drop tree nodes and rearrange the tree.
 	 *
@@ -359,7 +354,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return dragAndDrop;
 	}
-	
+
 	/**
 	 * This plugin makes it possible to drag and drop tree nodes and rearrange the tree.
 	 *
@@ -373,7 +368,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.DnD);
 		}
 	}
-	
+
 	/**
 	 * This plugin makes it possible to load nodes in a single request (used with lazy loading).
 	 *
@@ -389,7 +384,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return massLoad;
 	}
-	
+
 	/**
 	 * This plugin makes it possible to load nodes in a single request (used with lazy loading).
 	 *
@@ -404,7 +399,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.State);
 		}
 	}
-	
+
 	/**
 	 * This plugin adds the possibility to search for items in the tree and even to show only matching nodes.
 	 *
@@ -418,7 +413,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return search;
 	}
-	
+
 	/**
 	 * This plugin adds the possibility to search for items in the tree and even to show only matching nodes.
 	 *
@@ -432,7 +427,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.Search);
 		}
 	}
-	
+
 	/**
 	 * This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.
 	 *
@@ -442,7 +437,7 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		return sort;
 	}
-	
+
 	/**
 	 * This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.
 	 *
@@ -456,7 +451,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.Sort);
 		}
 	}
-	
+
 	/**
 	 * This plugin saves all opened and selected nodes in the user's browser, so when returning to the same tree the previous state will be restored.
 	 *
@@ -470,7 +465,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return state;
 	}
-	
+
 	/**
 	 * This plugin saves all opened and selected nodes in the user's browser, so when returning to the same tree the previous state will be restored.
 	 *
@@ -484,7 +479,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.State);
 		}
 	}
-	
+
 	/**
 	 * This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.
 	 *
@@ -499,7 +494,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return types;
 	}
-	
+
 	/**
 	 * This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.
 	 *
@@ -513,7 +508,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.Types);
 		}
 	}
-	
+
 	/**
 	 * # represents the root of the tree, for example max_children would control the maximum number of root nodes.
 	 *
@@ -525,7 +520,7 @@ public class JSTreeOptions extends JavaScriptPart
 		getTypes().put("#", type);
 		return type;
 	}
-	
+
 	/**
 	 * default represents the default node - any settings here will be applied to all nodes that do not have a type specified.
 	 *
@@ -537,7 +532,7 @@ public class JSTreeOptions extends JavaScriptPart
 		getTypes().put("default", type);
 		return type;
 	}
-	
+
 	/**
 	 * Enforces that no nodes with the same name can coexist as siblings.
 	 * <p>
@@ -553,7 +548,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return unique;
 	}
-	
+
 	/**
 	 * Enforces that no nodes with the same name can coexist as siblings.
 	 * <p>
@@ -569,7 +564,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.Unique);
 		}
 	}
-	
+
 	/**
 	 * Makes each node appear block level which makes selection easier. May cause slow down for large trees in old browsers.
 	 *
@@ -579,7 +574,7 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		return wholeRowSelection;
 	}
-	
+
 	/**
 	 * Makes each node appear block level which makes selection easier. May cause slow down for large trees in old browsers.
 	 *
@@ -593,7 +588,7 @@ public class JSTreeOptions extends JavaScriptPart
 			getPlugins().add(JSTreePlugins.WholeRow);
 		}
 	}
-	
+
 	/**
 	 * holds all jstree related functions and variables, including the actual class and methods to create, access and manipulate instances.
 	 *
@@ -607,7 +602,7 @@ public class JSTreeOptions extends JavaScriptPart
 		}
 		return core;
 	}
-	
+
 	/**
 	 * holds all jstree related functions and variables, including the actual class and methods to create, access and manipulate instances.
 	 *
@@ -617,5 +612,5 @@ public class JSTreeOptions extends JavaScriptPart
 	{
 		this.core = core;
 	}
-	
+
 }

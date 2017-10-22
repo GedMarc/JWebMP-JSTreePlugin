@@ -29,9 +29,9 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  */
 public class JSTreeNodeStateOptions extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * is the node open
 	 */
@@ -44,12 +44,12 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 	 * is the node selected
 	 */
 	private Boolean selected;
-	
+
 	public JSTreeNodeStateOptions()
 	{
-	
+		//Nothing Needed
 	}
-	
+
 	/**
 	 * is the node open
 	 *
@@ -59,7 +59,7 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 	{
 		return opened;
 	}
-	
+
 	/**
 	 * is the node open
 	 *
@@ -72,7 +72,7 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 		this.opened = opened;
 		return this;
 	}
-	
+
 	/**
 	 * is the node disabled
 	 *
@@ -82,7 +82,7 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 	{
 		return disabled;
 	}
-	
+
 	/**
 	 * is the node disabled
 	 *
@@ -95,7 +95,7 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 		this.disabled = disabled;
 		return this;
 	}
-	
+
 	/**
 	 * is the node selected
 	 *
@@ -105,7 +105,7 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 	{
 		return selected;
 	}
-	
+
 	/**
 	 * is the node selected
 	 *
@@ -118,5 +118,5 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 		this.selected = selected;
 		return this;
 	}
-	
+
 }

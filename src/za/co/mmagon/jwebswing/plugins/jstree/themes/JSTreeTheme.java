@@ -19,13 +19,14 @@ package za.co.mmagon.jwebswing.plugins.jstree.themes;
 /**
  * @author GedMarc
  */
+@FunctionalInterface
 public interface JSTreeTheme
 {
-	
+
 	/**
 	 * Returns the name to be used in the settings
 	 *
 	 * @return
 	 */
-	public String getName();
+	String getName();
 }

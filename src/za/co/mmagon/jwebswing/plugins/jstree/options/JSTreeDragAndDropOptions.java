@@ -97,7 +97,7 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 
 	public JSTreeDragAndDropOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

@@ -28,7 +28,7 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
  */
 public class JSTreeThemeOptions extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * the name of the theme to use (if left as false the default theme is used)
@@ -87,12 +87,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 */
 	@JsonProperty("dblclick_toggle")
 	private Boolean dblClickToggle;
-	
+
 	public JSTreeThemeOptions()
 	{
-	
+		//Nothing Needed
 	}
-	
+
 	/**
 	 * the name of the theme to use (if left as false the default theme is used)
 	 *
@@ -102,7 +102,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return name;
 	}
-	
+
 	/**
 	 * the name of the theme to use (if left as false the default theme is used)
 	 *
@@ -112,7 +112,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.name = name;
 	}
-	
+
 	/**
 	 * the URL of the theme's CSS file, leave this as false if you have manually included the theme CSS (recommended).
 	 * <p>
@@ -124,7 +124,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return url;
 	}
-	
+
 	/**
 	 * the URL of the theme's CSS file, leave this as false if you have manually included the theme CSS (recommended). You can set this to true too which will try to autoload the theme.
 	 *
@@ -134,7 +134,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.url = url;
 	}
-	
+
 	/**
 	 * the location of all jstree themes - only used if url is set to true
 	 *
@@ -144,7 +144,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return dir;
 	}
-	
+
 	/**
 	 * the location of all jstree themes - only used if url is set to true
 	 *
@@ -154,7 +154,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.dir = dir;
 	}
-	
+
 	/**
 	 * a boolean indicating if connecting dots are shown
 	 *
@@ -164,7 +164,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return dots;
 	}
-	
+
 	/**
 	 * a boolean indicating if connecting dots are shown
 	 *
@@ -174,7 +174,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.dots = dots;
 	}
-	
+
 	/**
 	 * a boolean indicating if node icons are shown
 	 *
@@ -184,7 +184,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return icons;
 	}
-	
+
 	/**
 	 * a boolean indicating if node icons are shown
 	 *
@@ -194,7 +194,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.icons = icons;
 	}
-	
+
 	/**
 	 * a boolean indicating if node ellipsis should be shown - this only works with a fixed with on the container
 	 *
@@ -204,7 +204,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return ellipsis;
 	}
-	
+
 	/**
 	 * a boolean indicating if node ellipsis should be shown - this only works with a fixed with on the container
 	 *
@@ -214,7 +214,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.ellipsis = ellipsis;
 	}
-	
+
 	/**
 	 * a boolean indicating if the tree background is striped
 	 *
@@ -224,7 +224,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return striped;
 	}
-	
+
 	/**
 	 * a boolean indicating if the tree background is striped
 	 *
@@ -234,7 +234,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.striped = striped;
 	}
-	
+
 	/**
 	 * a string (or boolean false) specifying the theme variant to use (if the theme supports variants)
 	 *
@@ -244,7 +244,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return variant;
 	}
-	
+
 	/**
 	 * a string (or boolean false) specifying the theme variant to use (if the theme supports variants)
 	 *
@@ -254,7 +254,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.variant = variant;
 	}
-	
+
 	/**
 	 * a boolean specifying if a reponsive version of the theme should kick in on smaller screens (if the theme supports it). Defaults to false.
 	 *
@@ -264,7 +264,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return responsive;
 	}
-	
+
 	/**
 	 * a boolean specifying if a reponsive version of the theme should kick in on smaller screens (if the theme supports it). Defaults to false.
 	 *
@@ -274,7 +274,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.responsive = responsive;
 	}
-	
+
 	/**
 	 * if left as true all parents of all selected nodes will be opened once the tree loads (so that all selected nodes are visible to the user)
 	 *
@@ -284,7 +284,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return expandSelectedOnLoad;
 	}
-	
+
 	/**
 	 * if left as true all parents of all selected nodes will be opened once the tree loads (so that all selected nodes are visible to the user)
 	 *
@@ -294,7 +294,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.expandSelectedOnLoad = expandSelectedOnLoad;
 	}
-	
+
 	/**
 	 * if left as true web workers will be used to parse incoming JSON data where possible, so that the UI will not be blocked by large requests.
 	 * <p>
@@ -306,7 +306,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return worker;
 	}
-	
+
 	/**
 	 * if left as true web workers will be used to parse incoming JSON data where possible, so that the UI will not be blocked by large requests.
 	 * <p>
@@ -318,7 +318,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.worker = worker;
 	}
-	
+
 	/**
 	 * Force node text to plain text (and escape HTML). Defaults to false
 	 *
@@ -328,7 +328,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return forceText;
 	}
-	
+
 	/**
 	 * Force node text to plain text (and escape HTML). Defaults to false
 	 *
@@ -338,7 +338,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.forceText = forceText;
 	}
-	
+
 	/**
 	 * Should the node should be toggled if the text is double clicked . Defaults to true
 	 *
@@ -348,7 +348,7 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		return dblClickToggle;
 	}
-	
+
 	/**
 	 * Should the node should be toggled if the text is double clicked . Defaults to true
 	 *
@@ -358,5 +358,5 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	{
 		this.dblClickToggle = dblClickToggle;
 	}
-	
+
 }

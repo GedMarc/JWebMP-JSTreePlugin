@@ -21,8 +21,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import za.co.mmagon.jwebswing.plugins.jstree.options.JSTreeNodeStateOptions;
 import za.co.mmagon.jwebswing.plugins.jstree.options.JSTreeTypesOptions;
 
-import java.util.Objects;
-
 /**
  * A Tree Node
  *
@@ -32,7 +30,7 @@ import java.util.Objects;
  */
 public class JSTreeNode extends JSTreeTypesOptions
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The ID of the node
@@ -53,26 +51,29 @@ public class JSTreeNode extends JSTreeTypesOptions
 	 */
 	@JsonProperty("type")
 	private String typeName;
-	
+
 	/**
 	 * All the child nodes, json ignored for ajax called rendering
 	 */
 	@JsonIgnore
 	private JSTreeData childNodes;
-	
+
 	/**
 	 * Constructs an empty tree node
 	 */
 	public JSTreeNode()
 	{
 	}
-	
+
 	/**
 	 * Builds a tree node with the given information
 	 *
-	 * @param id       The ID of the node (don't use default or '#')
-	 * @param text     The text for the node
-	 * @param typeName The type of the node if specified
+	 * @param id
+	 * 		The ID of the node (don't use default or '#')
+	 * @param text
+	 * 		The text for the node
+	 * @param typeName
+	 * 		The type of the node if specified
 	 */
 	public JSTreeNode(String id, String text, String typeName)
 	{
@@ -80,7 +81,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 		this.text = text;
 		this.typeName = typeName;
 	}
-	
+
 	/**
 	 * Builds a tree node with the given information
 	 *
@@ -94,7 +95,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 		this.text = text;
 		this.state = state;
 	}
-	
+
 	/**
 	 * Builds a tree node with the given information
 	 *
@@ -110,19 +111,21 @@ public class JSTreeNode extends JSTreeTypesOptions
 		this.state = state;
 		this.typeName = typeName;
 	}
-	
+
 	/**
 	 * Constructs a new tree node
 	 *
-	 * @param id   The id of the tree (don't use default or '#')
-	 * @param text The text for the tree
+	 * @param id
+	 * 		The id of the tree (don't use default or '#')
+	 * @param text
+	 * 		The text for the tree
 	 */
 	public JSTreeNode(String id, String text)
 	{
 		this.id = id;
 		this.text = text;
 	}
-	
+
 	/**
 	 * The ID of the node
 	 *
@@ -132,7 +135,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 	{
 		return id;
 	}
-	
+
 	/**
 	 * The ID of the node
 	 *
@@ -144,9 +147,9 @@ public class JSTreeNode extends JSTreeTypesOptions
 	{
 		this.id = id;
 		return this;
-		
+
 	}
-	
+
 	/**
 	 * The text to display for the node
 	 *
@@ -156,7 +159,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 	{
 		return text;
 	}
-	
+
 	/**
 	 * The text to display for the node
 	 *
@@ -168,9 +171,9 @@ public class JSTreeNode extends JSTreeTypesOptions
 	{
 		this.text = text;
 		return this;
-		
+
 	}
-	
+
 	/**
 	 * The type name associated with the node
 	 *
@@ -180,7 +183,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 	{
 		return typeName;
 	}
-	
+
 	/**
 	 * The type name associated with the node
 	 *
@@ -193,7 +196,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 		this.typeName = typeName;
 		return this;
 	}
-	
+
 	/**
 	 * Returns the list of child nodes
 	 *
@@ -207,7 +210,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 		}
 		return childNodes;
 	}
-	
+
 	/**
 	 * Sets the list of child nodes
 	 *
@@ -220,7 +223,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 		this.childNodes = childNodes;
 		return this;
 	}
-	
+
 	/**
 	 * returns the json property
 	 *
@@ -231,7 +234,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 	{
 		return !getChildNodes().getNodes().isEmpty();
 	}
-	
+
 	/**
 	 * You can set the state on a node using the state property.
 	 * <p>
@@ -247,7 +250,7 @@ public class JSTreeNode extends JSTreeTypesOptions
 		}
 		return state;
 	}
-	
+
 	/**
 	 * You can set the state on a node using the state property.
 	 * <p>
@@ -262,41 +265,48 @@ public class JSTreeNode extends JSTreeTypesOptions
 		this.state = state;
 		return this;
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
-		int hash = 3;
-		hash = 89 * hash + Objects.hashCode(this.text);
-		hash = 89 * hash + Objects.hashCode(this.typeName);
-		return hash;
+		int result = getId() != null ? getId().hashCode() : 0;
+		result = 31 * result + (getText() != null ? getText().hashCode() : 0);
+		result = 31 * result + getState().hashCode();
+		result = 31 * result + (getTypeName() != null ? getTypeName().hashCode() : 0);
+		result = 31 * result + getChildNodes().hashCode();
+		return result;
 	}
-	
+
 	@Override
-	public boolean equals(Object obj)
+	public boolean equals(Object o)
 	{
-		if (this == obj)
+		if (this == o)
 		{
 			return true;
 		}
-		if (obj == null)
+		if (!(o instanceof JSTreeNode))
 		{
 			return false;
 		}
-		if (getClass() != obj.getClass())
+
+		JSTreeNode that = (JSTreeNode) o;
+
+		if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null)
 		{
 			return false;
 		}
-		final JSTreeNode other = (JSTreeNode) obj;
-		if (!Objects.equals(this.text, other.text))
+		if (getText() != null ? !getText().equals(that.getText()) : that.getText() != null)
 		{
 			return false;
 		}
-		if (!Objects.equals(this.typeName, other.typeName))
+		if (!getState().equals(that.getState()))
 		{
 			return false;
 		}
-		return true;
+		if (getTypeName() != null ? !getTypeName().equals(that.getTypeName()) : that.getTypeName() != null)
+		{
+			return false;
+		}
+		return getChildNodes().equals(that.getChildNodes());
 	}
-	
 }

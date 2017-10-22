@@ -49,7 +49,7 @@ public class JSTreeStateOptions extends JavaScriptPart
 
 	public JSTreeStateOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

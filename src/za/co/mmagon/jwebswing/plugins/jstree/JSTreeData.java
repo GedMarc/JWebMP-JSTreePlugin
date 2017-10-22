@@ -31,23 +31,25 @@ import java.util.List;
  */
 public class JSTreeData extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * The list of nodes
 	 */
-	
+
 	private List<JSTreeNode> nodes;
-	
+
 	/**
 	 * Constructs a new instance of tree data
 	 *
-	 * @throws RuntimeException If tree is null
+	 * @throws RuntimeException
+	 * 		If tree is null
 	 */
 	public JSTreeData()
 	{
+		//Nothing Needed
 	}
-	
+
 	/**
 	 * Returns all the nodes currently associated with this tree
 	 *
@@ -63,7 +65,7 @@ public class JSTreeData extends JavaScriptPart
 		}
 		return nodes;
 	}
-	
+
 	/**
 	 * Sets the nodes currently associated with this tree
 	 *
@@ -73,20 +75,20 @@ public class JSTreeData extends JavaScriptPart
 	{
 		this.nodes = nodes;
 	}
-	
+
 	@Override
 	public JavascriptPartType getJavascriptType()
 	{
 		return JavascriptPartType.JSON;
 	}
-	
+
 	public JSTreeNode findNode(String id)
 	{
 		JSTreeNode found;
 		found = findNode(getNodes(), id);
 		return found;
 	}
-	
+
 	private JSTreeNode findNode(List<JSTreeNode> nodes, String id)
 	{
 		JSTreeNode found;

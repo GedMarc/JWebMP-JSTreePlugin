@@ -49,7 +49,7 @@ public class JSTreeSearchOptionsAjax extends JavaScriptPart
 
 	public JSTreeSearchOptionsAjax()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

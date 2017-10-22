@@ -29,19 +29,24 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 		url = "https://www.jstree.com/plugins/")
 public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 {
-	
+
+	private static final String IfOperationString = "if(operation === '";
+	private static final String EndIfOperationString = "') return true;";
+
 	public static final String CreateNode = "create_node";
 	public static final String RenameNode = "rename_node";
 	public static final String DeleteNode = "delete_node";
 	public static final String MoveNode = "move_node";
 	public static final String CopyNode = "copy_node";
+
 	private static final long serialVersionUID = 1L;
+
 	private Boolean create;
 	private Boolean rename;
 	private Boolean delete;
 	private Boolean move;
 	private Boolean copy;
-	
+
 	public JSTreeCheckCallbackFunction()
 	{
 		getFunctionArugments().add("operation");
@@ -50,37 +55,35 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 		getFunctionArugments().add("node_position");
 		getFunctionArugments().add("more");
 	}
-	
+
 	@Override
 	public StringBuilder getLiteralFunction()
 	{
 		StringBuilder function = new StringBuilder();
 		if (create != null && create)
 		{
-			function.append("if(operation === '" + CreateNode + "') return true;");
+			function.append(IfOperationString + CreateNode + EndIfOperationString);
 		}
 		if (rename != null && rename)
 		{
-			function.append("if(operation === '" + RenameNode + "') return true;");
+			function.append(IfOperationString + RenameNode + EndIfOperationString);
 		}
 		if (delete != null && delete)
 		{
-			function.append("if(operation === '" + DeleteNode + "') return true;");
+			function.append(IfOperationString + DeleteNode + EndIfOperationString);
 		}
 		if (move != null && move)
 		{
-			function.append("if(operation === '" + MoveNode + "') return true;");
+			function.append(IfOperationString + MoveNode + EndIfOperationString);
 		}
 		if (copy != null && copy)
 		{
-			function.append("if(operation === '" + CopyNode + "') return true;");
+			function.append(IfOperationString + CopyNode + EndIfOperationString);
 		}
-		
 		function.append("return false;");
-		
 		return function;
 	}
-	
+
 	/**
 	 * Whether or not create is allowed
 	 *
@@ -90,7 +93,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		return create;
 	}
-	
+
 	/**
 	 * Whether or not create is allowed
 	 *
@@ -100,7 +103,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		this.create = create;
 	}
-	
+
 	/**
 	 * If rename is allowed
 	 *
@@ -110,7 +113,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		return rename;
 	}
-	
+
 	/**
 	 * If rename is allowed
 	 *
@@ -120,7 +123,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		this.rename = rename;
 	}
-	
+
 	/**
 	 * If delete is allowed
 	 *
@@ -130,7 +133,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		return delete;
 	}
-	
+
 	/**
 	 * if delete is allowed
 	 *
@@ -140,7 +143,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		this.delete = delete;
 	}
-	
+
 	/**
 	 * if move is allowed
 	 *
@@ -150,7 +153,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		return move;
 	}
-	
+
 	/**
 	 * if move is allowed
 	 *
@@ -160,7 +163,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		this.move = move;
 	}
-	
+
 	/**
 	 * if copy is allowed
 	 *
@@ -170,7 +173,7 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		return copy;
 	}
-	
+
 	/**
 	 * If copy is allowed
 	 *
@@ -180,5 +183,5 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	{
 		this.copy = copy;
 	}
-	
+
 }

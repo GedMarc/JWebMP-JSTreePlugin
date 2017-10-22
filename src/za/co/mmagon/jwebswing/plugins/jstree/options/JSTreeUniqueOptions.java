@@ -42,7 +42,7 @@ public class JSTreeUniqueOptions extends JavaScriptPart
 
 	public JSTreeUniqueOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

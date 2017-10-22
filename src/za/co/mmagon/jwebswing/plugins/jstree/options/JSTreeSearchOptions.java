@@ -77,7 +77,7 @@ public class JSTreeSearchOptions extends JavaScriptPart
 
 	public JSTreeSearchOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

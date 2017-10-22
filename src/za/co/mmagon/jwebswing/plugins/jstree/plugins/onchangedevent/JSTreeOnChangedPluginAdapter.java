@@ -36,25 +36,26 @@ import java.util.logging.Level;
 public abstract class JSTreeOnChangedPluginAdapter extends Event
 		implements JSTreeEvents
 {
-	
+
 	/**
 	 * Logger for the Component
 	 */
 	private static final java.util.logging.Logger LOG = LogFactory.getInstance().getLogger("JSTreeOnChangedPluginEvent");
 	private static final long serialVersionUID = 1L;
 	private JSTreeOnChangedPluginDirective directive;
-	
+
 	/**
 	 * Performs a click
 	 *
-	 * @param component The component this click is going to be acting on
+	 * @param component
+	 * 		The component this click is going to be acting on
 	 */
 	public JSTreeOnChangedPluginAdapter(Component component)
 	{
 		super(EventTypes.activate, component);
-		
+
 	}
-	
+
 	/**
 	 * Sets JQuery and Angular enabled, adds the directive to angular, and the attribute to the component
 	 */
@@ -65,11 +66,11 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
 		{
 			AngularPageConfigurator.setRequired(getComponent(), true);
 			getComponent().getPage().getAngular().getAngularDirectives().add(getDirective());
-			component.addAttribute(AngularAttributes.ngJSTreeOnChanged, "perform($event," + renderVariables() + ");");
+			getComponent().addAttribute(AngularAttributes.ngJSTreeOnChanged, "perform($event," + renderVariables() + ");");
 		}
 		super.preConfigure();
 	}
-	
+
 	/**
 	 * Returns the angular directive associated with the right click event
 	 *
@@ -83,7 +84,7 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
 		}
 		return directive;
 	}
-	
+
 	/**
 	 * Sets the right click angular event
 	 *
@@ -93,16 +94,18 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
 	{
 		this.directive = directive;
 	}
-	
+
 	/**
 	 * Triggers on Click
 	 * <p>
 	 *
-	 * @param call     The physical AJAX call
-	 * @param response The physical Ajax Receiver
+	 * @param call
+	 * 		The physical AJAX call
+	 * @param response
+	 * 		The physical Ajax Receiver
 	 */
 	public abstract void onChanged(AjaxCall call, AjaxResponse response);
-	
+
 	@Override
 	public void fireEvent(AjaxCall call, AjaxResponse response)
 	{
@@ -115,5 +118,33 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
 			LOG.log(Level.WARNING, "Error In Firing Event", e);
 		}
 	}
-	
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JSTreeOnChangedPluginAdapter))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JSTreeOnChangedPluginAdapter that = (JSTreeOnChangedPluginAdapter) o;
+
+		return getDirective().equals(that.getDirective());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getDirective().hashCode();
+		return result;
+	}
 }

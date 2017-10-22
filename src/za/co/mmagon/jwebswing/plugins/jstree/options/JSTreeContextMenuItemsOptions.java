@@ -110,7 +110,7 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 
 	public JSTreeContextMenuItemsOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

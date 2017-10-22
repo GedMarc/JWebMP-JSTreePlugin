@@ -30,9 +30,9 @@ import java.util.TreeMap;
  */
 public class JSTreeCoreOptions extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * If left as false the HTML inside the jstree container element is used to populate the tree (that should be an unordered list with list items). You can also pass in a HTML string or a JSON array
 	 * here. It is possible to pass in a standard jQuery-like AJAX config and jstree will automatically determine if the response is JSON or HTML and use that to populate the tree. In addition to the
@@ -61,7 +61,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	 * a boolean indicating if multiple nodes can be selected
 	 */
 	private Boolean multiple;
-	
+
 	/**
 	 * theme configuration object
 	 */
@@ -75,18 +75,18 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	 */
 	@JsonProperty("force_text")
 	private Boolean forceText;
-	
+
 	/**
 	 * Should the node should be toggled if the text is double clicked . Defaults to true
 	 */
 	@JsonProperty("dblclick_toggle")
 	private Boolean doubleClickToggle;
-	
+
 	public JSTreeCoreOptions()
 	{
-	
+		//Nothing Needed
 	}
-	
+
 	/**
 	 * If left as false the HTML inside the jstree container element is used to populate the tree (that should be an unordered list with list items). You can also pass in a HTML string or a JSON array
 	 * here. It is possible to pass in a standard jQuery-like AJAX config and jstree will automatically determine if the response is JSON or HTML and use that to populate the tree. In addition to the
@@ -104,7 +104,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 		}
 		return data;
 	}
-	
+
 	/**
 	 * If left as false the HTML inside the jstree container element is used to populate the tree (that should be an unordered list with list items). You can also pass in a HTML string or a JSON array
 	 * here. It is possible to pass in a standard jQuery-like AJAX config and jstree will automatically determine if the response is JSON or HTML and use that to populate the tree. In addition to the
@@ -118,7 +118,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.data = data;
 	}
-	
+
 	/**
 	 * configure the various strings used throughout the tree You can use an object where the key is the string you need to replace and the value is your replacement. Another option is to specify a
 	 * function which will be called with an argument of the needed string and should return the replacement. If left as false no replacement is made.
@@ -133,7 +133,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 		}
 		return strings;
 	}
-	
+
 	/**
 	 * configure the various strings used throughout the tree You can use an object where the key is the string you need to replace and the value is your replacement. Another option is to specify a
 	 * function which will be called with an argument of the needed string and should return the replacement. If left as false no replacement is made.
@@ -144,7 +144,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.strings = strings;
 	}
-	
+
 	/**
 	 * determines what happens when a user tries to modify the structure of the tree
 	 * <p>
@@ -160,7 +160,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 		}
 		return checkCallback;
 	}
-	
+
 	/**
 	 * determines what happens when a user tries to modify the structure of the tree
 	 * <p>
@@ -172,7 +172,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.checkCallback = checkCallback;
 	}
-	
+
 	/**
 	 * the open / close animation duration in milliseconds - set this to false to disable the animation (default is 200)
 	 *
@@ -182,7 +182,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		return animation;
 	}
-	
+
 	/**
 	 * the open / close animation duration in milliseconds - set this to false to disable the animation (default is 200)
 	 *
@@ -192,7 +192,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.animation = animation;
 	}
-	
+
 	/**
 	 * a boolean indicating if multiple nodes can be selected
 	 *
@@ -202,7 +202,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		return multiple;
 	}
-	
+
 	/**
 	 * a boolean indicating if multiple nodes can be selected
 	 *
@@ -212,7 +212,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.multiple = multiple;
 	}
-	
+
 	/**
 	 * theme configuration object
 	 *
@@ -226,7 +226,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 		}
 		return themes;
 	}
-	
+
 	/**
 	 * theme configuration object
 	 *
@@ -236,7 +236,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.themes = themes;
 	}
-	
+
 	/**
 	 * if left as true web workers will be used to parse incoming JSON data where possible, so that the UI will not be blocked by large requests. Workers are however about 30% slower. Defaults to true
 	 *
@@ -246,7 +246,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		return worker;
 	}
-	
+
 	/**
 	 * if left as true web workers will be used to parse incoming JSON data where possible, so that the UI will not be blocked by large requests. Workers are however about 30% slower. Defaults to true
 	 *
@@ -256,7 +256,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.worker = worker;
 	}
-	
+
 	/**
 	 * Force node text to plain text (and escape HTML). Defaults to false
 	 *
@@ -266,7 +266,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		return forceText;
 	}
-	
+
 	/**
 	 * Force node text to plain text (and escape HTML). Defaults to false
 	 *
@@ -276,7 +276,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.forceText = forceText;
 	}
-	
+
 	/**
 	 * Should the node should be toggled if the text is double clicked . Defaults to true
 	 *
@@ -286,7 +286,7 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		return doubleClickToggle;
 	}
-	
+
 	/**
 	 * Should the node should be toggled if the text is double clicked . Defaults to true
 	 *
@@ -296,5 +296,5 @@ public class JSTreeCoreOptions extends JavaScriptPart
 	{
 		this.doubleClickToggle = doubleClickToggle;
 	}
-	
+
 }

@@ -39,12 +39,12 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
  */
 @ComponentInformation(name = "JS Tree Checkbox Plugin",
 		description = "This plugin renders checkbox icons in front of each node, making multiple selection much easier.\n"
-				+ "It also supports tri-state behavior, meaning that if a node has a few of its children checked it will be rendered as undetermined, and state will be propagated up. You can also fine tune the cascading options with the cascade config option.\n"
-				+ "Keep in mind when cascading checkbox will check even disabled nodes.",
+				              + "It also supports tri-state behavior, meaning that if a node has a few of its children checked it will be rendered as undetermined, and state will be propagated up. You can also fine tune the cascading options with the cascade config option.\n"
+				              + "Keep in mind when cascading checkbox will check even disabled nodes.",
 		url = "https://www.jstree.com/plugins/")
 public class JSTreeCheckboxOptions extends JavaScriptPart
 {
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
 	 * a boolean indicating if checkboxes should be visible (can be changed at a later time using show_checkboxes() and hide_checkboxes). Defaults to true.
@@ -80,12 +80,12 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	 */
 	@JsonProperty("tie_selection")
 	private Boolean tieSelection;
-	
+
 	public JSTreeCheckboxOptions()
 	{
-	
+		//Nothing Needed
 	}
-	
+
 	/**
 	 * a boolean indicating if checkboxes should be visible (can be changed at a later time using show_checkboxes() and hide_checkboxes). Defaults to true.
 	 *
@@ -95,7 +95,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		return visible;
 	}
-	
+
 	/**
 	 * a boolean indicating if checkboxes should be visible (can be changed at a later time using show_checkboxes() and hide_checkboxes). Defaults to true.
 	 *
@@ -105,7 +105,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		this.visible = visible;
 	}
-	
+
 	/**
 	 * a boolean indicating if checkboxes should cascade down and have an undetermined state. Defaults to true.
 	 *
@@ -115,7 +115,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		return threeState;
 	}
-	
+
 	/**
 	 * a boolean indicating if checkboxes should cascade down and have an undetermined state. Defaults to true.
 	 *
@@ -125,7 +125,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		this.threeState = threeState;
 	}
-	
+
 	/**
 	 * a boolean indicating if clicking anywhere on the node should act as clicking on the checkbox. Defaults to true.
 	 *
@@ -135,7 +135,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		return wholeNode;
 	}
-	
+
 	/**
 	 * a boolean indicating if clicking anywhere on the node should act as clicking on the checkbox. Defaults to true.
 	 *
@@ -145,7 +145,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		this.wholeNode = wholeNode;
 	}
-	
+
 	/**
 	 * a boolean indicating if the selected style of a node should be kept, or removed. Defaults to true.
 	 *
@@ -155,7 +155,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		return keepSelectedStyle;
 	}
-	
+
 	/**
 	 * a boolean indicating if the selected style of a node should be kept, or removed. Defaults to true.
 	 *
@@ -165,7 +165,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		this.keepSelectedStyle = keepSelectedStyle;
 	}
-	
+
 	/**
 	 * This setting controls how cascading and undetermined nodes are applied.
 	 * <p>
@@ -179,7 +179,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		return cascade;
 	}
-	
+
 	/**
 	 * This setting controls how cascading and undetermined nodes are applied.
 	 * <p>
@@ -193,7 +193,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		this.cascade = cascade;
 	}
-	
+
 	/**
 	 * This setting controls if checkbox are bound to the general tree selection or to an internal array maintained by the checkbox plugin.
 	 * <p>
@@ -205,7 +205,7 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		return tieSelection;
 	}
-	
+
 	/**
 	 * This setting controls if checkbox are bound to the general tree selection or to an internal array maintained by the checkbox plugin.
 	 * <p>
@@ -217,5 +217,5 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	{
 		this.tieSelection = tieSelection;
 	}
-	
+
 }

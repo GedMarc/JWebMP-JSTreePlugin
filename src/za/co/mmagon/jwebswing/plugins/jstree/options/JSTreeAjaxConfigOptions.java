@@ -21,6 +21,8 @@ import za.co.mmagon.jwebswing.htmlbuilder.javascript.JavaScriptPart;
 import za.co.mmagon.jwebswing.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 
 /**
+ * TODO Make this the general jquery ajax object
+ *
  * @author GedMarc
  * @version 1.0
  * @since 22 Dec 2016
@@ -58,7 +60,7 @@ public class JSTreeAjaxConfigOptions extends JavaScriptPart
 
 	public JSTreeAjaxConfigOptions()
 	{
-
+		//Nothing Needed
 	}
 
 	/**

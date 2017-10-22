@@ -29,9 +29,9 @@ import za.co.mmagon.jwebswing.base.html.interfaces.GlobalFeatures;
 public class JSTreeFeature extends Feature<JSTreeOptions, JSTreeFeature> implements JSTreeFeatures, GlobalFeatures
 {
 	private static final long serialVersionUID = 1L;
-	
+
 	private JSTreeOptions options;
-	
+
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
 	 * <p>
@@ -43,9 +43,8 @@ public class JSTreeFeature extends Feature<JSTreeOptions, JSTreeFeature> impleme
 		super("JSTreeFeature");
 		setComponent(forComponent);
 		getJavascriptReferences().add(JSTreeReferencePool.JSTreeJavascript.getJavaScriptReference());
-		// getCssReferences().add(JQXReferencePool.Core.getCssReference());
 	}
-	
+
 	/**
 	 * Returns all the Tree options
 	 * <p>
@@ -61,7 +60,7 @@ public class JSTreeFeature extends Feature<JSTreeOptions, JSTreeFeature> impleme
 		}
 		return options;
 	}
-	
+
 	@Override
 	public void assignFunctionsToComponent()
 	{
@@ -69,5 +68,34 @@ public class JSTreeFeature extends Feature<JSTreeOptions, JSTreeFeature> impleme
 		requiredString += getOptions().toString();
 		requiredString += ");" + getNewLine();
 		addQuery(requiredString);
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JSTreeFeature))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		JSTreeFeature that = (JSTreeFeature) o;
+
+		return getOptions().equals(that.getOptions());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getOptions().hashCode();
+		return result;
 	}
 }

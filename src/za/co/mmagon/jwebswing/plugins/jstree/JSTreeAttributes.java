@@ -24,21 +24,14 @@ import za.co.mmagon.jwebswing.base.html.interfaces.AttributeDefinitions;
 public enum JSTreeAttributes implements AttributeDefinitions
 {
 	Visibility;
-	
-	private boolean isKeyword;
-	
-	private JSTreeAttributes()
+
+	JSTreeAttributes()
 	{
 	}
-	
-	private JSTreeAttributes(boolean isKeyword)
-	{
-		this.isKeyword = isKeyword;
-	}
-	
+
 	@Override
 	public boolean isKeyword()
 	{
-		return isKeyword;
+		return false;
 	}
 }
