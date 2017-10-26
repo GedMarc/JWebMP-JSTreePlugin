@@ -34,7 +34,7 @@ public class JSTreeAjaxConfigOptions extends JavaScriptPart
 	/**
 	 * The Ajax url to retrieve data from.
 	 * <p>
-	 * Usually JWebSwingSiteBinder.DataLocation set in tree PreConfig
+	 * Usually SiteBinder.DataLocation set in tree PreConfig
 	 */
 	private String url;
 	/**
@@ -66,7 +66,7 @@ public class JSTreeAjaxConfigOptions extends JavaScriptPart
 	/**
 	 * The Ajax url to retrieve data from.
 	 * <p>
-	 * Usually JWebSwingSiteBinder.DataLocation set in tree PreConfig
+	 * Usually SiteBinder.DataLocation set in tree PreConfig
 	 *
 	 * @return
 	 */
@@ -78,7 +78,7 @@ public class JSTreeAjaxConfigOptions extends JavaScriptPart
 	/**
 	 * The Ajax url to retrieve data from.
 	 * <p>
-	 * Usually JWebSwingSiteBinder.DataLocation set in tree PreConfig
+	 * Usually SiteBinder.DataLocation set in tree PreConfig
 	 *
 	 * @param url
 	 */
