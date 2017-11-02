@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
+
 /**
  * Holds all jstree related functions and variables, including the actual class and methods to create, access and manipulate instances.
  * <p>
@@ -517,7 +519,7 @@ public class JSTreeOptions extends JavaScriptPart
 	public JSTreeTypesOptions addRootType()
 	{
 		JSTreeTypesOptions type = new JSTreeTypesOptions();
-		getTypes().put("#", type);
+		getTypes().put(STRING_HASH, type);
 		return type;
 	}
 

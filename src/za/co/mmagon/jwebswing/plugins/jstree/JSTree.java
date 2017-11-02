@@ -30,6 +30,8 @@ import za.co.mmagon.jwebswing.plugins.jstree.themes.JSTreeTheme;
 
 import java.util.Map;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_HASH;
+
 /**
  * An implementation of the jsTree project.
  * <p>
@@ -87,7 +89,7 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 		onGetData(params);
 		String[] ids = params.get("id");
 		String id = ids[0];
-		if ("#".equalsIgnoreCase(id))
+		if (STRING_HASH.equalsIgnoreCase(id))
 		{
 			return data;
 		}
