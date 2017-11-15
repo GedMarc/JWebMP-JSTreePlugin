@@ -31,6 +31,7 @@ public class JSTreeFeatureTest extends BaseTestClass
 	}
 	
 	@Test
+	@SuppressWarnings("unchecked")
 	public void testGetOptions()
 	{
 		Page p = getInstance();
