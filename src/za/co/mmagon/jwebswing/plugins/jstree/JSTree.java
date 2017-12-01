@@ -16,7 +16,7 @@
  */
 package za.co.mmagon.jwebswing.plugins.jstree;
 
-import za.co.mmagon.SiteBinder;
+import za.co.mmagon.jwebswing.annotations.SiteBinder;
 import za.co.mmagon.jwebswing.base.client.HttpMethodTypes;
 import za.co.mmagon.jwebswing.base.html.Div;
 import za.co.mmagon.jwebswing.base.servlets.interfaces.IDataComponent;
