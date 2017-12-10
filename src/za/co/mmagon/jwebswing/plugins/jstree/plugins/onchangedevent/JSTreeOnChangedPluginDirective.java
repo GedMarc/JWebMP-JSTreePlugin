@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (C) 2017 Marc Magon
  *
  * This program is free software: you can redistribute it and/or modify
@@ -31,19 +31,17 @@ import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 		url = "https://www.jstree.com/plugins/")
 public class JSTreeOnChangedPluginDirective extends AngularDirectiveBase
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new right click directive based on the angular object passed in
-	 *
-	 * @param angular
 	 */
 	public JSTreeOnChangedPluginDirective()
 	{
-		super("ngActivate");
+		super("ngJstreeOnchanged");
 	}
-	
+
 	/**
 	 * Renders the right click directive from the JavaScript file
 	 *
@@ -54,5 +52,5 @@ public class JSTreeOnChangedPluginDirective extends AngularDirectiveBase
 	{
 		return FileTemplates.getFileTemplate(JSTreeOnChangedPluginDirective.class, "JSTreeOnChangedPlugin").toString();
 	}
-	
+
 }
