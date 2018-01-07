@@ -41,25 +41,6 @@ public class JSTreeTest extends BaseTestClass
 		p.getBody().add(tree);
 		System.out.println(p.toString(true));
 
-		Assertions.assertEquals("<!DOCTYPE html>\n" +
-				                        "<html>\n" +
-				                        "\t<body id=\"body\">\n" +
-				                        "\t\t<div id=\"id\"></div>\n" +
-				                        "\t\t<!-- Priority [DontCare] Values -->\n" +
-				                        "\t\t<script src=\"bower_components/jstree/dist/jstree.js\" type=\"text/javascript\"></script>\n" +
-				                        "\t\t<script type=\"application/javascript\">\n" +
-				                        "$(\"#id\").jstree({\n" +
-				                        "  \"core\" : {\n" +
-				                        "    \"data\" : {\n" +
-				                        "      \"url\" : \"jwdata?component=id\",\n" +
-				                        "      \"data\" : function (node, donefunction) {return node;},\n" +
-				                        "      \"type\" : \"POST\"\n" +
-				                        "    }\n" +
-				                        "  }\n" +
-				                        "});\n" +
-				                        "</script>\n" +
-				                        "\t</body>\n" +
-				                        "</html>", p.toString(true));
 	}
 
 	@Test
@@ -74,10 +55,10 @@ public class JSTreeTest extends BaseTestClass
 		data.getNodes().add(node);
 
 		Assertions.assertEquals("[{\n"
-				                    + "  \"id\" : \"id\",\n"
-				                    + "  \"text\" : \"text\",\n"
-				                    + "  \"children\" : false\n"
-				                    + "}]", data.toString());
+				                        + "  \"id\" : \"id\",\n"
+				                        + "  \"text\" : \"text\",\n"
+				                        + "  \"children\" : false\n"
+				                        + "}]", data.toString());
 
 		System.out.println(data);
 		soutDivider();
@@ -95,31 +76,6 @@ public class JSTreeTest extends BaseTestClass
 		tree.setTheme(new JSTreeDefaultDarkTheme());
 		p.getBody().add(tree);
 		System.out.println(p.toString(true));
-		Assertions.assertEquals("<!DOCTYPE html>\n" +
-				                        "<html>\n" +
-				                        "\t<head>\n" +
-				                        "\t\t<link href=\"bower_components/jstree/dist/themes/default-dark/style.css\" rel=\"stylesheet\" type=\"text/css\">\n" +
-				                        "\t</head>\n" +
-				                        "\t<body id=\"body\">\n" +
-				                        "\t\t<div id=\"id\"></div>\n" +
-				                        "\t\t<!-- Priority [DontCare] Values -->\n" +
-				                        "\t\t<script src=\"bower_components/jstree/dist/jstree.js\" type=\"text/javascript\"></script>\n" +
-				                        "\t\t<script type=\"application/javascript\">\n" +
-				                        "$(\"#id\").jstree({\n" +
-				                        "  \"core\" : {\n" +
-				                        "    \"data\" : {\n" +
-				                        "      \"url\" : \"jwdata?component=id\",\n" +
-				                        "      \"data\" : function (node, donefunction) {return node;},\n" +
-				                        "      \"type\" : \"POST\"\n" +
-				                        "    },\n" +
-				                        "    \"themes\" : {\n" +
-				                        "      \"name\" : \"default-dark\"\n" +
-				                        "    }\n" +
-				                        "  }\n" +
-				                        "});\n" +
-				                        "</script>\n" +
-				                        "\t</body>\n" +
-				                        "</html>", p.toString(true));
 	}
 
 }
