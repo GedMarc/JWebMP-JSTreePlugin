@@ -68,7 +68,7 @@ public class JSTree extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures
 	{
 		if (!isConfigured())
 		{
-			JQueryPageConfigurator.setRequired(this, true);
+			JQueryPageConfigurator.setRequired(true);
 			getOptions().getCore().getData().setType(HttpMethodTypes.POST);
 			getOptions().getCore().getData().setUrl(SiteBinder.getDataLocation().replace("/", "") + "?component=" + getID());
 			getOptions().getCore().getData().setData(new JSTreeCoreDataFunction());

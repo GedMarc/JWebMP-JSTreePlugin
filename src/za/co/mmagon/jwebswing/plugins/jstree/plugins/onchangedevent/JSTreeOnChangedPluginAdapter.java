@@ -28,6 +28,9 @@ import za.co.mmagon.logger.LogFactory;
 
 import java.util.logging.Level;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+
 /**
  * Handles all events. Over-ride methods.
  *
@@ -64,9 +67,9 @@ public abstract class JSTreeOnChangedPluginAdapter extends Event
 	{
 		if (!isConfigured())
 		{
-			AngularPageConfigurator.setRequired(getComponent(), true);
+			AngularPageConfigurator.setRequired(true);
 			getComponent().getPage().getAngular().getAngularDirectives().add(getDirective());
-			getComponent().addAttribute(AngularAttributes.ngJSTreeOnChanged, "perform($event," + renderVariables() + ");");
+			getComponent().addAttribute(AngularAttributes.ngJSTreeOnChanged, STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
