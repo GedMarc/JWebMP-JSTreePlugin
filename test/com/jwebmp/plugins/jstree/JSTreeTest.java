@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.Page;
 import com.jwebmp.plugins.jstree.themes.JSTreeDefaultDarkTheme;
 import org.junit.jupiter.api.Assertions;
@@ -26,7 +25,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class JSTreeTest
-		extends BaseTestClass
+
 {
 
 	public JSTreeTest()
@@ -36,7 +35,7 @@ public class JSTreeTest
 	@Test
 	public void testPreConfigure()
 	{
-		Page p = getInstance();
+		Page p = new Page();
 		JSTree tree = new JSTree();
 		tree.setID("id");
 		p.getBody()
@@ -49,7 +48,7 @@ public class JSTreeTest
 	public void testGetData()
 	{
 
-		Page p = getInstance();
+		Page p = new Page();
 		JSTree tree = new JSTree();
 		tree.setID("id");
 		JSTreeData data = new JSTreeData();
@@ -60,16 +59,14 @@ public class JSTreeTest
 		Assertions.assertEquals("[{\n" + "  \"id\" : \"id\",\n" + "  \"text\" : \"text\",\n" + "  \"children\" : false\n" + "}]", data.toString());
 
 		System.out.println(data);
-		soutDivider();
 		tree.setData(data);
 		System.out.println(tree.renderJavascript());
-		soutDivider();
 	}
 
 	@Test
 	public void testSetTheme()
 	{
-		Page p = getInstance();
+		Page p = new Page();
 		JSTree tree = new JSTree();
 		tree.setID("id");
 		tree.setTheme(new JSTreeDefaultDarkTheme());

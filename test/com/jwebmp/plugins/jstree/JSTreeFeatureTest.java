@@ -16,7 +16,6 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.Page;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +23,7 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class JSTreeFeatureTest
-		extends BaseTestClass
+
 {
 
 	public JSTreeFeatureTest()
@@ -35,7 +34,7 @@ public class JSTreeFeatureTest
 	@SuppressWarnings("unchecked")
 	public void testGetOptions()
 	{
-		Page p = getInstance();
+		Page p = new Page();
 		JSTree tree = new JSTree();
 		p.getBody()
 		 .add(tree);
