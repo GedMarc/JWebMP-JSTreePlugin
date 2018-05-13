@@ -19,6 +19,8 @@ package com.jwebmp.plugins.jstree.options.functions;
 import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
 import com.jwebmp.plugins.ComponentInformation;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  * @version 1.0
@@ -27,18 +29,17 @@ import com.jwebmp.plugins.ComponentInformation;
 @ComponentInformation(name = "JS Tree Callback Plugin",
 		description = "This plugin overrides the activate_node function (the one that gets called when a user tries to select a node) and enables preventing the function invokation by using a callback.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
+public class JSTreeCheckCallbackFunction<J extends JSTreeCheckCallbackFunction<J>>
+		extends JavascriptLiteralFunction<J>
 {
-
-	private static final String IfOperationString = "if(operation === '";
-	private static final String EndIfOperationString = "') return true;";
 
 	public static final String CreateNode = "create_node";
 	public static final String RenameNode = "rename_node";
 	public static final String DeleteNode = "delete_node";
 	public static final String MoveNode = "move_node";
 	public static final String CopyNode = "copy_node";
-
+	private static final String IfOperationString = "if(operation === '";
+	private static final String EndIfOperationString = "') return true;";
 	private static final long serialVersionUID = 1L;
 
 	private Boolean create;
@@ -99,9 +100,12 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	 *
 	 * @param create
 	 */
-	public void setCreate(Boolean create)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCreate(Boolean create)
 	{
 		this.create = create;
+		return (J) this;
 	}
 
 	/**
@@ -119,9 +123,12 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	 *
 	 * @param rename
 	 */
-	public void setRename(Boolean rename)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRename(Boolean rename)
 	{
 		this.rename = rename;
+		return (J) this;
 	}
 
 	/**
@@ -139,9 +146,12 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	 *
 	 * @param delete
 	 */
-	public void setDelete(Boolean delete)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDelete(Boolean delete)
 	{
 		this.delete = delete;
+		return (J) this;
 	}
 
 	/**
@@ -159,9 +169,12 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	 *
 	 * @param move
 	 */
-	public void setMove(Boolean move)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMove(Boolean move)
 	{
 		this.move = move;
+		return (J) this;
 	}
 
 	/**
@@ -179,9 +192,12 @@ public class JSTreeCheckCallbackFunction extends JavascriptLiteralFunction
 	 *
 	 * @param copy
 	 */
-	public void setCopy(Boolean copy)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCopy(Boolean copy)
 	{
 		this.copy = copy;
+		return (J) this;
 	}
 
 }

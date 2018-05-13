@@ -23,7 +23,8 @@ import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
  * @version 1.0
  * @since 22 Dec 2016
  */
-public class JSTreeCoreDataFunction extends JavascriptLiteralFunction
+public class JSTreeCoreDataFunction<J extends JSTreeCoreDataFunction<J>>
+		extends JavascriptLiteralFunction<J>
 {
 
 	private static final long serialVersionUID = 1L;

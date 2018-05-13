@@ -14,25 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree;
+package com.jwebmp.plugins.jstree.events;
 
-import com.jwebmp.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.Feature;
+import com.jwebmp.plugins.jstree.JSTree;
 
 /**
+ * Refreshes the data in the tree
+ *
  * @author GedMarc
+ * @version 1.0
+ * @since 29 Dec 2016
  */
-public enum JSTreeAttributes
-		implements AttributeDefinitions
+public class JSTreeRefreshFeature
+		extends Feature
 {
-	Visibility;
 
-	JSTreeAttributes()
+	private static final long serialVersionUID = 1L;
+
+	public JSTreeRefreshFeature(JSTree tree)
 	{
+		super("JSTreeRefreshFeature", tree);
 	}
 
 	@Override
-	public boolean isKeyword()
+	protected void assignFunctionsToComponent()
 	{
-		return false;
+		addQuery(new StringBuilder(JSTree.class.cast(getComponent())
+		                                       .getJQueryID() + "jstree('refresh');"));
 	}
 }

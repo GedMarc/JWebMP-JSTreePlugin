@@ -14,12 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree;
+package com.jwebmp.plugins.jstree.options;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jwebmp.plugins.jstree.options.JSTreeNodeStateOptions;
-import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;
+import com.jwebmp.plugins.jstree.JSTreeData;
 
 /**
  * A Tree Node
@@ -28,8 +27,8 @@ import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;
  * @version 1.0
  * @since 22 Dec 2016
  */
-public class JSTreeNode
-		extends JSTreeTypesOptions
+public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
+		extends JSTreeTypesOptions<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -62,8 +61,9 @@ public class JSTreeNode
 	/**
 	 * Constructs an empty tree node
 	 */
-	public JSTreeNode()
+	public JSTreeNodeJS()
 	{
+		//No config required
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class JSTreeNode
 	 * @param typeName
 	 * 		The type of the node if specified
 	 */
-	public JSTreeNode(String id, String text, String typeName)
+	public JSTreeNodeJS(String id, String text, String typeName)
 	{
 		this.id = id;
 		this.text = text;
@@ -90,7 +90,7 @@ public class JSTreeNode
 	 * @param text
 	 * @param state
 	 */
-	public JSTreeNode(String id, String text, JSTreeNodeStateOptions state)
+	public JSTreeNodeJS(String id, String text, JSTreeNodeStateOptions state)
 	{
 		this.id = id;
 		this.text = text;
@@ -105,7 +105,7 @@ public class JSTreeNode
 	 * @param state
 	 * @param typeName
 	 */
-	public JSTreeNode(String id, String text, JSTreeNodeStateOptions state, String typeName)
+	public JSTreeNodeJS(String id, String text, JSTreeNodeStateOptions state, String typeName)
 	{
 		this.id = id;
 		this.text = text;
@@ -121,7 +121,7 @@ public class JSTreeNode
 	 * @param text
 	 * 		The text for the tree
 	 */
-	public JSTreeNode(String id, String text)
+	public JSTreeNodeJS(String id, String text)
 	{
 		this.id = id;
 		this.text = text;
@@ -148,7 +148,20 @@ public class JSTreeNode
 	{
 		if (childNodes == null)
 		{
-			setChildNodes(new JSTreeData());
+			setChildNodes(new JSTreeData()
+			{
+				@Override
+				public StringBuilder renderData()
+				{
+					return new StringBuilder();
+				}
+
+				@Override
+				public StringBuilder renderMassLoad()
+				{
+					return new StringBuilder();
+				}
+			});
 		}
 		return childNodes;
 	}
@@ -160,21 +173,10 @@ public class JSTreeNode
 	 *
 	 * @return
 	 */
-	public JSTreeNode setChildNodes(JSTreeData childNodes)
+	public JSTreeNodeJS setChildNodes(JSTreeData childNodes)
 	{
 		this.childNodes = childNodes;
 		return this;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getId() != null ? getId().hashCode() : 0;
-		result = 31 * result + (getText() != null ? getText().hashCode() : 0);
-		result = 31 * result + getState().hashCode();
-		result = 31 * result + (getTypeName() != null ? getTypeName().hashCode() : 0);
-		result = 31 * result + getChildNodes().hashCode();
-		return result;
 	}
 
 	/**
@@ -194,7 +196,7 @@ public class JSTreeNode
 	 *
 	 * @return
 	 */
-	public JSTreeNode setId(String id)
+	public JSTreeNodeJS setId(String id)
 	{
 		this.id = id;
 		return this;
@@ -218,7 +220,7 @@ public class JSTreeNode
 	 *
 	 * @return
 	 */
-	public JSTreeNode setText(String text)
+	public JSTreeNodeJS setText(String text)
 	{
 		this.text = text;
 		return this;
@@ -242,6 +244,21 @@ public class JSTreeNode
 	}
 
 	/**
+	 * You can set the state on a node using the state property.
+	 * <p>
+	 * Use any combination of the following: opened, selected, disabled.
+	 *
+	 * @param state
+	 *
+	 * @return
+	 */
+	public JSTreeNodeJS setState(JSTreeNodeStateOptions state)
+	{
+		this.state = state;
+		return this;
+	}
+
+	/**
 	 * The type name associated with the node
 	 *
 	 * @return
@@ -258,57 +275,21 @@ public class JSTreeNode
 	 *
 	 * @return
 	 */
-	public JSTreeNode setTypeName(String typeName)
+	public JSTreeNodeJS setTypeName(String typeName)
 	{
 		this.typeName = typeName;
 		return this;
 	}
 
-	/**
-	 * You can set the state on a node using the state property.
-	 * <p>
-	 * Use any combination of the following: opened, selected, disabled.
-	 *
-	 * @param state
-	 *
-	 * @return
-	 */
-	public JSTreeNode setState(JSTreeNodeStateOptions state)
+	@Override
+	public int hashCode()
 	{
-		this.state = state;
-		return this;
+		return super.hashCode();
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JSTreeNode))
-		{
-			return false;
-		}
-
-		JSTreeNode that = (JSTreeNode) o;
-
-		if (getId() != null ? !getId().equals(that.getId()) : that.getId() != null)
-		{
-			return false;
-		}
-		if (getText() != null ? !getText().equals(that.getText()) : that.getText() != null)
-		{
-			return false;
-		}
-		if (!getState().equals(that.getState()))
-		{
-			return false;
-		}
-		if (getTypeName() != null ? !getTypeName().equals(that.getTypeName()) : that.getTypeName() != null)
-		{
-			return false;
-		}
-		return getChildNodes().equals(that.getChildNodes());
+		return super.equals(obj);
 	}
 }

@@ -51,7 +51,7 @@ public class JSTreeOnChangedPluginDirective
 	@Override
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(JSTreeOnChangedPluginDirective.class, "JSTreeOnChangedPlugin")
+		return FileTemplates.getFileTemplate(JSTreeOnChangedPluginDirective.class, "JSTreeOnChangedPlugin", "JSTreeOnChangedPlugin.min.js")
 		                    .toString();
 	}
 

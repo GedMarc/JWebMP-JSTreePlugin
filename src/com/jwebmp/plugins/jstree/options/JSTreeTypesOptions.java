@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.ComponentInformation;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,13 +44,15 @@ import java.util.List;
 @ComponentInformation(name = "JS Tree Types Plugin",
 		description = "This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeTypesOptions extends JavaScriptPart
+public class JSTreeTypesOptions<J extends JSTreeTypesOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use the default icon
+	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use
+	 * the default icon
 	 * from your theme.
 	 */
 	private String icon;
@@ -60,7 +63,8 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	@JsonProperty(value = "max_children")
 	private Integer maxChildren;
 	/**
-	 * the maximum number of nesting this node type can have. A value of 1 would mean that the node can have children, but no grandchildren. Do not specify or set to -1 for unlimited.
+	 * the maximum number of nesting this node type can have. A value of 1 would mean that the node can have children, but no grandchildren. Do not specify or set to -1 for
+	 * unlimited.
 	 */
 	@JsonProperty(value = "max_depth")
 	private Integer maxDepth;
@@ -83,7 +87,7 @@ public class JSTreeTypesOptions extends JavaScriptPart
 
 	public JSTreeTypesOptions()
 	{
-
+		//No config required
 	}
 
 	/**
@@ -97,7 +101,8 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	}
 
 	/**
-	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use the default icon
+	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use
+	 * the default icon
 	 * from your theme.
 	 *
 	 * @return
@@ -108,25 +113,33 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	}
 
 	/**
-	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use the default icon
+	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use
+	 * the default icon
 	 * from your theme.
 	 *
 	 * @param icon
 	 */
-	public void setIcon(Enum icon)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setIcon(Enum icon)
 	{
 		this.icon = icon.toString();
+		return (J) this;
 	}
 
 	/**
-	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use the default icon
+	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use
+	 * the default icon
 	 * from your theme.
 	 *
 	 * @param icon
 	 */
-	public void setIcon(String icon)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setIcon(String icon)
 	{
 		this.icon = icon;
+		return (J) this;
 	}
 
 	/**
@@ -144,13 +157,17 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	 *
 	 * @param maxChildren
 	 */
-	public void setMaxChildren(Integer maxChildren)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMaxChildren(Integer maxChildren)
 	{
 		this.maxChildren = maxChildren;
+		return (J) this;
 	}
 
 	/**
-	 * the maximum number of nesting this node type can have. A value of 1 would mean that the node can have children, but no grandchildren. Do not specify or set to -1 for unlimited.
+	 * the maximum number of nesting this node type can have. A value of 1 would mean that the node can have children, but no grandchildren. Do not specify or set to -1 for
+	 * unlimited.
 	 *
 	 * @return
 	 */
@@ -160,13 +177,17 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	}
 
 	/**
-	 * the maximum number of nesting this node type can have. A value of 1 would mean that the node can have children, but no grandchildren. Do not specify or set to -1 for unlimited.
+	 * the maximum number of nesting this node type can have. A value of 1 would mean that the node can have children, but no grandchildren. Do not specify or set to -1 for
+	 * unlimited.
 	 *
 	 * @param maxDepth
 	 */
-	public void setMaxDepth(Integer maxDepth)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMaxDepth(Integer maxDepth)
 	{
 		this.maxDepth = maxDepth;
+		return (J) this;
 	}
 
 	/**
@@ -188,9 +209,12 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	 *
 	 * @param validChildren
 	 */
-	public void setValidChildren(List<String> validChildren)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setValidChildren(List<String> validChildren)
 	{
 		this.validChildren = validChildren;
+		return (J) this;
 	}
 
 	/**
@@ -208,9 +232,12 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	 *
 	 * @param listItemAttributes
 	 */
-	public void setListItemAttributes(String listItemAttributes)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setListItemAttributes(String listItemAttributes)
 	{
 		this.listItemAttributes = listItemAttributes;
+		return (J) this;
 	}
 
 	/**
@@ -228,9 +255,12 @@ public class JSTreeTypesOptions extends JavaScriptPart
 	 *
 	 * @param linkAttributes
 	 */
-	public void setLinkAttributes(String linkAttributes)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLinkAttributes(String linkAttributes)
 	{
 		this.linkAttributes = linkAttributes;
+		return (J) this;
 	}
 
 }

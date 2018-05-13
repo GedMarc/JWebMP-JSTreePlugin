@@ -24,14 +24,16 @@ import com.jwebmp.htmlbuilder.css.themes.Theme;
  * @version 1.0
  * @since Aug 27, 2016
  */
-public class JSTreeDefaultDarkTheme extends Theme implements JSTreeTheme
+public class JSTreeDefaultDarkTheme
+		extends Theme
+		implements JSTreeTheme
 {
 
 	private static final long serialVersionUID = 1L;
 
 	public JSTreeDefaultDarkTheme()
 	{
-		super("default-dark", "");
+		super("default-dark", "jstreetheme");
 		getCssReferences().add(new CSSReference("JSTreeDefaultDarkTheme", 3.32, "bower_components/jstree/dist/themes/default-dark/style.css"));
 	}
 }

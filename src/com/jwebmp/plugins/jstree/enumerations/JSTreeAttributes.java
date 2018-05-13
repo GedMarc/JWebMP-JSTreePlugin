@@ -14,34 +14,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree.events;
+package com.jwebmp.plugins.jstree.enumerations;
 
-import com.jwebmp.Event;
-import com.jwebmp.htmlbuilder.javascript.events.enumerations.EventTypes;
-import com.jwebmp.plugins.jstree.JSTree;
+import com.jwebmp.base.html.interfaces.AttributeDefinitions;
+
+import static com.jwebmp.utilities.StaticStrings.CHAR_DASH;
+import static com.jwebmp.utilities.StaticStrings.CHAR_UNDERSCORE;
 
 /**
- * Refreshes the data in the tree
- *
  * @author GedMarc
- * @version 1.0
- * @since 29 Dec 2016
  */
-public class JSTreeRefreshEvent
-		extends Event
+public enum JSTreeAttributes
+		implements AttributeDefinitions
 {
+	Data_JsTree;
 
-	private static final long serialVersionUID = 1L;
-
-	public JSTreeRefreshEvent(JSTree tree)
+	JSTreeAttributes()
 	{
-		super("JSTreeRefreshEvent", EventTypes.undefined, tree);
 	}
 
 	@Override
-	protected void assignFunctionsToComponent()
+	public boolean isKeyword()
 	{
-		addQuery(new StringBuilder(JSTree.class.cast(getComponent())
-		                                       .getJQueryID() + "jstree('refresh');"));
+		return false;
+	}
+
+	@Override
+	public String toString()
+	{
+		return super.toString()
+		            .replace(CHAR_UNDERSCORE, CHAR_DASH)
+		            .toLowerCase();
 	}
 }

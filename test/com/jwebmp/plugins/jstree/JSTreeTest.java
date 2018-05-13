@@ -17,6 +17,7 @@
 package com.jwebmp.plugins.jstree;
 
 import com.jwebmp.Page;
+import com.jwebmp.plugins.jstree.options.JSTreeNodeJS;
 import com.jwebmp.plugins.jstree.themes.JSTreeDefaultDarkTheme;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -35,38 +36,85 @@ public class JSTreeTest
 	@Test
 	public void testPreConfigure()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		JSTree tree = new JSTree();
 		tree.setID("id");
 		p.getBody()
 		 .add(tree);
 		System.out.println(p.toString(true));
-
 	}
+
+	@Test
+	public void testJS()
+	{
+		Page<?> p = new Page();
+		JSTree tree = new JSTree();
+		tree.setID("id");
+		p.getBody()
+		 .add(tree);
+		System.out.println("\n" + p.renderJavascript());
+	}
+
+	@Test
+	public void testList()
+	{
+		Page<?> p = new Page();
+		JSTree tree = new JSTree();
+		tree.setID("id");
+		p.getBody()
+		 .add(tree);
+		JSTreeListItem<?> root = new JSTreeListItem<>("Root");
+		root.getOptions()
+		    .setSelected(true)
+		    .setDisabled(false)
+		    .setIcon("fa fa-check")
+		    .setOpened(true);
+
+		JSTreeList<?> list = tree.addRoot(root);
+		list.addItem("Item 1", null)
+		    .setID("node_id_1");
+		list.addItem("Item 2", null);
+		list.addItem("Item 3", null);
+
+
+		System.out.println(p.toString(true));
+	}
+
 
 	@Test
 	public void testGetData()
 	{
 
-		Page p = new Page();
+		Page<?> p = new Page();
 		JSTree tree = new JSTree();
 		tree.setID("id");
-		JSTreeData data = new JSTreeData();
-		JSTreeNode node = new JSTreeNode("id", "text");
+		JSTreeData data = new JSTreeData()
+		{
+			@Override
+			public StringBuilder renderData()
+			{
+				return null;
+			}
+
+			@Override
+			public StringBuilder renderMassLoad()
+			{
+				return null;
+			}
+		};
+		JSTreeNodeJS node = new JSTreeNodeJS("id", "text");
 		data.getNodes()
 		    .add(node);
 
 		Assertions.assertEquals("[{\n" + "  \"id\" : \"id\",\n" + "  \"text\" : \"text\",\n" + "  \"children\" : false\n" + "}]", data.toString());
-
 		System.out.println(data);
-		tree.setData(data);
 		System.out.println(tree.renderJavascript());
 	}
 
 	@Test
 	public void testSetTheme()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		JSTree tree = new JSTree();
 		tree.setID("id");
 		tree.setTheme(new JSTreeDefaultDarkTheme());

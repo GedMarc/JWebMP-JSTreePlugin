@@ -18,7 +18,10 @@ package com.jwebmp.plugins.jstree;
 
 import com.jwebmp.Page;
 import com.jwebmp.PageConfigurator;
+import com.jwebmp.base.angular.AngularPageConfigurator;
 import com.jwebmp.plugins.PluginInformation;
+import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
+import com.jwebmp.plugins.jstree.enumerations.JSTreeReferencePool;
 
 /**
  * @author GedMarc
@@ -26,9 +29,9 @@ import com.jwebmp.plugins.PluginInformation;
 @PluginInformation(pluginName = "JS Tree",
 		pluginUniqueName = "js-tree",
 		pluginDescription = "jsTree functions properly in either box-model (content-box or border-box), can be loaded as an AMD module, and has a built in mobile theme for responsive design, that can easily be customized. It uses jQuery's event system, so binding callbacks on various events in the tree is familiar and easy.",
-		pluginVersion = "1.12.0",
-		pluginDependancyUniqueIDs = "",
-		pluginCategories = "jquery, ui, jqwidgets, jqxwidgets, framework, web",
+		pluginVersion = "3.3.5",
+		pluginDependancyUniqueIDs = "jquery",
+		pluginCategories = "jquery, ui, tree, jstree, framework, web",
 		pluginSubtitle = "jsTree is jquery plugin, that provides interactive trees. ",
 		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-JSTreePlugin",
 		pluginSourceUrl = "https://github.com/vakata/jstree/",
@@ -37,7 +40,7 @@ import com.jwebmp.plugins.PluginInformation;
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/JSTreePlugin.jar/download",
 		pluginIconUrl = "bower_components/jstree/icon.jpg",
 		pluginIconImageUrl = "bower_components/jstree/example.png",
-		pluginLastUpdatedDate = "2017/03/04")
+		pluginLastUpdatedDate = "2018/05/13")
 public class JSTreePageConfigurator
 		extends PageConfigurator
 {
@@ -47,6 +50,12 @@ public class JSTreePageConfigurator
 	@Override
 	public Page configure(Page page)
 	{
+		JQueryPageConfigurator.setRequired(true);
+		AngularPageConfigurator.setRequired(true);
+		if (!page.isConfigured())
+		{
+			page.addJavaScriptReference(JSTreeReferencePool.JSTreeJavascript.getJavaScriptReference());
+		}
 		return page;
 	}
 

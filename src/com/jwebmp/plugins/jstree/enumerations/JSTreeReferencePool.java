@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree;
+package com.jwebmp.plugins.jstree.enumerations;
 
 import com.jwebmp.base.references.CSSReference;
 import com.jwebmp.base.references.JavascriptReference;
@@ -26,7 +26,8 @@ import com.jwebmp.base.servlets.interfaces.ReferencePool;
  * @author GedMarc
  * @since 20 Apr 2016
  */
-public enum JSTreeReferencePool implements ReferencePool
+public enum JSTreeReferencePool
+		implements ReferencePool
 {
 	JSTreeJavascript(new JavascriptReference("JSTree", 3.32, "bower_components/jstree/dist/jstree.js", "https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js", 10),
 	                 null);

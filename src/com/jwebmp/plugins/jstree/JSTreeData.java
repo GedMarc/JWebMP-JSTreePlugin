@@ -18,9 +18,11 @@ package com.jwebmp.plugins.jstree;
 
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.jwebmp.base.servlets.interfaces.IDataComponent;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
-import com.jwebmp.htmlbuilder.javascript.JavascriptPartType;
+import com.jwebmp.plugins.jstree.options.JSTreeNodeJS;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,9 @@ import java.util.List;
  * @version 1.0
  * @since 22 Dec 2016
  */
-public class JSTreeData extends JavaScriptPart
+public abstract class JSTreeData<J extends JSTreeData<J>>
+		extends JavaScriptPart<J>
+		implements IDataComponent<JSTreeData>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -37,7 +41,7 @@ public class JSTreeData extends JavaScriptPart
 	 * The list of nodes
 	 */
 
-	private List<JSTreeNode> nodes;
+	private List<JSTreeNodeJS<?>> nodes;
 
 	/**
 	 * Constructs a new instance of tree data
@@ -51,13 +55,20 @@ public class JSTreeData extends JavaScriptPart
 	}
 
 	/**
+	 * Used for when mass loading lazy children and state is enabled
+	 *
+	 * @return
+	 */
+	public abstract StringBuilder renderMassLoad();
+
+	/**
 	 * Returns all the nodes currently associated with this tree
 	 *
 	 * @return
 	 */
 	@JsonRawValue
 	@JsonValue
-	public List<JSTreeNode> getNodes()
+	public List<JSTreeNodeJS<?>> getNodes()
 	{
 		if (nodes == null)
 		{
@@ -71,34 +82,41 @@ public class JSTreeData extends JavaScriptPart
 	 *
 	 * @param nodes
 	 */
-	public void setNodes(List<JSTreeNode> nodes)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setNodes(List<JSTreeNodeJS<?>> nodes)
 	{
 		this.nodes = nodes;
+		return (J) this;
 	}
 
-	@Override
-	public JavascriptPartType getJavascriptType()
+	public JSTreeNodeJS findNode(String id)
 	{
-		return JavascriptPartType.JSON;
-	}
-
-	public JSTreeNode findNode(String id)
-	{
-		JSTreeNode found;
+		JSTreeNodeJS found;
 		found = findNode(getNodes(), id);
 		return found;
 	}
 
-	private JSTreeNode findNode(List<JSTreeNode> nodes, String id)
+	/**
+	 * Goes through the list and retrieves the node with the given id
+	 *
+	 * @param nodes
+	 * @param id
+	 *
+	 * @return
+	 */
+	protected JSTreeNodeJS<?> findNode(List<JSTreeNodeJS<?>> nodes, String id)
 	{
-		JSTreeNode found;
-		for (JSTreeNode next : nodes)
+		JSTreeNodeJS<?> found;
+		for (JSTreeNodeJS<?> next : nodes)
 		{
-			if (next.getId().equals(id))
+			if (next.getId()
+			        .equals(id))
 			{
 				return next;
 			}
-			if ((found = next.getChildNodes().findNode(id)) != null)
+			if ((found = next.getChildNodes()
+			                 .findNode(id)) != null)
 			{
 				return found;
 			}

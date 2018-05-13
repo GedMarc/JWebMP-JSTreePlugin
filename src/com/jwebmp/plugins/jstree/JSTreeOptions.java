@@ -23,6 +23,7 @@ import com.jwebmp.plugins.jstree.options.*;
 import com.jwebmp.plugins.jstree.plugins.JSTreePlugins;
 import com.jwebmp.plugins.jstree.plugins.onchangedevent.JSTreeOnChangedPluginAdapter;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +41,8 @@ import static com.jwebmp.utilities.StaticStrings.STRING_HASH;
  * 		<p>
  * @since Dec 22, 2016
  */
-public class JSTreeOptions
-		extends JavaScriptPart
+public class JSTreeOptions<J extends JSTreeOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -49,11 +50,11 @@ public class JSTreeOptions
 	/**
 	 * holds all the default options used when creating new instances
 	 */
-	private JSTreeDefaultOptions defaults;
+	private JSTreeDefaultOptions<?> defaults;
 	/**
 	 * holds all jstree related functions and variables, including the actual class and methods to create, access and manipulate instances.
 	 */
-	private JSTreeCoreOptions core;
+	private JSTreeCoreOptions<?> core;
 
 	/**
 	 * stores all loaded jstree plugins (used internally)
@@ -87,13 +88,13 @@ public class JSTreeOptions
 	 * Undetermined state is automatically calculated, but if you are using AJAX and loading on demand and want to render a node as undetermined pass "undetermined" : true in its
 	 * state.
 	 */
-	private JSTreeCheckboxOptions checkbox;
+	private JSTreeCheckboxOptions<?> checkbox;
 
 	/**
 	 * This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.
 	 */
 	@JsonProperty("contextmenu")
-	private JSTreeContextMenuOptions contextMenu;
+	private JSTreeContextMenuOptions<?> contextMenu;
 	/**
 	 * This plugin makes it possible to drag and drop tree nodes and rearrange the tree.
 	 */
@@ -103,11 +104,11 @@ public class JSTreeOptions
 	 * This plugin makes it possible to load nodes in a single request (used with lazy loading).
 	 */
 	@JsonProperty("massload")
-	private JSTreeAjaxConfigOptions massLoad;
+	private JSTreeAjaxConfigOptions<?> massLoad;
 	/**
 	 * This plugin adds the possibility to search for items in the tree and even to show only matching nodes.
 	 */
-	private JSTreeSearchOptions search;
+	private JSTreeSearchOptions<?> search;
 
 	/**
 	 * This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.
@@ -117,18 +118,18 @@ public class JSTreeOptions
 	/**
 	 * This plugin saves all opened and selected nodes in the user's browser, so when returning to the same tree the previous state will be restored.
 	 */
-	private JSTreeStateOptions state;
+	private JSTreeStateOptions<?> state;
 	/**
 	 * This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.
 	 */
-	private Map<String, JSTreeTypesOptions> types;
+	private Map<String, JSTreeTypesOptions<?>> types;
 
 	/**
 	 * Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains
 	 * a node with the
 	 * same name.
 	 */
-	private JSTreeUniqueOptions unique;
+	private JSTreeUniqueOptions<?> unique;
 
 	/**
 	 *
@@ -136,15 +137,9 @@ public class JSTreeOptions
 	@JsonIgnore
 	private boolean wholeRowSelection;
 
-	/**
-	 * A reference back to the tree
-	 */
-	@JsonIgnore
-	private JSTree tree;
-
-	public JSTreeOptions(JSTree tree)
+	public JSTreeOptions()
 	{
-		this.tree = tree;
+		//No Config Needed
 	}
 
 	/**
@@ -152,7 +147,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeDefaultOptions getDefaults()
+	public JSTreeDefaultOptions<?> getDefaults()
 	{
 		if (defaults == null)
 		{
@@ -166,9 +161,12 @@ public class JSTreeOptions
 	 *
 	 * @param defaults
 	 */
-	public void setDefaults(JSTreeDefaultOptions defaults)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDefaults(JSTreeDefaultOptions<?> defaults)
 	{
 		this.defaults = defaults;
+		return (J) this;
 	}
 
 	/**
@@ -186,9 +184,12 @@ public class JSTreeOptions
 	 *
 	 * @param version
 	 */
-	public void setVersion(String version)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setVersion(String version)
 	{
 		this.version = version;
+		return (J) this;
 	}
 
 	/**
@@ -213,7 +214,9 @@ public class JSTreeOptions
 	 * @param event
 	 * 		The event needed if enabled
 	 */
-	public void setExtendedChangeDetails(boolean extendedChangeDetails, JSTreeOnChangedPluginAdapter event)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setExtendedChangeDetails(JSTree tree, boolean extendedChangeDetails, JSTreeOnChangedPluginAdapter event)
 	{
 		this.extendedChangeDetails = extendedChangeDetails;
 		if (this.extendedChangeDetails)
@@ -225,6 +228,7 @@ public class JSTreeOptions
 		{
 			getPlugins().remove(JSTreePlugins.Changed);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -246,29 +250,12 @@ public class JSTreeOptions
 	 *
 	 * @param plugins
 	 */
-	public void setPlugins(List<JSTreePlugins> plugins)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setPlugins(List<JSTreePlugins> plugins)
 	{
 		this.plugins = plugins;
-	}
-
-	/**
-	 * A reference back to the tree
-	 *
-	 * @return
-	 */
-	public JSTree getTree()
-	{
-		return tree;
-	}
-
-	/**
-	 * A reference back to the tree
-	 *
-	 * @param tree
-	 */
-	public void setTree(JSTree tree)
-	{
-		this.tree = tree;
+		return (J) this;
 	}
 
 	/**
@@ -288,7 +275,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeCheckboxOptions getCheckbox()
+	public JSTreeCheckboxOptions<?> getCheckbox()
 	{
 		if (checkbox == null)
 		{
@@ -315,13 +302,16 @@ public class JSTreeOptions
 	 *
 	 * @param checkbox
 	 */
-	public void setCheckbox(JSTreeCheckboxOptions checkbox)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCheckbox(JSTreeCheckboxOptions<?> checkbox)
 	{
 		if (checkbox != null)
 		{
 			getPlugins().add(JSTreePlugins.Checkbox);
 		}
 		this.checkbox = checkbox;
+		return (J) this;
 	}
 
 	/**
@@ -329,11 +319,11 @@ public class JSTreeOptions
 	 *
 	 * @return never null
 	 */
-	public JSTreeContextMenuOptions getContextMenu()
+	public JSTreeContextMenuOptions<?> getContextMenu()
 	{
 		if (contextMenu == null)
 		{
-			contextMenu = new JSTreeContextMenuOptions();
+			contextMenu = new JSTreeContextMenuOptions<>();
 			getPlugins().add(JSTreePlugins.ContextMenu);
 		}
 		return contextMenu;
@@ -344,13 +334,16 @@ public class JSTreeOptions
 	 *
 	 * @param contextMenu
 	 */
-	public void setContextMenu(JSTreeContextMenuOptions contextMenu)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setContextMenu(JSTreeContextMenuOptions<?> contextMenu)
 	{
 		if (contextMenu != null)
 		{
 			getPlugins().add(JSTreePlugins.ContextMenu);
 		}
 		this.contextMenu = contextMenu;
+		return (J) this;
 	}
 
 	/**
@@ -373,13 +366,16 @@ public class JSTreeOptions
 	 *
 	 * @param dragAndDrop
 	 */
-	public void setDragAndDrop(JSTreeDragAndDropOptions dragAndDrop)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDragAndDrop(JSTreeDragAndDropOptions dragAndDrop)
 	{
 		this.dragAndDrop = dragAndDrop;
 		if (dragAndDrop != null)
 		{
 			getPlugins().add(JSTreePlugins.DnD);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -387,7 +383,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeAjaxConfigOptions getMassLoad()
+	public JSTreeAjaxConfigOptions<?> getMassLoad()
 	{
 		if (massLoad == null)
 		{
@@ -403,7 +399,9 @@ public class JSTreeOptions
 	 *
 	 * @param massLoad
 	 */
-	public void setMassLoad(JSTreeAjaxConfigOptions massLoad)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMassLoad(JSTreeAjaxConfigOptions<?> massLoad)
 	{
 		this.massLoad = massLoad;
 		if (massLoad != null)
@@ -411,6 +409,7 @@ public class JSTreeOptions
 			getPlugins().add(JSTreePlugins.Massload);
 			getPlugins().add(JSTreePlugins.State);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -418,7 +417,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeSearchOptions getSearch()
+	public JSTreeSearchOptions<?> getSearch()
 	{
 		if (search == null)
 		{
@@ -432,13 +431,16 @@ public class JSTreeOptions
 	 *
 	 * @param search
 	 */
-	public void setSearch(JSTreeSearchOptions search)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSearch(JSTreeSearchOptions<?> search)
 	{
 		this.search = search;
 		if (search != null)
 		{
 			getPlugins().add(JSTreePlugins.Search);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -456,13 +458,16 @@ public class JSTreeOptions
 	 *
 	 * @param sort
 	 */
-	public void setSort(boolean sort)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSort(boolean sort)
 	{
 		this.sort = sort;
 		if (sort)
 		{
 			getPlugins().add(JSTreePlugins.Sort);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -470,7 +475,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeStateOptions getState()
+	public JSTreeStateOptions<?> getState()
 	{
 		if (state == null)
 		{
@@ -484,13 +489,16 @@ public class JSTreeOptions
 	 *
 	 * @param state
 	 */
-	public void setState(JSTreeStateOptions state)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setState(JSTreeStateOptions<?> state)
 	{
 		this.state = state;
 		if (state != null)
 		{
 			getPlugins().add(JSTreePlugins.State);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -498,7 +506,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeTypesOptions addRootType()
+	public JSTreeTypesOptions<?> addRootType()
 	{
 		JSTreeTypesOptions type = new JSTreeTypesOptions();
 		getTypes().put(STRING_HASH, type);
@@ -510,7 +518,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public Map<String, JSTreeTypesOptions> getTypes()
+	public Map<String, JSTreeTypesOptions<?>> getTypes()
 	{
 		if (types == null)
 		{
@@ -525,13 +533,16 @@ public class JSTreeOptions
 	 *
 	 * @param types
 	 */
-	public void setTypes(Map<String, JSTreeTypesOptions> types)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTypes(Map<String, JSTreeTypesOptions<?>> types)
 	{
 		this.types = types;
 		if (types != null)
 		{
 			getPlugins().add(JSTreePlugins.Types);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -539,7 +550,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeTypesOptions addDefaultNodeType()
+	public JSTreeTypesOptions<?> addDefaultNodeType()
 	{
 		JSTreeTypesOptions type = new JSTreeTypesOptions();
 		getTypes().put("default", type);
@@ -553,7 +564,7 @@ public class JSTreeOptions
 	 *
 	 * @return not null, calling enables
 	 */
-	public JSTreeUniqueOptions getUnique()
+	public JSTreeUniqueOptions<?> getUnique()
 	{
 		if (unique == null)
 		{
@@ -569,13 +580,16 @@ public class JSTreeOptions
 	 *
 	 * @param unique
 	 */
-	public void setUnique(JSTreeUniqueOptions unique)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setUnique(JSTreeUniqueOptions<?> unique)
 	{
 		this.unique = unique;
 		if (unique != null)
 		{
 			getPlugins().add(JSTreePlugins.Unique);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -593,13 +607,16 @@ public class JSTreeOptions
 	 *
 	 * @param wholeRowSelection
 	 */
-	public void setWholeRowSelection(boolean wholeRowSelection)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setWholeRowSelection(boolean wholeRowSelection)
 	{
 		this.wholeRowSelection = wholeRowSelection;
 		if (wholeRowSelection)
 		{
 			getPlugins().add(JSTreePlugins.WholeRow);
 		}
+		return (J) this;
 	}
 
 	/**
@@ -607,7 +624,7 @@ public class JSTreeOptions
 	 *
 	 * @return
 	 */
-	public JSTreeCoreOptions getCore()
+	public JSTreeCoreOptions<?> getCore()
 	{
 		if (core == null)
 		{
@@ -621,9 +638,11 @@ public class JSTreeOptions
 	 *
 	 * @param core
 	 */
-	public void setCore(JSTreeCoreOptions core)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCore(JSTreeCoreOptions<?> core)
 	{
 		this.core = core;
+		return (J) this;
 	}
-
 }

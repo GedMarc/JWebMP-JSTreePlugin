@@ -19,6 +19,8 @@ package com.jwebmp.plugins.jstree.options;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * theme configuration object
  *
@@ -26,7 +28,8 @@ import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
  * @version 1.0
  * @since 22 Dec 2016
  */
-public class JSTreeThemeOptions extends JavaScriptPart
+public class JSTreeThemeOptions<J extends JSTreeThemeOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -74,7 +77,8 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	@JsonProperty("expand_selected_onload")
 	private Boolean expandSelectedOnLoad;
 	/**
-	 * if left as true web workers will be used to parse incoming JSON data where possible, so that the UI will not be blocked by large requests. Workers are however about 30% slower. Defaults to true
+	 * if left as true web workers will be used to parse incoming JSON data where possible, so that the UI will not be blocked by large requests. Workers are however about 30%
+	 * slower. Defaults to true
 	 */
 	private Boolean worker;
 	/**
@@ -108,9 +112,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param name
 	 */
-	public void setName(String name)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setName(String name)
 	{
 		this.name = name;
+		return (J) this;
 	}
 
 	/**
@@ -126,13 +133,17 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	}
 
 	/**
-	 * the URL of the theme's CSS file, leave this as false if you have manually included the theme CSS (recommended). You can set this to true too which will try to autoload the theme.
+	 * the URL of the theme's CSS file, leave this as false if you have manually included the theme CSS (recommended). You can set this to true too which will try to autoload the
+	 * theme.
 	 *
 	 * @param url
 	 */
-	public void setUrl(String url)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setUrl(String url)
 	{
 		this.url = url;
+		return (J) this;
 	}
 
 	/**
@@ -150,9 +161,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param dir
 	 */
-	public void setDir(String dir)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDir(String dir)
 	{
 		this.dir = dir;
+		return (J) this;
 	}
 
 	/**
@@ -170,9 +184,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param dots
 	 */
-	public void setDots(Boolean dots)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDots(Boolean dots)
 	{
 		this.dots = dots;
+		return (J) this;
 	}
 
 	/**
@@ -190,9 +207,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param icons
 	 */
-	public void setIcons(Boolean icons)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setIcons(Boolean icons)
 	{
 		this.icons = icons;
+		return (J) this;
 	}
 
 	/**
@@ -210,9 +230,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param ellipsis
 	 */
-	public void setEllipsis(Boolean ellipsis)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEllipsis(Boolean ellipsis)
 	{
 		this.ellipsis = ellipsis;
+		return (J) this;
 	}
 
 	/**
@@ -230,9 +253,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param striped
 	 */
-	public void setStriped(Boolean striped)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStriped(Boolean striped)
 	{
 		this.striped = striped;
+		return (J) this;
 	}
 
 	/**
@@ -250,9 +276,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param variant
 	 */
-	public void setVariant(String variant)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setVariant(String variant)
 	{
 		this.variant = variant;
+		return (J) this;
 	}
 
 	/**
@@ -270,9 +299,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param responsive
 	 */
-	public void setResponsive(Boolean responsive)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setResponsive(Boolean responsive)
 	{
 		this.responsive = responsive;
+		return (J) this;
 	}
 
 	/**
@@ -290,9 +322,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param expandSelectedOnLoad
 	 */
-	public void setExpandSelectedOnLoad(Boolean expandSelectedOnLoad)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setExpandSelectedOnLoad(Boolean expandSelectedOnLoad)
 	{
 		this.expandSelectedOnLoad = expandSelectedOnLoad;
+		return (J) this;
 	}
 
 	/**
@@ -314,9 +349,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param worker
 	 */
-	public void setWorker(Boolean worker)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setWorker(Boolean worker)
 	{
 		this.worker = worker;
+		return (J) this;
 	}
 
 	/**
@@ -334,9 +372,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param forceText
 	 */
-	public void setForceText(Boolean forceText)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setForceText(Boolean forceText)
 	{
 		this.forceText = forceText;
+		return (J) this;
 	}
 
 	/**
@@ -354,9 +395,12 @@ public class JSTreeThemeOptions extends JavaScriptPart
 	 *
 	 * @param dblClickToggle
 	 */
-	public void setDblClickToggle(Boolean dblClickToggle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDblClickToggle(Boolean dblClickToggle)
 	{
 		this.dblClickToggle = dblClickToggle;
+		return (J) this;
 	}
 
 }

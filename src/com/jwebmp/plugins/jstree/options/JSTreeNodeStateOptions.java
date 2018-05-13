@@ -18,6 +18,8 @@ package com.jwebmp.plugins.jstree.options;
 
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * You can set the state on a node using the state property.
  * <p>
@@ -27,7 +29,8 @@ import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
  * @version 1.0
  * @since 02 Jan 2017
  */
-public class JSTreeNodeStateOptions extends JavaScriptPart
+public class JSTreeNodeStateOptions<J extends JSTreeNodeStateOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -67,10 +70,12 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 	 *
 	 * @return
 	 */
-	public JSTreeNodeStateOptions setOpened(Boolean opened)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setOpened(Boolean opened)
 	{
 		this.opened = opened;
-		return this;
+		return (J) this;
 	}
 
 	/**
@@ -90,10 +95,12 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 	 *
 	 * @return
 	 */
-	public JSTreeNodeStateOptions setDisabled(Boolean disabled)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDisabled(Boolean disabled)
 	{
 		this.disabled = disabled;
-		return this;
+		return (J) this;
 	}
 
 	/**
@@ -113,10 +120,12 @@ public class JSTreeNodeStateOptions extends JavaScriptPart
 	 *
 	 * @return
 	 */
-	public JSTreeNodeStateOptions setSelected(Boolean selected)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSelected(Boolean selected)
 	{
 		this.selected = selected;
-		return this;
+		return (J) this;
 	}
 
 }

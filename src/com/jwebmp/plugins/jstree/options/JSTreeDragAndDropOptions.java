@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
 import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.plugins.jstree.options.enumerations.JSTreeDragAndDropInsidePosition;
 
 /**
  * This plugin makes it possible to drag and drop tree nodes and rearrange the tree.
@@ -31,7 +32,8 @@ import com.jwebmp.plugins.ComponentInformation;
 @ComponentInformation(name = "JS Tree Drag And Drop Plugin",
 		description = "This plugin makes it possible to drag and drop tree nodes and rearrange the tree.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeDragAndDropOptions extends JavaScriptPart
+public class JSTreeDragAndDropOptions
+		extends JavaScriptPart
 {
 
 	private static final long serialVersionUID = 1L;
@@ -46,7 +48,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	private Integer openTimeout;
 
 	/**
-	 * a function invoked each time a node is about to be dragged, invoked in the tree's scope and receives the nodes about to be dragged as an argument (array) and the event that started the drag -
+	 * a function invoked each time a node is about to be dragged, invoked in the tree's scope and receives the nodes about to be dragged as an argument (array) and the event that
+	 * started the drag -
 	 * return false to prevent dragging
 	 */
 	@JsonProperty("is_draggable")
@@ -67,24 +70,28 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	@JsonProperty("inside_pos")
 	private JSTreeDragAndDropInsidePosition insidePosition;
 	/**
-	 * when starting the drag on a node that is selected this setting controls if all selected nodes are dragged or only the single node, default is true, which means all selected nodes are dragged
+	 * when starting the drag on a node that is selected this setting controls if all selected nodes are dragged or only the single node, default is true, which means all selected
+	 * nodes are dragged
 	 * when the drag is started on a selected node
 	 */
 	@JsonProperty("drag_selection")
 	private Boolean dragSelection;
 	/**
-	 * controls whether dnd works on touch devices. If left as boolean true dnd will work the same as in desktop browsers, which in some cases may impair scrolling. If set to boolean false dnd will
+	 * controls whether dnd works on touch devices. If left as boolean true dnd will work the same as in desktop browsers, which in some cases may impair scrolling. If set to
+	 * boolean false dnd will
 	 * not work on touch devices. There is a special third option - string "selected" which means only selected nodes can be dragged on touch devices.
 	 */
 	private String touch;
 	/**
-	 * controls whether items can be dropped anywhere on the node, not just on the anchor, by default only the node anchor is a valid drop target. Works best with the wholerow plugin. If enabled on
+	 * controls whether items can be dropped anywhere on the node, not just on the anchor, by default only the node anchor is a valid drop target. Works best with the wholerow
+	 * plugin. If enabled on
 	 * mobile depending on the interface it might be hard for the user to cancel the drop, since the whole tree container will be a valid drop target.
 	 */
 	@JsonProperty("large_drop_target")
 	private Boolean largeDropTarget;
 	/**
-	 * controls whether a drag can be initiated from any part of the node and not just the text/icon part, works best with the wholerow plugin. Keep in mind it can cause problems with tree scrolling
+	 * controls whether a drag can be initiated from any part of the node and not just the text/icon part, works best with the wholerow plugin. Keep in mind it can cause problems
+	 * with tree scrolling
 	 * on mobile depending on the interface - in that case set the touch option to "selected".
 	 */
 	@JsonProperty("large_drag_target")
@@ -141,7 +148,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * a function invoked each time a node is about to be dragged, invoked in the tree's scope and receives the nodes about to be dragged as an argument (array) and the event that started the drag -
+	 * a function invoked each time a node is about to be dragged, invoked in the tree's scope and receives the nodes about to be dragged as an argument (array) and the event that
+	 * started the drag -
 	 * return false to prevent dragging
 	 *
 	 * @return
@@ -152,7 +160,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * a function invoked each time a node is about to be dragged, invoked in the tree's scope and receives the nodes about to be dragged as an argument (array) and the event that started the drag -
+	 * a function invoked each time a node is about to be dragged, invoked in the tree's scope and receives the nodes about to be dragged as an argument (array) and the event that
+	 * started the drag -
 	 * return false to prevent dragging
 	 *
 	 * @param isDraggable
@@ -223,7 +232,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * when starting the drag on a node that is selected this setting controls if all selected nodes are dragged or only the single node, default is true, which means all selected nodes are dragged
+	 * when starting the drag on a node that is selected this setting controls if all selected nodes are dragged or only the single node, default is true, which means all selected
+	 * nodes are dragged
 	 * when the drag is started on a selected node
 	 *
 	 * @return
@@ -234,7 +244,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * when starting the drag on a node that is selected this setting controls if all selected nodes are dragged or only the single node, default is true, which means all selected nodes are dragged
+	 * when starting the drag on a node that is selected this setting controls if all selected nodes are dragged or only the single node, default is true, which means all selected
+	 * nodes are dragged
 	 * when the drag is started on a selected node
 	 *
 	 * @param dragSelection
@@ -245,7 +256,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * controls whether dnd works on touch devices. If left as boolean true dnd will work the same as in desktop browsers, which in some cases may impair scrolling. If set to boolean false dnd will
+	 * controls whether dnd works on touch devices. If left as boolean true dnd will work the same as in desktop browsers, which in some cases may impair scrolling. If set to
+	 * boolean false dnd will
 	 * not work on touch devices. There is a special third option - string "selected" which means only selected nodes can be dragged on touch devices.
 	 *
 	 * @return
@@ -256,7 +268,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * controls whether dnd works on touch devices. If left as boolean true dnd will work the same as in desktop browsers, which in some cases may impair scrolling. If set to boolean false dnd will
+	 * controls whether dnd works on touch devices. If left as boolean true dnd will work the same as in desktop browsers, which in some cases may impair scrolling. If set to
+	 * boolean false dnd will
 	 * not work on touch devices. There is a special third option - string "selected" which means only selected nodes can be dragged on touch devices.
 	 *
 	 * @param touch
@@ -267,7 +280,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * controls whether items can be dropped anywhere on the node, not just on the anchor, by default only the node anchor is a valid drop target. Works best with the wholerow plugin. If enabled on
+	 * controls whether items can be dropped anywhere on the node, not just on the anchor, by default only the node anchor is a valid drop target. Works best with the wholerow
+	 * plugin. If enabled on
 	 * mobile depending on the interface it might be hard for the user to cancel the drop, since the whole tree container will be a valid drop target.
 	 *
 	 * @return
@@ -278,7 +292,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * controls whether items can be dropped anywhere on the node, not just on the anchor, by default only the node anchor is a valid drop target. Works best with the wholerow plugin. If enabled on
+	 * controls whether items can be dropped anywhere on the node, not just on the anchor, by default only the node anchor is a valid drop target. Works best with the wholerow
+	 * plugin. If enabled on
 	 * mobile depending on the interface it might be hard for the user to cancel the drop, since the whole tree container will be a valid drop target.
 	 *
 	 * @param largeDropTarget
@@ -289,7 +304,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * controls whether a drag can be initiated from any part of the node and not just the text/icon part, works best with the wholerow plugin. Keep in mind it can cause problems with tree scrolling
+	 * controls whether a drag can be initiated from any part of the node and not just the text/icon part, works best with the wholerow plugin. Keep in mind it can cause problems
+	 * with tree scrolling
 	 * on mobile depending on the interface - in that case set the touch option to "selected".
 	 *
 	 * @return
@@ -300,7 +316,8 @@ public class JSTreeDragAndDropOptions extends JavaScriptPart
 	}
 
 	/**
-	 * controls whether a drag can be initiated from any part of the node and not just the text/icon part, works best with the wholerow plugin. Keep in mind it can cause problems with tree scrolling
+	 * controls whether a drag can be initiated from any part of the node and not just the text/icon part, works best with the wholerow plugin. Keep in mind it can cause problems
+	 * with tree scrolling
 	 * on mobile depending on the interface - in that case set the touch option to "selected".
 	 *
 	 * @param largeDragTarget

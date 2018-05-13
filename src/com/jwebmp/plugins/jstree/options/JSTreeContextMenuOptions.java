@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.ComponentInformation;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.
  * <p>
@@ -32,7 +34,8 @@ import com.jwebmp.plugins.ComponentInformation;
 @ComponentInformation(name = "JS Tree Context Menu Plugin",
 		description = "This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeContextMenuOptions extends JavaScriptPart
+public class JSTreeContextMenuOptions<J extends JSTreeContextMenuOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -48,10 +51,11 @@ public class JSTreeContextMenuOptions extends JavaScriptPart
 	@JsonProperty("show_at_node")
 	private Boolean showAtNode;
 	/**
-	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
+	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can
+	 * also return the items
 	 * too).
 	 */
-	private JSTreeContextMenuItemsOptions items;
+	private JSTreeContextMenuItemsOptions<?> items;
 
 	public JSTreeContextMenuOptions()
 	{
@@ -73,9 +77,12 @@ public class JSTreeContextMenuOptions extends JavaScriptPart
 	 *
 	 * @param selectNode
 	 */
-	public void setSelectNode(Boolean selectNode)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSelectNode(Boolean selectNode)
 	{
 		this.selectNode = selectNode;
+		return (J) this;
 	}
 
 	/**
@@ -93,18 +100,22 @@ public class JSTreeContextMenuOptions extends JavaScriptPart
 	 *
 	 * @param showAtNode
 	 */
-	public void setShowAtNode(Boolean showAtNode)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowAtNode(Boolean showAtNode)
 	{
 		this.showAtNode = showAtNode;
+		return (J) this;
 	}
 
 	/**
-	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
+	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can
+	 * also return the items
 	 * too).
 	 *
 	 * @return never null
 	 */
-	public JSTreeContextMenuItemsOptions getItems()
+	public JSTreeContextMenuItemsOptions<?> getItems()
 	{
 		if (items == null)
 		{
@@ -114,14 +125,18 @@ public class JSTreeContextMenuOptions extends JavaScriptPart
 	}
 
 	/**
-	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
+	 * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can
+	 * also return the items
 	 * too).
 	 *
 	 * @param items
 	 */
-	public void setItems(JSTreeContextMenuItemsOptions items)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setItems(JSTreeContextMenuItemsOptions<?> items)
 	{
 		this.items = items;
+		return (J) this;
 	}
 
 }

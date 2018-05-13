@@ -20,6 +20,8 @@ import com.jwebmp.base.client.HttpMethodTypes;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * All the configuration options, this class should be the jquery ajax options class
  *
@@ -27,8 +29,8 @@ import com.jwebmp.plugins.jstree.options.functions.JSTreeCoreDataFunction;
  * @version 1.0
  * @since 22 Dec 2016
  */
-public class JSTreeAjaxConfigOptions
-		extends JavaScriptPart
+public class JSTreeAjaxConfigOptions<J extends JSTreeAjaxConfigOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -44,7 +46,7 @@ public class JSTreeAjaxConfigOptions
 	 * processing. Object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the traditional setting (described
 	 * below).
 	 */
-	private JSTreeCoreDataFunction data;
+	private JSTreeCoreDataFunction<?> data;
 	/**
 	 * If set to false, it will force requested pages not to be cached by the browser. Note: Setting cache to false will only work correctly with HEAD and GET requests. It works by
 	 * appending
@@ -89,9 +91,12 @@ public class JSTreeAjaxConfigOptions
 	 *
 	 * @param url
 	 */
-	public void setUrl(String url)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setUrl(String url)
 	{
 		this.url = url;
+		return (J) this;
 	}
 
 	/**
@@ -102,7 +107,7 @@ public class JSTreeAjaxConfigOptions
 	 *
 	 * @return
 	 */
-	public JSTreeCoreDataFunction getData()
+	public JSTreeCoreDataFunction<?> getData()
 	{
 		return data;
 	}
@@ -115,9 +120,12 @@ public class JSTreeAjaxConfigOptions
 	 *
 	 * @param data
 	 */
-	public void setData(JSTreeCoreDataFunction data)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setData(JSTreeCoreDataFunction<?> data)
 	{
 		this.data = data;
+		return (J) this;
 	}
 
 	/**
@@ -141,9 +149,12 @@ public class JSTreeAjaxConfigOptions
 	 *
 	 * @param cache
 	 */
-	public void setCache(Boolean cache)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCache(Boolean cache)
 	{
 		this.cache = cache;
+		return (J) this;
 	}
 
 	/**
@@ -169,9 +180,12 @@ public class JSTreeAjaxConfigOptions
 	 *
 	 * @param dataType
 	 */
-	public void setDataType(String dataType)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDataType(String dataType)
 	{
 		this.dataType = dataType;
+		return (J) this;
 	}
 
 	public HttpMethodTypes getType()
@@ -179,9 +193,23 @@ public class JSTreeAjaxConfigOptions
 		return type;
 	}
 
-	public void setType(HttpMethodTypes type)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setType(HttpMethodTypes type)
 	{
 		this.type = type;
+		return (J) this;
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return super.equals(obj);
+	}
 }

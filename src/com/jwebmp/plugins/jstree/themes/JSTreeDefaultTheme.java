@@ -24,14 +24,16 @@ import com.jwebmp.htmlbuilder.css.themes.Theme;
  * @version 1.0
  * @since Aug 27, 2016
  */
-public class JSTreeDefaultTheme extends Theme implements JSTreeTheme
+public class JSTreeDefaultTheme
+		extends Theme
+		implements JSTreeTheme
 {
 
 	private static final long serialVersionUID = 1L;
 
 	public JSTreeDefaultTheme()
 	{
-		super("JSTreeDefaulTheme", "");
+		super("JSTreeDefaulTheme", "jstreetheme");
 		getCssReferences().add(new CSSReference("JSTreeDefaultTheme", 3.32, "bower_components/jstree/dist/themes/default/style.css"));
 	}
 }

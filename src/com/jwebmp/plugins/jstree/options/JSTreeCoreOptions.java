@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
 
+import javax.validation.constraints.NotNull;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -28,8 +29,8 @@ import java.util.TreeMap;
  * @version 1.0
  * @since 22 Dec 2016
  */
-public class JSTreeCoreOptions
-		extends JavaScriptPart
+public class JSTreeCoreOptions<J extends JSTreeCoreOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -45,7 +46,7 @@ public class JSTreeCoreOptions
 	 * param which is a
 	 * function which should be called with the result.
 	 */
-	private JSTreeAjaxConfigOptions data;
+	private JSTreeAjaxConfigOptions<?> data;
 	/**
 	 * configure the various strings used throughout the tree You can use an object where the key is the string you need to replace and the value is your replacement. Another
 	 * option is to specify a
@@ -72,7 +73,7 @@ public class JSTreeCoreOptions
 	/**
 	 * theme configuration object
 	 */
-	private JSTreeThemeOptions themes;
+	private JSTreeThemeOptions<?> themes;
 	/**
 	 * if left as true web workers will be used to parse incoming JSON data where possible, so that the UI will not be blocked by large requests. Workers are however about 30%
 	 * slower. Defaults to true
@@ -108,11 +109,11 @@ public class JSTreeCoreOptions
 	 *
 	 * @return
 	 */
-	public JSTreeAjaxConfigOptions getData()
+	public JSTreeAjaxConfigOptions<?> getData()
 	{
 		if (data == null)
 		{
-			data = new JSTreeAjaxConfigOptions();
+			data = new JSTreeAjaxConfigOptions<>();
 		}
 		return data;
 	}
@@ -130,9 +131,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param data
 	 */
-	public void setData(JSTreeAjaxConfigOptions data)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setData(JSTreeAjaxConfigOptions<?> data)
 	{
 		this.data = data;
+		return (J) this;
 	}
 
 	/**
@@ -158,9 +162,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param strings
 	 */
-	public void setStrings(Map<String, String> strings)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setStrings(Map<String, String> strings)
 	{
 		this.strings = strings;
+		return (J) this;
 	}
 
 	/**
@@ -188,9 +195,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param checkCallback
 	 */
-	public void setCheckCallback(JSTreeCheckCallbackFunction checkCallback)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCheckCallback(JSTreeCheckCallbackFunction checkCallback)
 	{
 		this.checkCallback = checkCallback;
+		return (J) this;
 	}
 
 	/**
@@ -208,9 +218,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param animation
 	 */
-	public void setAnimation(Integer animation)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAnimation(Integer animation)
 	{
 		this.animation = animation;
+		return (J) this;
 	}
 
 	/**
@@ -228,9 +241,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param multiple
 	 */
-	public void setMultiple(Boolean multiple)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setMultiple(Boolean multiple)
 	{
 		this.multiple = multiple;
+		return (J) this;
 	}
 
 	/**
@@ -238,7 +254,7 @@ public class JSTreeCoreOptions
 	 *
 	 * @return
 	 */
-	public JSTreeThemeOptions getThemes()
+	public JSTreeThemeOptions<?> getThemes()
 	{
 		if (themes == null)
 		{
@@ -252,9 +268,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param themes
 	 */
-	public void setThemes(JSTreeThemeOptions themes)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setThemes(JSTreeThemeOptions<?> themes)
 	{
 		this.themes = themes;
+		return (J) this;
 	}
 
 	/**
@@ -274,9 +293,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param worker
 	 */
-	public void setWorker(Boolean worker)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setWorker(Boolean worker)
 	{
 		this.worker = worker;
+		return (J) this;
 	}
 
 	/**
@@ -294,9 +316,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param forceText
 	 */
-	public void setForceText(Boolean forceText)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setForceText(Boolean forceText)
 	{
 		this.forceText = forceText;
+		return (J) this;
 	}
 
 	/**
@@ -314,9 +339,12 @@ public class JSTreeCoreOptions
 	 *
 	 * @param doubleClickToggle
 	 */
-	public void setDoubleClickToggle(Boolean doubleClickToggle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDoubleClickToggle(Boolean doubleClickToggle)
 	{
 		this.doubleClickToggle = doubleClickToggle;
+		return (J) this;
 	}
 
 }

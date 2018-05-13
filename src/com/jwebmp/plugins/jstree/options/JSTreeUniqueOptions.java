@@ -19,8 +19,11 @@ package com.jwebmp.plugins.jstree.options;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.ComponentInformation;
 
+import javax.validation.constraints.NotNull;
+
 /**
- * Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a node with the same
+ * Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a
+ * node with the same
  * name.
  *
  * @author GedMarc
@@ -30,7 +33,8 @@ import com.jwebmp.plugins.ComponentInformation;
 @ComponentInformation(name = "JS Tree Unique Plugin",
 		description = "Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains a node with the same name.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeUniqueOptions extends JavaScriptPart
+public class JSTreeUniqueOptions<J extends JSTreeUniqueOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -60,9 +64,12 @@ public class JSTreeUniqueOptions extends JavaScriptPart
 	 *
 	 * @param caseSensitive
 	 */
-	public void setCaseSensitive(Boolean caseSensitive)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCaseSensitive(Boolean caseSensitive)
 	{
 		this.caseSensitive = caseSensitive;
+		return (J) this;
 	}
 
 }

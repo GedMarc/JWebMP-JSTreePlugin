@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree;
+package com.jwebmp.plugins.jstree.interfaces;
 
 import com.jwebmp.base.html.interfaces.events.GlobalEvents;
 

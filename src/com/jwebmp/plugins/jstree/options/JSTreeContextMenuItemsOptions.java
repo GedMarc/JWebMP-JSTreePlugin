@@ -20,12 +20,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
 
+import javax.validation.constraints.NotNull;
+
 /**
- * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also return the items
+ * an object of actions, or a function that accepts a node and a callback function and calls the callback function with an object of actions available for that node (you can also
+ * return the items
  * too).
  * <p>
- * Each action consists of a key (a unique name) and a value which is an object with the following properties (only label and action are required). Once a menu item is activated the action function
- * will be invoked with an object containing the following keys: item - the contextmenu item definition as seen below, reference - the DOM node that was used (the tree node), element - the contextmenu
+ * Each action consists of a key (a unique name) and a value which is an object with the following properties (only label and action are required). Once a menu item is activated
+ * the action function
+ * will be invoked with an object containing the following keys: item - the contextmenu item definition as seen below, reference - the DOM node that was used (the tree node),
+ * element - the contextmenu
  * DOM element, position - an object with x/y properties indicating the position of the menu.
  * <p>
  * separator_before - a boolean indicating if there should be a separator before this item
@@ -46,14 +51,16 @@ import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
  * <p>
  * shortcut_label - shortcut label (like for example F2 for rename)
  * <p>
- * submenu - an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will
+ * submenu - an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a
+ * submenu that will
  * appear once the current item is hovered
  *
  * @author GedMarc
  * @version 1.0
  * @since 23 Dec 2016
  */
-public class JSTreeContextMenuItemsOptions extends JavaScriptPart
+public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -103,10 +110,11 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	@JsonProperty("shortcut_label")
 	private String shortcutLabel;
 	/**
-	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
+	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu
+	 * that will appear
 	 * once the current item is hovered
 	 */
-	private JSTreeContextMenuItemsOptions submenu;
+	private JSTreeContextMenuItemsOptions<?> submenu;
 
 	public JSTreeContextMenuItemsOptions()
 	{
@@ -128,9 +136,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param separatorBefore
 	 */
-	public void setSeparatorBefore(Boolean separatorBefore)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeparatorBefore(Boolean separatorBefore)
 	{
 		this.separatorBefore = separatorBefore;
+		return (J) this;
 	}
 
 	/**
@@ -148,9 +159,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param separatorAfter
 	 */
-	public void setSeparatorAfter(Boolean separatorAfter)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSeparatorAfter(Boolean separatorAfter)
 	{
 		this.separatorAfter = separatorAfter;
+		return (J) this;
 	}
 
 	/**
@@ -168,9 +182,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param disabled
 	 */
-	public void setDisabled(Boolean disabled)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setDisabled(Boolean disabled)
 	{
 		this.disabled = disabled;
+		return (J) this;
 	}
 
 	/**
@@ -188,9 +205,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param label
 	 */
-	public void setLabel(String label)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setLabel(String label)
 	{
 		this.label = label;
+		return (J) this;
 	}
 
 	/**
@@ -208,9 +228,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param tooltip
 	 */
-	public void setTooltip(String tooltip)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTooltip(String tooltip)
 	{
 		this.tooltip = tooltip;
+		return (J) this;
 	}
 
 	/**
@@ -228,9 +251,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param action
 	 */
-	public void setAction(JavascriptLiteralFunction action)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAction(JavascriptLiteralFunction action)
 	{
 		this.action = action;
+		return (J) this;
 	}
 
 	/**
@@ -252,9 +278,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param icon
 	 */
-	public void setIcon(Enum icon)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setIcon(String icon)
 	{
-		this.icon = icon.toString();
+		this.icon = icon;
+		return (J) this;
 	}
 
 	/**
@@ -264,9 +293,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param icon
 	 */
-	public void setIcon(String icon)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setIcon(Enum icon)
 	{
-		this.icon = icon;
+		this.icon = icon.toString();
+		return (J) this;
 	}
 
 	/**
@@ -284,9 +316,12 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param shortcutKeycode
 	 */
-	public void setShortcutKeycode(Integer shortcutKeycode)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShortcutKeycode(Integer shortcutKeycode)
 	{
 		this.shortcutKeycode = shortcutKeycode;
+		return (J) this;
 	}
 
 	/**
@@ -304,18 +339,22 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	 *
 	 * @param shortcutLabel
 	 */
-	public void setShortcutLabel(String shortcutLabel)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShortcutLabel(String shortcutLabel)
 	{
 		this.shortcutLabel = shortcutLabel;
+		return (J) this;
 	}
 
 	/**
-	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
+	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu
+	 * that will appear
 	 * once the current item is hovered
 	 *
 	 * @return never null
 	 */
-	public JSTreeContextMenuItemsOptions getSubmenu()
+	public JSTreeContextMenuItemsOptions<?> getSubmenu()
 	{
 		if (submenu == null)
 		{
@@ -325,14 +364,18 @@ public class JSTreeContextMenuItemsOptions extends JavaScriptPart
 	}
 
 	/**
-	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu that will appear
+	 * an object with the same structure as $.jstree.defaults.contextmenu.items which can be used to create a submenu - each key will be rendered as a separate option in a submenu
+	 * that will appear
 	 * once the current item is hovered
 	 *
 	 * @param submenu
 	 */
-	public void setSubmenu(JSTreeContextMenuItemsOptions submenu)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSubmenu(JSTreeContextMenuItemsOptions<?> submenu)
 	{
 		this.submenu = submenu;
+		return (J) this;
 	}
 
 }

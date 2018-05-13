@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.ComponentInformation;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * This plugin renders checkbox icons in front of each node, making multiple selection much easier.
  * <p>
@@ -38,11 +40,10 @@ import com.jwebmp.plugins.ComponentInformation;
  * @since 23 Dec 2016
  */
 @ComponentInformation(name = "JS Tree Checkbox Plugin",
-		description = "This plugin renders checkbox icons in front of each node, making multiple selection much easier.\n"
-				              + "It also supports tri-state behavior, meaning that if a node has a few of its children checked it will be rendered as undetermined, and state will be propagated up. You can also fine tune the cascading options with the cascade config option.\n"
-				              + "Keep in mind when cascading checkbox will check even disabled nodes.",
+		description = "This plugin renders checkbox icons in front of each node, making multiple selection much easier.\n" + "It also supports tri-state behavior, meaning that if a node has a few of its children checked it will be rendered as undetermined, and state will be propagated up. You can also fine tune the cascading options with the cascade config option.\n" + "Keep in mind when cascading checkbox will check even disabled nodes.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeCheckboxOptions extends JavaScriptPart
+public class JSTreeCheckboxOptions<J extends JSTreeCheckboxOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -68,7 +69,8 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	/**
 	 * This setting controls how cascading and undetermined nodes are applied.
 	 * <p>
-	 * If 'up' is in the string - cascading up is enabled, if 'down' is in the string - cascading down is enabled, if 'undetermined' is in the string - undetermined nodes will be used.
+	 * If 'up' is in the string - cascading up is enabled, if 'down' is in the string - cascading down is enabled, if 'undetermined' is in the string - undetermined nodes will be
+	 * used.
 	 * <p>
 	 * If three_state is set to true this setting is automatically set to 'up+down+undetermined'. Defaults to ''.
 	 */
@@ -101,9 +103,12 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	 *
 	 * @param visible
 	 */
-	public void setVisible(Boolean visible)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setVisible(Boolean visible)
 	{
 		this.visible = visible;
+		return (J) this;
 	}
 
 	/**
@@ -121,9 +126,12 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	 *
 	 * @param threeState
 	 */
-	public void setThreeState(Boolean threeState)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setThreeState(Boolean threeState)
 	{
 		this.threeState = threeState;
+		return (J) this;
 	}
 
 	/**
@@ -141,9 +149,12 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	 *
 	 * @param wholeNode
 	 */
-	public void setWholeNode(Boolean wholeNode)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setWholeNode(Boolean wholeNode)
 	{
 		this.wholeNode = wholeNode;
+		return (J) this;
 	}
 
 	/**
@@ -161,15 +172,19 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	 *
 	 * @param keepSelectedStyle
 	 */
-	public void setKeepSelectedStyle(Boolean keepSelectedStyle)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setKeepSelectedStyle(Boolean keepSelectedStyle)
 	{
 		this.keepSelectedStyle = keepSelectedStyle;
+		return (J) this;
 	}
 
 	/**
 	 * This setting controls how cascading and undetermined nodes are applied.
 	 * <p>
-	 * If 'up' is in the string - cascading up is enabled, if 'down' is in the string - cascading down is enabled, if 'undetermined' is in the string - undetermined nodes will be used.
+	 * If 'up' is in the string - cascading up is enabled, if 'down' is in the string - cascading down is enabled, if 'undetermined' is in the string - undetermined nodes will be
+	 * used.
 	 * <p>
 	 * If three_state is set to true this setting is automatically set to 'up+down+undetermined'. Defaults to ''.
 	 *
@@ -183,15 +198,19 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	/**
 	 * This setting controls how cascading and undetermined nodes are applied.
 	 * <p>
-	 * If 'up' is in the string - cascading up is enabled, if 'down' is in the string - cascading down is enabled, if 'undetermined' is in the string - undetermined nodes will be used.
+	 * If 'up' is in the string - cascading up is enabled, if 'down' is in the string - cascading down is enabled, if 'undetermined' is in the string - undetermined nodes will be
+	 * used.
 	 * <p>
 	 * If three_state is set to true this setting is automatically set to 'up+down+undetermined'. Defaults to ''.
 	 *
 	 * @param cascade
 	 */
-	public void setCascade(Boolean cascade)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCascade(Boolean cascade)
 	{
 		this.cascade = cascade;
+		return (J) this;
 	}
 
 	/**
@@ -213,9 +232,12 @@ public class JSTreeCheckboxOptions extends JavaScriptPart
 	 *
 	 * @param tieSelection
 	 */
-	public void setTieSelection(Boolean tieSelection)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTieSelection(Boolean tieSelection)
 	{
 		this.tieSelection = tieSelection;
+		return (J) this;
 	}
 
 }

@@ -18,6 +18,7 @@ package com.jwebmp.plugins.jstree;
 
 import com.jwebmp.Feature;
 import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.plugins.jstree.interfaces.JSTreeFeatures;
 
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
@@ -44,36 +45,18 @@ public class JSTreeFeature
 	{
 		super("JSTreeFeature");
 		setComponent(forComponent);
-		getJavascriptReferences().add(JSTreeReferencePool.JSTreeJavascript.getJavaScriptReference());
 	}
 
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + getOptions().hashCode();
-		return result;
+		return super.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JSTreeFeature))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JSTreeFeature that = (JSTreeFeature) o;
-
-		return getOptions().equals(that.getOptions());
+		return super.equals(o);
 	}
 
 	/**
@@ -87,7 +70,7 @@ public class JSTreeFeature
 	{
 		if (options == null)
 		{
-			options = new JSTreeOptions((JSTree) getComponent());
+			options = new JSTreeOptions();
 		}
 		return options;
 	}

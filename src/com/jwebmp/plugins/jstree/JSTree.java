@@ -19,18 +19,23 @@ package com.jwebmp.plugins.jstree;
 import com.jwebmp.annotations.SiteBinder;
 import com.jwebmp.base.client.HttpMethodTypes;
 import com.jwebmp.base.html.Div;
-import com.jwebmp.base.servlets.interfaces.IDataComponent;
 import com.jwebmp.htmlbuilder.css.themes.Theme;
 import com.jwebmp.plugins.ComponentInformation;
 import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
-import com.jwebmp.plugins.jstree.events.JSTreeRefreshEvent;
+import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
+import com.jwebmp.plugins.jstree.events.JSTreeRefreshFeature;
+import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
+import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
+import com.jwebmp.plugins.jstree.interfaces.JSTreeFeatures;
+import com.jwebmp.plugins.jstree.options.JSTreeSearchOptions;
+import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;
+import com.jwebmp.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCoreDataFunction;
+import com.jwebmp.plugins.jstree.plugins.JSTreePlugins;
 import com.jwebmp.plugins.jstree.themes.JSTreeDefaultTheme;
 import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
 
-import java.util.Map;
-
-import static com.jwebmp.utilities.StaticStrings.STRING_HASH;
+import javax.validation.constraints.NotNull;
 
 /**
  * An implementation of the jsTree project.
@@ -43,16 +48,15 @@ import static com.jwebmp.utilities.StaticStrings.STRING_HASH;
 @ComponentInformation(name = "jsTree",
 		description = "jsTree is jquery plugin, that provides interactive trees. It is absolutely free, open source and distributed under the MIT license. jsTree is easily extendable, themable and configurable, it supports HTML & JSON data sources and AJAX loading.",
 		url = "https://www.jstree.com/")
-public class JSTree
-		extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures, JSTreeEvents, JSTree>
-		implements IDataComponent<JSTreeData>
+public class JSTree<J extends JSTree<J>>
+		extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures, JSTreeEvents, J>
 {
 
 	private static final long serialVersionUID = 1L;
 
 	private JSTreeFeature feature;
-
-	private JSTreeData data;
+	private boolean renderTreeAsync;
+	private Class<? extends JSTreeData<?>> renderDataClass;
 
 	/**
 	 * Constructs a new instance of the JS Tree
@@ -80,64 +84,30 @@ public class JSTree
 		if (!isConfigured())
 		{
 			JQueryPageConfigurator.setRequired(true);
-			getOptions().getCore()
-			            .getData()
-			            .setType(HttpMethodTypes.POST);
-			getOptions().getCore()
-			            .getData()
-			            .setUrl(SiteBinder.getDataLocation()
-			                              .replace("/", "") + "?component=" + getID());
-			getOptions().getCore()
-			            .getData()
-			            .setData(new JSTreeCoreDataFunction());
+			if (renderTreeAsync)
+			{
+				getOptions().getCore()
+				            .getData()
+				            .setType(HttpMethodTypes.POST);
+
+				getOptions().getCore()
+				            .getData()
+				            .setUrl(SiteBinder.getDataLocation()
+				                              .replace("/", "") + "?component=" + renderDataClass.getCanonicalName()
+				                                                                                 .replace('.', '_'));
+				getOptions().getCore()
+				            .getData()
+				            .setData(new JSTreeCoreDataFunction());
+			}
 		}
+
 		super.preConfigure();
 	}
 
 	@Override
-	public JSTreeOptions getOptions()
+	public JSTreeOptions<?> getOptions()
 	{
 		return getFeature().getOptions();
-	}
-
-	/**
-	 * Returns the data, and any parameters if supplied
-	 *
-	 * @param params
-	 *
-	 * @return
-	 */
-	@Override
-	public JSTreeData getData(Map<String, String[]> params)
-	{
-		onGetData(params);
-		String[] ids = params.get("id");
-		String id = ids[0];
-		if (STRING_HASH.equalsIgnoreCase(id))
-		{
-			return data;
-		}
-		else
-		{
-			return data.findNode(id)
-			           .getChildNodes();
-			//go through the nodes looking for the next id item
-		}
-	}
-
-	/**
-	 * Execute something before get data is called
-	 *
-	 * @param params
-	 */
-	protected void onGetData(Map<String, String[]> params)
-	{
-		//Not Implemented
-	}
-
-	public void setData(JSTreeData data)
-	{
-		this.data = data;
 	}
 
 	/**
@@ -159,38 +129,289 @@ public class JSTree
 	}
 
 	/**
+	 * This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named
+	 * changed, which will give information about selected and deselected nodes since the last changed.jstree event
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J enableChangedEvents()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.Changed);
+		return (J) this;
+	}
+
+	/**
+	 * This plugin renders checkbox icons in front of each node, making multiple selection much easier.
+	 * It also supports tri-state behavior, meaning that if a node has a few of its children checked it will be rendered as undetermined, and state will be propagated up. You can
+	 * also fine tune the cascading options with the cascade config option.
+	 * Keep in mind when cascading checkbox will check even disabled nodes.
+	 * <p>
+	 * Undetermined state is automatically calculated, but if you are using AJAX and loading on demand and want to render a node as underemined pass "undetermined" : true in its
+	 * state.
+	 * <p>
+	 * You can find all the checkbox plugin config options in the API.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J enableCheckBoxes()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.Checkbox);
+
+		getOptions().getCheckbox()
+		            .setKeepSelectedStyle(false);
+
+		return (J) this;
+	}
+
+	/**
+	 * This plugin overrides the activate_node function (the one that gets called when a user tries to select a node) and enables preventing the function invokation by using a
+	 * callback.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J enableConditionalSelect()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.ConditionalSelect);
+
+		//TODO the conditional select event
+		return (J) this;
+	}
+
+	/**
+	 * This plugin makes it possible to right click nodes and shows a list of configurable actions in a menu.
+	 * <p>
+	 * You can find all the contextmenu plugin config options in the API.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public JSTreeCheckCallbackFunction<?> enableContextMenu()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.ContextMenu);
+
+		JSTreeCheckCallbackFunction<?> context = new JSTreeCheckCallbackFunction<>();
+		getOptions().getCore()
+		            .setCheckCallback(context);
+		return context;
+	}
+
+	/**
+	 * This plugin makes it possible to drag and drop tree nodes and rearrange the tree.
+	 * <p>
+	 * You can find all the dnd plugin config options in the API.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public JSTreeCheckCallbackFunction<?> enableDragAndDrop()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.DnD);
+		JSTreeCheckCallbackFunction<?> context = new JSTreeCheckCallbackFunction<>();
+		getOptions().getCore()
+		            .setCheckCallback(context);
+		return context;
+	}
+
+	/**
+	 * This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J enableClientSideSorting()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.Sort);
+		return (J) this;
+	}
+
+	/**
+	 * This plugin saves all opened and selected nodes in the user's browser, so when returning to the same tree the previous state will be restored.
+	 * <p>
+	 * You can find all the state plugin config options in the API. Make a selection and refresh this page to see the change persisted.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J enableStateKeeping(String stateKey)
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.State);
+		getOptions().getState()
+		            .setKey(stateKey);
+		return (J) this;
+	}
+
+	/**
+	 * This plugin makes it possible to add predefined types for groups of nodes, which means to easily control nesting rules and icon for each group.
+	 * <p>
+	 * To set a node's type you can use set_type or supply a type property with the node's data.
+	 * <p>
+	 * You can find all the types plugin config options & functions in the API.
+	 *
+	 * @param typeName
+	 * @param typesOptions
+	 *
+	 * @return
+	 */
+	public JSTreeTypesOptions<?> registerType(String typeName, JSTreeTypesOptions<?> typesOptions)
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.Types);
+		getOptions().getTypes()
+		            .put(typeName, typesOptions);
+
+		return typesOptions;
+	}
+
+	/**
+	 * Enforces that no nodes with the same name can coexist as siblings. This plugin has no options, it just prevents renaming and moving nodes to a parent, which already contains
+	 * a node with the same name.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J enableForcedUniqueness()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.Unique);
+
+		return (J) this;
+	}
+
+	/**
+	 * Makes each node appear block level which makes selection easier. May cause slow down for large trees in old browsers.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J enableWholeRowSelection()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.WholeRow);
+
+		return (J) this;
+	}
+
+	/**
+	 * This plugin makes it possible to load nodes in a single request (used with lazy loading).
+	 * <p>
+	 * You can find all the massload plugin config options in the API.
+	 *
+	 * @param renderDataClass
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public JSTreeCheckCallbackFunction<?> enableAjaxDataChildrenLazyLoading(Class<? extends JSTreeData<?>> renderDataClass)
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.Massload);
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.State);
+
+		setRenderAsync(renderDataClass);
+
+		getOptions().getMassLoad()
+		            .setType(HttpMethodTypes.POST);
+
+		getOptions().getMassLoad()
+		            .setUrl(SiteBinder.getDataLocation()
+		                              .replace("/", "") + "?component=" + renderDataClass.getCanonicalName()
+		                                                                                 .replace('.', '_'));
+		getOptions().getMassLoad()
+		            .setData(new JSTreeCoreDataFunction());
+
+		JSTreeCheckCallbackFunction<?> context = new JSTreeCheckCallbackFunction<>();
+		getOptions().getCore()
+		            .setCheckCallback(context);
+		return context;
+	}
+
+	/**
+	 * Renders this tree's data asynchronously with the given data provider
+	 *
+	 * @param dataProvider
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setRenderAsync(Class<? extends JSTreeData<?>> dataProvider)
+	{
+		renderTreeAsync = true;
+		renderDataClass = dataProvider;
+		return (J) this;
+	}
+
+	/**
+	 * This plugin adds the possibility to search for items in the tree and even to show only matching nodes.
+	 * <p>
+	 * You can find all the search plugin config options in the API.
+	 *
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public JSTreeSearchOptions<?> enableSearch()
+	{
+		getOptions().getPlugins()
+		            .add(JSTreePlugins.Search);
+
+		JSTreeSearchOptions<?> searchOptions = new JSTreeSearchOptions();
+		searchOptions.getAjax();
+		searchOptions.getAjax()
+		             .setType(HttpMethodTypes.POST);
+		searchOptions.getAjax()
+		             .setUrl(SiteBinder.getDataLocation()
+		                               .replace("/", "") + "?component=" + renderDataClass.getCanonicalName()
+		                                                                                  .replace('.', '_'));
+		searchOptions.getAjax()
+		             .setData(new JSTreeCoreDataFunction());
+		return searchOptions;
+	}
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public JSTreeList<?> addRoot(JSTreeListItem<?> rootItem)
+	{
+		JSTreeList<?> list = rootItem.asRoot();
+		add(rootItem);
+		return list;
+	}
+
+	/**
 	 * Returns a new event that refreshes the tree
 	 *
 	 * @return
 	 */
-	public JSTreeRefreshEvent getRefreshEvent()
+	public JSTreeRefreshFeature getRefreshEvent()
 	{
-		return new JSTreeRefreshEvent(this);
+		return new JSTreeRefreshFeature(this);
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JSTree))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JSTree jsTree = (JSTree) o;
-
-		if (!getFeature().equals(jsTree.getFeature()))
-		{
-			return false;
-		}
-		return data.equals(jsTree.data);
+		return super.equals(o);
 	}
 
 	@Override

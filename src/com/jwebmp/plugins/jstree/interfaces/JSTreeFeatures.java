@@ -14,21 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree.options;
+package com.jwebmp.plugins.jstree.interfaces;
+
+import com.jwebmp.base.html.interfaces.GlobalFeatures;
 
 /**
- * @author GedMarc
+ * @author Marc Magon
  * @version 1.0
- * @since 23 Dec 2016
+ * @since 07 Aug 2015
  */
-public enum JSTreeDragAndDropInsidePosition
+public interface JSTreeFeatures
+		extends GlobalFeatures
 {
-	First,
-	Last;
 
-	@Override
-	public String toString()
-	{
-		return name().toLowerCase();
-	}
 }

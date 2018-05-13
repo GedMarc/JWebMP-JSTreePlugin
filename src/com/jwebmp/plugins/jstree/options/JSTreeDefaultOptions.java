@@ -30,7 +30,8 @@ import java.util.List;
 @ComponentInformation(name = "JS Tree Sort Plugin",
 		description = "This plugin automatically arranges all sibling nodes according to a comparison config option function, which defaults to alphabetical order.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeDefaultOptions extends JavaScriptPart
+public class JSTreeDefaultOptions<J extends JSTreeDefaultOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -67,27 +68,5 @@ public class JSTreeDefaultOptions extends JavaScriptPart
 	public void setPlugins(List<String> plugins)
 	{
 		this.plugins = plugins;
-	}
-
-	/**
-	 * Adds the sort plugin to these options
-	 *
-	 * @return
-	 */
-	public JSTreeDefaultOptions addSortPlugin()
-	{
-		plugins.add("Sort");
-		return this;
-	}
-
-	/**
-	 * Adds the whole row plugin to the tree
-	 *
-	 * @return
-	 */
-	public JSTreeDefaultOptions addWholeRowPlugin()
-	{
-		plugins.add("Sort");
-		return this;
 	}
 }

@@ -19,6 +19,8 @@ package com.jwebmp.plugins.jstree.options;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * This plugin saves all opened and selected nodes in the user's browser, so when returning to the same tree the previous state will be restored.
  *
@@ -26,7 +28,8 @@ import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
  * @version 1.0
  * @since 23 Dec 2016
  */
-public class JSTreeStateOptions extends JavaScriptPart
+public class JSTreeStateOptions<J extends JSTreeStateOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -67,9 +70,12 @@ public class JSTreeStateOptions extends JavaScriptPart
 	 *
 	 * @param key
 	 */
-	public void setKey(String key)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setKey(String key)
 	{
 		this.key = key;
+		return (J) this;
 	}
 
 	/**
@@ -87,9 +93,12 @@ public class JSTreeStateOptions extends JavaScriptPart
 	 *
 	 * @param events
 	 */
-	public void setEvents(String events)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setEvents(String events)
 	{
 		this.events = events;
+		return (J) this;
 	}
 
 	/**
@@ -107,9 +116,12 @@ public class JSTreeStateOptions extends JavaScriptPart
 	 *
 	 * @param ttl
 	 */
-	public void setTtl(Integer ttl)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setTtl(Integer ttl)
 	{
 		this.ttl = ttl;
+		return (J) this;
 	}
 
 	/**
@@ -127,9 +139,12 @@ public class JSTreeStateOptions extends JavaScriptPart
 	 *
 	 * @param filter
 	 */
-	public void setFilter(JavascriptLiteralFunction filter)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFilter(JavascriptLiteralFunction filter)
 	{
 		this.filter = filter;
+		return (J) this;
 	}
 
 }

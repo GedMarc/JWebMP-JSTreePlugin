@@ -23,7 +23,7 @@ import com.jwebmp.base.ajax.AjaxResponse;
 import com.jwebmp.base.angular.AngularAttributes;
 import com.jwebmp.base.angular.AngularPageConfigurator;
 import com.jwebmp.htmlbuilder.javascript.events.enumerations.EventTypes;
-import com.jwebmp.plugins.jstree.JSTreeEvents;
+import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 import za.co.mmagon.logger.LogFactory;
 
 import java.util.logging.Level;
@@ -57,7 +57,7 @@ public abstract class JSTreeOnChangedPluginAdapter
 	 */
 	public JSTreeOnChangedPluginAdapter(Component component)
 	{
-		super(EventTypes.activate, component);
+		super(EventTypes.undefined, component);
 
 	}
 
@@ -77,30 +77,13 @@ public abstract class JSTreeOnChangedPluginAdapter
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + getDirective().hashCode();
-		return result;
+		return super.hashCode();
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public boolean equals(Object obj)
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof JSTreeOnChangedPluginAdapter))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
-
-		JSTreeOnChangedPluginAdapter that = (JSTreeOnChangedPluginAdapter) o;
-
-		return getDirective().equals(that.getDirective());
+		return super.equals(obj);
 	}
 
 	/**
@@ -117,6 +100,17 @@ public abstract class JSTreeOnChangedPluginAdapter
 		}
 		super.preConfigure();
 	}
+
+	/**
+	 * Triggers on Click
+	 * <p>
+	 *
+	 * @param call
+	 * 		The physical AJAX call
+	 * @param response
+	 * 		The physical Ajax Receiver
+	 */
+	public abstract void onChanged(AjaxCall call, AjaxResponse response);
 
 	/**
 	 * Returns the angular directive associated with the right click event
@@ -141,15 +135,4 @@ public abstract class JSTreeOnChangedPluginAdapter
 	{
 		this.directive = directive;
 	}
-
-	/**
-	 * Triggers on Click
-	 * <p>
-	 *
-	 * @param call
-	 * 		The physical AJAX call
-	 * @param response
-	 * 		The physical Ajax Receiver
-	 */
-	public abstract void onChanged(AjaxCall call, AjaxResponse response);
 }

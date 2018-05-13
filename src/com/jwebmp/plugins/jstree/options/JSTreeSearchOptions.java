@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.ComponentInformation;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * This plugin adds the possibility to search for items in the tree and even to show only matching nodes.
  *
@@ -30,17 +32,21 @@ import com.jwebmp.plugins.ComponentInformation;
 @ComponentInformation(name = "JS Tree Search Plugin",
 		description = "This plugin adds the possibility to search for items in the tree and even to show only matching nodes.",
 		url = "https://www.jstree.com/plugins/")
-public class JSTreeSearchOptions extends JavaScriptPart
+public class JSTreeSearchOptions<J extends JSTreeSearchOptions<J>>
+		extends JavaScriptPart<J>
 {
 
 	private static final long serialVersionUID = 1L;
 	/**
-	 * a jQuery-like AJAX config, which jstree uses if a server should be queried for results. A str (which is the search string) parameter will be added with the request, an optional inside parameter
-	 * will be added if the search is limited to a node id. The expected result is a JSON array with nodes that need to be opened so that matching nodes will be revealed. Leave this setting as false
-	 * to not query the server. You can also set this to a function, which will be invoked in the instance's scope and receive 3 parameters - the search string, the callback to call with the array of
+	 * a jQuery-like AJAX config, which jstree uses if a server should be queried for results. A str (which is the search string) parameter will be added with the request, an
+	 * optional inside parameter
+	 * will be added if the search is limited to a node id. The expected result is a JSON array with nodes that need to be opened so that matching nodes will be revealed. Leave
+	 * this setting as false
+	 * to not query the server. You can also set this to a function, which will be invoked in the instance's scope and receive 3 parameters - the search string, the callback to
+	 * call with the array of
 	 * nodes to load, and the optional node ID to limit the search to
 	 */
-	private JSTreeSearchOptionsAjax ajax;
+	private JSTreeSearchOptionsAjax<?> ajax;
 	/**
 	 * Indicates if the search should be fuzzy or not (should chnd3 match child node 3). Default is false.
 	 */
@@ -83,28 +89,36 @@ public class JSTreeSearchOptions extends JavaScriptPart
 	/**
 	 * a jQuery-like AJAX config, which jstree uses if a server should be queried for results.
 	 * <p>
-	 * A str (which is the search string) parameter will be added with the request, an optional inside parameter will be added if the search is limited to a node id. The expected result is a JSON
-	 * array with nodes that need to be opened so that matching nodes will be revealed. Leave this setting as false to not query the server. You can also set this to a function, which will be invoked
+	 * A str (which is the search string) parameter will be added with the request, an optional inside parameter will be added if the search is limited to a node id. The expected
+	 * result is a JSON
+	 * array with nodes that need to be opened so that matching nodes will be revealed. Leave this setting as false to not query the server. You can also set this to a function,
+	 * which will be invoked
 	 * in the instance's scope and receive 3 parameters - the search string, the callback to call with the array of nodes to load, and the optional node ID to limit the search to
 	 *
 	 * @return
 	 */
-	public JSTreeSearchOptionsAjax getAjax()
+	public JSTreeSearchOptionsAjax<?> getAjax()
 	{
 		return ajax;
 	}
 
 	/**
-	 * a jQuery-like AJAX config, which jstree uses if a server should be queried for results. A str (which is the search string) parameter will be added with the request, an optional inside parameter
-	 * will be added if the search is limited to a node id. The expected result is a JSON array with nodes that need to be opened so that matching nodes will be revealed. Leave this setting as false
-	 * to not query the server. You can also set this to a function, which will be invoked in the instance's scope and receive 3 parameters - the search string, the callback to call with the array of
+	 * a jQuery-like AJAX config, which jstree uses if a server should be queried for results. A str (which is the search string) parameter will be added with the request, an
+	 * optional inside parameter
+	 * will be added if the search is limited to a node id. The expected result is a JSON array with nodes that need to be opened so that matching nodes will be revealed. Leave
+	 * this setting as false
+	 * to not query the server. You can also set this to a function, which will be invoked in the instance's scope and receive 3 parameters - the search string, the callback to
+	 * call with the array of
 	 * nodes to load, and the optional node ID to limit the search to
 	 *
 	 * @param ajax
 	 */
-	public void setAjax(JSTreeSearchOptionsAjax ajax)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAjax(JSTreeSearchOptionsAjax<?> ajax)
 	{
 		this.ajax = ajax;
+		return (J) this;
 	}
 
 	/**
@@ -122,9 +136,12 @@ public class JSTreeSearchOptions extends JavaScriptPart
 	 *
 	 * @param fuzzy
 	 */
-	public void setFuzzy(Boolean fuzzy)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setFuzzy(Boolean fuzzy)
 	{
 		this.fuzzy = fuzzy;
+		return (J) this;
 	}
 
 	/**
@@ -142,9 +159,12 @@ public class JSTreeSearchOptions extends JavaScriptPart
 	 *
 	 * @param caseSensitive
 	 */
-	public void setCaseSensitive(Boolean caseSensitive)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCaseSensitive(Boolean caseSensitive)
 	{
 		this.caseSensitive = caseSensitive;
+		return (J) this;
 	}
 
 	/**
@@ -166,9 +186,12 @@ public class JSTreeSearchOptions extends JavaScriptPart
 	 *
 	 * @param showOnlyMatches
 	 */
-	public void setShowOnlyMatches(Boolean showOnlyMatches)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowOnlyMatches(Boolean showOnlyMatches)
 	{
 		this.showOnlyMatches = showOnlyMatches;
+		return (J) this;
 	}
 
 	/**
@@ -190,9 +213,12 @@ public class JSTreeSearchOptions extends JavaScriptPart
 	 *
 	 * @param showOnlyMatchesChildren
 	 */
-	public void setShowOnlyMatchesChildren(Boolean showOnlyMatchesChildren)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setShowOnlyMatchesChildren(Boolean showOnlyMatchesChildren)
 	{
 		this.showOnlyMatchesChildren = showOnlyMatchesChildren;
+		return (J) this;
 	}
 
 	/**
@@ -210,9 +236,12 @@ public class JSTreeSearchOptions extends JavaScriptPart
 	 *
 	 * @param closeOpenedOnClear
 	 */
-	public void setCloseOpenedOnClear(Boolean closeOpenedOnClear)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setCloseOpenedOnClear(Boolean closeOpenedOnClear)
 	{
 		this.closeOpenedOnClear = closeOpenedOnClear;
+		return (J) this;
 	}
 
 	/**
@@ -230,9 +259,12 @@ public class JSTreeSearchOptions extends JavaScriptPart
 	 *
 	 * @param searchLeavesOnly
 	 */
-	public void setSearchLeavesOnly(Boolean searchLeavesOnly)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setSearchLeavesOnly(Boolean searchLeavesOnly)
 	{
 		this.searchLeavesOnly = searchLeavesOnly;
+		return (J) this;
 	}
 
 }
