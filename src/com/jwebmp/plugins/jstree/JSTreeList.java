@@ -4,6 +4,7 @@ import com.jwebmp.base.html.List;
 import com.jwebmp.base.html.interfaces.children.ListChildren;
 import com.jwebmp.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
+import com.jwebmp.plugins.jstree.interfaces.IJSTreeList;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
@@ -11,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 public class JSTreeList<J extends JSTreeList<J>>
 		extends List<ListChildren, JSTreeAttributes, GlobalEvents, J>
-		implements JSTreeChildren
+		implements JSTreeChildren, com.jwebmp.plugins.jstree.interfaces.IJSTreeList<J>
 {
 	public JSTreeList()
 	{
@@ -35,6 +36,7 @@ public class JSTreeList<J extends JSTreeList<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	public JSTreeListItem<? extends JSTreeListItem> addItem(String title, JSTreeNodeOptions<?> options)
 	{
 		JSTreeListItem<?> item = new JSTreeListItem<>();
@@ -48,7 +50,6 @@ public class JSTreeList<J extends JSTreeList<J>>
 		return item;
 	}
 
-
 	/**
 	 * Adds a new static root object to the list
 	 *
@@ -56,12 +57,23 @@ public class JSTreeList<J extends JSTreeList<J>>
 	 *
 	 * @return
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	@NotNull
 	public J addRoot(JSTreeListItem<?> root)
 	{
 		add(root);
 		return (J) this;
+	}
+
+	/**
+	 * A cleaner version of me
+	 *
+	 * @return
+	 */
+	public IJSTreeList<J> asMe()
+	{
+		return this;
 	}
 
 	@Override

@@ -209,10 +209,13 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	 * changed, which will
 	 * give information about selected and deselected nodes since the last changed.jstree event
 	 *
+	 * @param tree
 	 * @param extendedChangeDetails
 	 * 		if on or off
 	 * @param event
 	 * 		The event needed if enabled
+	 *
+	 * @return
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
