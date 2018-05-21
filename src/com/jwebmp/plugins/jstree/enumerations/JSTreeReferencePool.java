@@ -30,7 +30,7 @@ public enum JSTreeReferencePool
 		implements ReferencePool
 {
 	JSTreeJavascript(new JavascriptReference("JSTree", 3.32, "bower_components/jstree/dist/jstree.js", "https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js", 10),
-	                 null);
+	                 new CSSReference("JSTreeDefaultThemeCore", 3.32, "bower_components/jstree/dist/themes/default/style.css"));
 
 	private JavascriptReference javaScriptReference;
 	private CSSReference cssReference;

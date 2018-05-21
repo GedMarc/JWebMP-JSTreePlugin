@@ -28,6 +28,7 @@ import com.jwebmp.plugins.jstree.interfaces.IJSTree;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeFeatures;
+import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 import com.jwebmp.plugins.jstree.options.JSTreeSearchOptions;
 import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
@@ -38,8 +39,7 @@ import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.CHAR_DOT;
-import static com.jwebmp.utilities.StaticStrings.CHAR_UNDERSCORE;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * An implementation of the jsTree project.
@@ -58,7 +58,7 @@ public class JSTree<J extends JSTree<J>>
 {
 
 	private static final long serialVersionUID = 1L;
-
+	private final JSTreeList<?> rootList = new JSTreeList<>();
 	private JSTreeFeature feature;
 	private boolean renderTreeAsync;
 	private Class<? extends JSTreeData<?>> renderDataClass;
@@ -108,11 +108,15 @@ public class JSTree<J extends JSTree<J>>
 				getOptions().getCore()
 				            .getData()
 				            .setUrl(SiteBinder.getDataLocation()
-				                              .replace("/", "") + "?component=" + renderDataClass.getCanonicalName()
-				                                                                                 .replace(CHAR_DOT, CHAR_UNDERSCORE));
+				                              .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+				                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
 				getOptions().getCore()
 				            .getData()
 				            .setData(new JSTreeCoreDataFunction());
+			}
+			else
+			{
+				add(rootList);
 			}
 		}
 
@@ -363,8 +367,8 @@ public class JSTree<J extends JSTree<J>>
 
 		getOptions().getMassLoad()
 		            .setUrl(SiteBinder.getDataLocation()
-		                              .replace("/", "") + "?component=" + renderDataClass.getCanonicalName()
-		                                                                                 .replace(CHAR_DOT, CHAR_UNDERSCORE));
+		                              .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+		                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		getOptions().getMassLoad()
 		            .setData(new JSTreeCoreDataFunction());
 
@@ -411,8 +415,8 @@ public class JSTree<J extends JSTree<J>>
 		             .setType(HttpMethodTypes.POST);
 		searchOptions.getAjax()
 		             .setUrl(SiteBinder.getDataLocation()
-		                               .replace("/", "") + "?component=" + renderDataClass.getCanonicalName()
-		                                                                                  .replace(CHAR_DOT, CHAR_UNDERSCORE));
+		                               .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+		                                                                                                             .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		searchOptions.getAjax()
 		             .setData(new JSTreeCoreDataFunction());
 		return searchOptions;
@@ -423,9 +427,29 @@ public class JSTree<J extends JSTree<J>>
 	@NotNull
 	public JSTreeList<?> addRoot(JSTreeListItem<?> rootItem)
 	{
-		JSTreeList<?> list = rootItem.asRoot();
-		add(rootItem);
-		return list;
+		return addRoot(rootItem, null);
+	}
+
+	/**
+	 * Adds a root note to the tree
+	 *
+	 * @param rootItem
+	 * @param options
+	 *
+	 * @return
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public JSTreeList<?> addRoot(JSTreeListItem<?> rootItem, JSTreeNodeOptions<?> options)
+	{
+		rootItem.setAsParent(true);
+		if (options != null)
+		{
+			rootItem.setOptions(options);
+		}
+		rootList.add(rootItem);
+		return rootList;
 	}
 
 	/**

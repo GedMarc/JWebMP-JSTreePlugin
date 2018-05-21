@@ -3,6 +3,7 @@ package com.jwebmp.plugins.jstree.interfaces;
 import com.jwebmp.htmlbuilder.css.themes.Theme;
 import com.jwebmp.plugins.jstree.*;
 import com.jwebmp.plugins.jstree.events.JSTreeRefreshFeature;
+import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 import com.jwebmp.plugins.jstree.options.JSTreeSearchOptions;
 import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
@@ -172,6 +173,10 @@ public interface IJSTree<J extends JSTree<J>>
 	@SuppressWarnings("unchecked")
 	@NotNull
 	JSTreeList<?> addRoot(JSTreeListItem<?> rootItem);
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	JSTreeList<?> addRoot(JSTreeListItem<?> rootItem, JSTreeNodeOptions<?> options);
 
 	/**
 	 * Returns a new event that refreshes the tree

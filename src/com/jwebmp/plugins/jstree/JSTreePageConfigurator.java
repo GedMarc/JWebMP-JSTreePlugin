@@ -55,6 +55,7 @@ public class JSTreePageConfigurator
 		if (!page.isConfigured())
 		{
 			page.addJavaScriptReference(JSTreeReferencePool.JSTreeJavascript.getJavaScriptReference());
+			page.addCssReference(JSTreeReferencePool.JSTreeJavascript.getCssReference());
 		}
 		return page;
 	}

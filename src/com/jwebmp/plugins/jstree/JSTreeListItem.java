@@ -9,14 +9,17 @@ import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
 import javax.validation.constraints.NotNull;
 
+import static com.jwebmp.utilities.StaticStrings.STRING_EMPTY;
+
 public class JSTreeListItem<J extends JSTreeListItem<J>>
 		extends ListItem<J>
 		implements JSTreeChildren, com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem<J>
 {
 	private Link<?> link;
-	private boolean asRoot;
+	private boolean asParent;
 	private boolean asLink;
 	private JSTreeNodeOptions<?> options;
+	private JSTreeList<?> childItems;
 
 	public JSTreeListItem()
 	{
@@ -46,13 +49,15 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	 * @return
 	 */
 	@Override
-	public JSTreeList<? extends JSTreeList> asRoot()
+	public JSTreeList<? extends JSTreeList> asParent()
 	{
-		asRoot = true;
-		JSTreeList<?> childList = new JSTreeList<>();
-		childList.setRenderIDAttibute(false);
-		add(childList);
-		return childList;
+		asParent = true;
+		if (childItems == null)
+		{
+			childItems = new JSTreeList<>();
+		}
+		childItems.setRenderIDAttibute(false);
+		return childItems;
 	}
 
 	@Override
@@ -65,37 +70,73 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	}
 
 	@Override
+	public JSTreeListItem<?> addItem(String textToAdd)
+	{
+		JSTreeListItem<?> item = new JSTreeListItem<>(textToAdd);
+		asParent = true;
+		childItems = new JSTreeList<>();
+		childItems.add(item);
+		return item;
+	}
+
+	public JSTreeListItem<?> addItem(String textToAdd, JSTreeNodeOptions<?> options)
+	{
+		JSTreeListItem<?> item = new JSTreeListItem<>(textToAdd);
+		item.setOptions(options);
+		asParent = true;
+		if (childItems == null)
+		{
+			childItems = new JSTreeList<>();
+		}
+		childItems.add(item);
+		return item;
+	}
+
+	@Override
 	public void preConfigure()
 	{
-
-		if (!isConfigured() && options != null)
+		String dataValue = options == null ? STRING_EMPTY : options.toString(true);
+		if (asLink)
 		{
-			if (asLink)
+			link = new Link<>();
+			if (!dataValue.isEmpty())
 			{
-				link = new Link<>();
-				link.addAttribute(JSTreeAttributes.Data_JsTree.toString(), options.toString(true));
-				add(link);
+				link.addAttribute(JSTreeAttributes.Data_JsTree.toString(), dataValue);
 			}
-			else
-			{
-				addAttribute(JSTreeAttributes.Data_JsTree.toString(), options.toString(true));
-			}
+			add(link);
 		}
-
+		else
+		{
+			if (!dataValue.isEmpty())
+			{
+				addAttribute(JSTreeAttributes.Data_JsTree.toString(), dataValue);
+			}
+			setInvertColonRender(true);
+		}
+		if (asParent)
+		{
+			add(childItems);
+		}
 		super.preConfigure();
 	}
 
 	@Override
 	public JSTreeNodeOptions<? extends JSTreeNodeOptions<?>> getOptions()
 	{
-		setOptions(new JSTreeNodeOptions<>());
+		if (options == null)
+		{
+			setOptions(new JSTreeNodeOptions<>());
+		}
 		return options;
 	}
 
 	@Override
-	public void setOptions(JSTreeNodeOptions<?> options)
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setOptions(JSTreeNodeOptions<?> options)
 	{
 		this.options = options;
+		return (J) this;
 	}
 
 	/**
@@ -106,6 +147,22 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	public IJSTreeListItem<J> asMe()
 	{
 		return this;
+	}
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAsParent(boolean asParent)
+	{
+		this.asParent = asParent;
+		return (J) this;
+	}
+
+	@SuppressWarnings("unchecked")
+	@NotNull
+	public J setAsLink(boolean asLink)
+	{
+		this.asLink = asLink;
+		return (J) this;
 	}
 
 	@Override

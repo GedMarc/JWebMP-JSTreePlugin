@@ -22,7 +22,7 @@ public interface IJSTreeListItem<J extends JSTreeListItem<J>>
 	 *
 	 * @return
 	 */
-	JSTreeList<? extends JSTreeList> asRoot();
+	JSTreeList<? extends JSTreeList> asParent();
 
 	@SuppressWarnings("unchecked")
 	@NotNull
@@ -30,5 +30,5 @@ public interface IJSTreeListItem<J extends JSTreeListItem<J>>
 
 	JSTreeNodeOptions<? extends JSTreeNodeOptions<?>> getOptions();
 
-	void setOptions(JSTreeNodeOptions<?> options);
+	J setOptions(JSTreeNodeOptions<?> options);
 }

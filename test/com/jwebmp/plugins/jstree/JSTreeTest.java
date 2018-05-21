@@ -26,7 +26,6 @@ import org.junit.jupiter.api.Test;
  * @author GedMarc
  */
 public class JSTreeTest
-
 {
 
 	public JSTreeTest()
@@ -70,11 +69,11 @@ public class JSTreeTest
 		    .setIcon("fa fa-check")
 		    .setOpened(true);
 
-		JSTreeList<?> list = tree.addRoot(root);
-		list.addItem("Item 1", null)
+		tree.addRoot(root);
+		root.addItem("Item 1", null)
 		    .setID("node_id_1");
-		list.addItem("Item 2", null);
-		list.addItem("Item 3", null);
+		root.addItem("Item 2", null);
+		root.addItem("Item 3", null);
 
 
 		System.out.println(p.toString(true));
