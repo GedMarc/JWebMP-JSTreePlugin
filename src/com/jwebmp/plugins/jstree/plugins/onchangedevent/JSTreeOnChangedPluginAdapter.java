@@ -23,13 +23,12 @@ import com.jwebmp.base.ajax.AjaxResponse;
 import com.jwebmp.base.angular.AngularAttributes;
 import com.jwebmp.base.angular.AngularPageConfigurator;
 import com.jwebmp.htmlbuilder.javascript.events.enumerations.EventTypes;
+import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
-import za.co.mmagon.logger.LogFactory;
 
 import java.util.logging.Level;
 
-import static com.jwebmp.utilities.StaticStrings.STRING_ANGULAR_EVENT_START_SHORT;
-import static com.jwebmp.utilities.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
