@@ -9,7 +9,7 @@ import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.STRING_EMPTY;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 public class JSTreeListItem<J extends JSTreeListItem<J>>
 		extends ListItem<J>
@@ -56,7 +56,7 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 		{
 			childItems = new JSTreeList<>();
 		}
-		childItems.setRenderIDAttibute(false);
+		childItems.setRenderIDAttribute(false);
 		return childItems;
 	}
 
