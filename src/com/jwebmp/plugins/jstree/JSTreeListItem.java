@@ -56,7 +56,6 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 		{
 			childItems = new JSTreeList<>();
 		}
-		childItems.setRenderIDAttribute(false);
 		return childItems;
 	}
 
