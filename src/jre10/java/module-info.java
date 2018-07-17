@@ -11,6 +11,7 @@ module com.jwebmp.plugins.jstree {
 
 	requires com.jwebmp.core;
 	requires com.jwebmp.logmaster;
+	requires com.jwebmp.guicedservlets;
 	requires com.fasterxml.jackson.annotation;
 
 	requires java.validation;
