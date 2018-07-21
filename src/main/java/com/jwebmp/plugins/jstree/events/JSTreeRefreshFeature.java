@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jstree.events;
 
-import com.jwebmp.Feature;
+import com.jwebmp.core.Feature;
 import com.jwebmp.plugins.jstree.JSTree;
 
 /**
@@ -40,7 +40,7 @@ public class JSTreeRefreshFeature
 	@Override
 	protected void assignFunctionsToComponent()
 	{
-		addQuery(new StringBuilder(((JSTree) getComponent())
+		addQuery(new StringBuilder(getComponent()
 				                           .getJQueryID() + "jstree('refresh');"));
 	}
 }

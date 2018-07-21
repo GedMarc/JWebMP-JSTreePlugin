@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.jstree.plugins.onchangedevent;
 
-import com.jwebmp.FileTemplates;
-import com.jwebmp.base.angular.directives.AngularDirectiveBase;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
+import com.jwebmp.core.plugins.ComponentInformation;
 
 /**
  * Maps to the angular function of right click

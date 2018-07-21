@@ -16,9 +16,9 @@
  */
 package com.jwebmp.plugins.jstree.enumerations;
 
-import com.jwebmp.base.html.interfaces.AttributeDefinitions;
+import com.jwebmp.core.base.html.interfaces.AttributeDefinitions;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * @author GedMarc

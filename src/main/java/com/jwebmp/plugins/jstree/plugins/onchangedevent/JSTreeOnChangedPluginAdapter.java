@@ -16,19 +16,19 @@
  */
 package com.jwebmp.plugins.jstree.plugins.onchangedevent;
 
-import com.jwebmp.Component;
-import com.jwebmp.Event;
-import com.jwebmp.base.ajax.AjaxCall;
-import com.jwebmp.base.ajax.AjaxResponse;
-import com.jwebmp.base.angular.AngularAttributes;
-import com.jwebmp.base.angular.AngularPageConfigurator;
-import com.jwebmp.htmlbuilder.javascript.events.enumerations.EventTypes;
+import com.jwebmp.core.Component;
+import com.jwebmp.core.Event;
+import com.jwebmp.core.base.ajax.AjaxCall;
+import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.angular.AngularAttributes;
+import com.jwebmp.core.base.angular.AngularPageConfigurator;
+import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.logger.LogFactory;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 
 import java.util.logging.Level;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.

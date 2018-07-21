@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jstree.events;
 
-import com.jwebmp.Event;
+import com.jwebmp.core.Event;
 import com.jwebmp.plugins.jstree.JSTree;
 
 /**

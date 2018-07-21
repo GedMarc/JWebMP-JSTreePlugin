@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.jstree.options.functions;
 
-import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.htmlbuilder.javascript.JavascriptLiteralFunction;
+import com.jwebmp.core.plugins.ComponentInformation;
 
 import javax.validation.constraints.NotNull;
 

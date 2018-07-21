@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.Page;
+import com.jwebmp.core.Page;
 import org.junit.jupiter.api.Test;
 
 /**

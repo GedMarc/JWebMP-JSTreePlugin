@@ -17,7 +17,7 @@
 package com.jwebmp.plugins.jstree.options;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 import javax.validation.constraints.NotNull;
 

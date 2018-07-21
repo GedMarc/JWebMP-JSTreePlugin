@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.Feature;
-import com.jwebmp.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeFeatures;
 
 /**

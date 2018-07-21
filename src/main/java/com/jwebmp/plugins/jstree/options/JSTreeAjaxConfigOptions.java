@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.jstree.options;
 
-import com.jwebmp.base.client.HttpMethodTypes;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.base.client.HttpMethodTypes;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 
 import javax.validation.constraints.NotNull;
@@ -37,7 +37,7 @@ public class JSTreeAjaxConfigOptions<J extends JSTreeAjaxConfigOptions<J>>
 	/**
 	 * The Ajax url to retrieve data from.
 	 * <p>
-	 * Usually SiteBinder.DataLocation set in tree PreConfig
+	 * Usually SiteBinderGuiceSiteBinder.DataLocation set in tree PreConfig
 	 */
 	private String url;
 	/**
@@ -75,7 +75,7 @@ public class JSTreeAjaxConfigOptions<J extends JSTreeAjaxConfigOptions<J>>
 	/**
 	 * The Ajax url to retrieve data from.
 	 * <p>
-	 * Usually SiteBinder.DataLocation set in tree PreConfig
+	 * Usually SiteBinderGuiceSiteBinder.DataLocation set in tree PreConfig
 	 *
 	 * @return
 	 */
@@ -87,7 +87,7 @@ public class JSTreeAjaxConfigOptions<J extends JSTreeAjaxConfigOptions<J>>
 	/**
 	 * The Ajax url to retrieve data from.
 	 * <p>
-	 * Usually SiteBinder.DataLocation set in tree PreConfig
+	 * Usually SiteBinderGuiceSiteBinder.DataLocation set in tree PreConfig
 	 *
 	 * @param url
 	 */

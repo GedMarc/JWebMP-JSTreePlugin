@@ -18,7 +18,7 @@ package com.jwebmp.plugins.jstree;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jstree.options.*;
 import com.jwebmp.plugins.jstree.plugins.JSTreePlugins;
 import com.jwebmp.plugins.jstree.plugins.onchangedevent.JSTreeOnChangedPluginAdapter;
@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Holds all jstree related functions and variables, including the actual class and methods to create, access and manipulate instances.

@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.Page;
+import com.jwebmp.core.Page;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeJS;
 import com.jwebmp.plugins.jstree.themes.JSTreeDefaultDarkTheme;
 import org.junit.jupiter.api.Assertions;

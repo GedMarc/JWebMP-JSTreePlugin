@@ -1,8 +1,8 @@
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.base.html.List;
-import com.jwebmp.base.html.interfaces.children.ListChildren;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.html.List;
+import com.jwebmp.core.base.html.interfaces.children.ListChildren;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
 import com.jwebmp.plugins.jstree.interfaces.IJSTreeList;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;

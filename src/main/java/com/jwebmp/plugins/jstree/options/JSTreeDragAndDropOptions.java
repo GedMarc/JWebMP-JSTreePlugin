@@ -17,9 +17,9 @@
 package com.jwebmp.plugins.jstree.options;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
-import com.jwebmp.htmlbuilder.javascript.JavascriptLiteralFunction;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.htmlbuilder.javascript.JavascriptLiteralFunction;
+import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.plugins.jstree.options.enumerations.JSTreeDragAndDropInsidePosition;
 
 /**

@@ -16,12 +16,12 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.annotations.SiteBinder;
-import com.jwebmp.base.client.HttpMethodTypes;
-import com.jwebmp.base.html.Div;
-import com.jwebmp.htmlbuilder.css.themes.Theme;
-import com.jwebmp.plugins.ComponentInformation;
-import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
+import com.jwebmp.core.annotations.SiteBinderGuiceSiteBinder;
+import com.jwebmp.core.base.client.HttpMethodTypes;
+import com.jwebmp.core.base.html.Div;
+import com.jwebmp.core.htmlbuilder.css.themes.Theme;
+import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
 import com.jwebmp.plugins.jstree.events.JSTreeRefreshFeature;
 import com.jwebmp.plugins.jstree.interfaces.IJSTree;
@@ -39,7 +39,7 @@ import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * An implementation of the jsTree project.
@@ -107,8 +107,8 @@ public class JSTree<J extends JSTree<J>>
 
 				getOptions().getCore()
 				            .getData()
-				            .setUrl(SiteBinder.getDataLocation()
-				                              .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+				            .setUrl(SiteBinderGuiceSiteBinder.getDataLocation()
+				                                             .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 				                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
 				getOptions().getCore()
 				            .getData()
@@ -366,8 +366,8 @@ public class JSTree<J extends JSTree<J>>
 		            .setType(HttpMethodTypes.POST);
 
 		getOptions().getMassLoad()
-		            .setUrl(SiteBinder.getDataLocation()
-		                              .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+		            .setUrl(SiteBinderGuiceSiteBinder.getDataLocation()
+		                                             .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 		                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		getOptions().getMassLoad()
 		            .setData(new JSTreeCoreDataFunction());
@@ -414,8 +414,8 @@ public class JSTree<J extends JSTree<J>>
 		searchOptions.getAjax()
 		             .setType(HttpMethodTypes.POST);
 		searchOptions.getAjax()
-		             .setUrl(SiteBinder.getDataLocation()
-		                               .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+		             .setUrl(SiteBinderGuiceSiteBinder.getDataLocation()
+		                                              .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 		                                                                                                             .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		searchOptions.getAjax()
 		             .setData(new JSTreeCoreDataFunction());

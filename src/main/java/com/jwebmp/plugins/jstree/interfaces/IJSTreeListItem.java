@@ -1,6 +1,6 @@
 package com.jwebmp.plugins.jstree.interfaces;
 
-import com.jwebmp.base.html.Link;
+import com.jwebmp.core.base.html.Link;
 import com.jwebmp.plugins.jstree.JSTreeList;
 import com.jwebmp.plugins.jstree.JSTreeListItem;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;

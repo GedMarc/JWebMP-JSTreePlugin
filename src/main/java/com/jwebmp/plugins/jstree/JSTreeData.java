@@ -18,8 +18,8 @@ package com.jwebmp.plugins.jstree;
 
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.jwebmp.base.servlets.interfaces.IDataComponent;
-import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.core.base.servlets.interfaces.IDataComponent;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeJS;
 
 import javax.validation.constraints.NotNull;

@@ -16,8 +16,8 @@
  */
 package com.jwebmp.plugins.jstree.themes;
 
-import com.jwebmp.base.references.CSSReference;
-import com.jwebmp.htmlbuilder.css.themes.Theme;
+import com.jwebmp.core.base.references.CSSReference;
+import com.jwebmp.core.htmlbuilder.css.themes.Theme;
 
 /**
  * @author GedMarc

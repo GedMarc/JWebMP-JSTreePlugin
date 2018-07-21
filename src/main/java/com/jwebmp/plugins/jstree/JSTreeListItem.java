@@ -1,7 +1,7 @@
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.base.html.Link;
-import com.jwebmp.base.html.ListItem;
+import com.jwebmp.core.base.html.Link;
+import com.jwebmp.core.base.html.ListItem;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
 import com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
@@ -9,7 +9,7 @@ import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
 import javax.validation.constraints.NotNull;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class JSTreeListItem<J extends JSTreeListItem<J>>
 		extends ListItem<J>
