@@ -17,10 +17,10 @@
 package com.jwebmp.plugins.jstree;
 
 import com.jwebmp.core.Page;
-import com.jwebmp.core.PageConfigurator;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
+import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeReferencePool;
 
 /**
@@ -42,11 +42,8 @@ import com.jwebmp.plugins.jstree.enumerations.JSTreeReferencePool;
 		pluginIconImageUrl = "bower_components/jstree/example.png",
 		pluginLastUpdatedDate = "2018/05/13")
 public class JSTreePageConfigurator
-		extends PageConfigurator
+		implements IPageConfigurator
 {
-
-	private static final long serialVersionUID = 1L;
-
 	@Override
 	public Page configure(Page page)
 	{

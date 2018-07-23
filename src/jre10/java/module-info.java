@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.jstree.JSTreePageConfigurator;
+
 module com.jwebmp.plugins.jstree {
 
 	exports com.jwebmp.plugins.jstree;
@@ -16,4 +19,7 @@ module com.jwebmp.plugins.jstree {
 
 	requires java.validation;
 	requires java.logging;
+
+	provides IPageConfigurator with JSTreePageConfigurator;
+
 }

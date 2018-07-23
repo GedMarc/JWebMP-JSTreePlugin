@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.core.annotations.SiteBinderGuiceSiteBinder;
+import com.jwebmp.core.annotations.JWebMPSiteBinder;
 import com.jwebmp.core.base.client.HttpMethodTypes;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.htmlbuilder.css.themes.Theme;
@@ -107,8 +107,8 @@ public class JSTree<J extends JSTree<J>>
 
 				getOptions().getCore()
 				            .getData()
-				            .setUrl(SiteBinderGuiceSiteBinder.getDataLocation()
-				                                             .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+				            .setUrl(JWebMPSiteBinder.getDataLocation()
+				                                    .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 				                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
 				getOptions().getCore()
 				            .getData()
@@ -366,8 +366,8 @@ public class JSTree<J extends JSTree<J>>
 		            .setType(HttpMethodTypes.POST);
 
 		getOptions().getMassLoad()
-		            .setUrl(SiteBinderGuiceSiteBinder.getDataLocation()
-		                                             .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+		            .setUrl(JWebMPSiteBinder.getDataLocation()
+		                                    .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 		                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		getOptions().getMassLoad()
 		            .setData(new JSTreeCoreDataFunction());
@@ -414,8 +414,8 @@ public class JSTree<J extends JSTree<J>>
 		searchOptions.getAjax()
 		             .setType(HttpMethodTypes.POST);
 		searchOptions.getAjax()
-		             .setUrl(SiteBinderGuiceSiteBinder.getDataLocation()
-		                                              .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
+		             .setUrl(JWebMPSiteBinder.getDataLocation()
+		                                     .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 		                                                                                                             .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		searchOptions.getAjax()
 		             .setData(new JSTreeCoreDataFunction());
