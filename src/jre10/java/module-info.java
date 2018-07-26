@@ -22,4 +22,13 @@ module com.jwebmp.plugins.jstree {
 
 	provides IPageConfigurator with JSTreePageConfigurator;
 
+	opens com.jwebmp.plugins.jstree to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.plugins.onchangedevent to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.plugins to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.interfaces to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.events to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.options to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.options.enumerations to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.options.functions to com.fasterxml.jackson.databind,com.jwebmp.core;
+	opens com.jwebmp.plugins.jstree.themes to com.fasterxml.jackson.databind,com.jwebmp.core;
 }
