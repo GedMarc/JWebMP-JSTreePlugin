@@ -23,6 +23,8 @@ import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeReferencePool;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  */
@@ -44,6 +46,7 @@ import com.jwebmp.plugins.jstree.enumerations.JSTreeReferencePool;
 public class JSTreePageConfigurator
 		implements IPageConfigurator
 {
+	@NotNull
 	@Override
 	public Page configure(Page page)
 	{
