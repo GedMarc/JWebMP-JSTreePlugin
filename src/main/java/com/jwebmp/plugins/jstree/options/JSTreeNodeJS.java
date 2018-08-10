@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.plugins.jstree.JSTreeData;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * A Tree Node
  *
@@ -150,6 +152,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 		{
 			setChildNodes(new JSTreeData()
 			{
+				@NotNull
 				@Override
 				public StringBuilder renderData()
 				{

@@ -109,7 +109,7 @@ public class JSTree<J extends JSTree<J>>
 				            .getData()
 				            .setUrl(JWebMPSiteBinder.getDataLocation()
 				                                    .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
-				                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
+				                                                                                                                  .replace(CHAR_DOT, CHAR_UNDERSCORE));
 				getOptions().getCore()
 				            .getData()
 				            .setData(new JSTreeCoreDataFunction());
@@ -368,7 +368,7 @@ public class JSTree<J extends JSTree<J>>
 		getOptions().getMassLoad()
 		            .setUrl(JWebMPSiteBinder.getDataLocation()
 		                                    .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
-		                                                                                                            .replace(CHAR_DOT, CHAR_UNDERSCORE));
+		                                                                                                                  .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		getOptions().getMassLoad()
 		            .setData(new JSTreeCoreDataFunction());
 
@@ -416,7 +416,7 @@ public class JSTree<J extends JSTree<J>>
 		searchOptions.getAjax()
 		             .setUrl(JWebMPSiteBinder.getDataLocation()
 		                                     .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
-		                                                                                                             .replace(CHAR_DOT, CHAR_UNDERSCORE));
+		                                                                                                                   .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		searchOptions.getAjax()
 		             .setData(new JSTreeCoreDataFunction());
 		return searchOptions;
@@ -463,15 +463,26 @@ public class JSTree<J extends JSTree<J>>
 		return new JSTreeRefreshFeature(this);
 	}
 
-	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
+	/**
+	 * @return hash-int
+	 */
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	/**
+	 * Method equals ...
+	 *
+	 * @param o
+	 * 		of type Object
+	 *
+	 * @return boolean
+	 */
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

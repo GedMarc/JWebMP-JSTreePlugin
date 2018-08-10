@@ -33,7 +33,7 @@ import java.util.List;
  */
 public abstract class JSTreeData<J extends JSTreeData<J>>
 		extends JavaScriptPart<J>
-		implements IDataComponent<JSTreeData>
+		implements IDataComponent
 {
 
 	private static final long serialVersionUID = 1L;

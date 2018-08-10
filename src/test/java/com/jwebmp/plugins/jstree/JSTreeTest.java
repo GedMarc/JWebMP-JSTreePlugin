@@ -22,6 +22,8 @@ import com.jwebmp.plugins.jstree.themes.JSTreeDefaultDarkTheme;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author GedMarc
  */
@@ -87,6 +89,7 @@ public class JSTreeTest
 		tree.setID("id");
 		JSTreeData data = new JSTreeData()
 		{
+			@NotNull
 			@Override
 			public StringBuilder renderData()
 			{
