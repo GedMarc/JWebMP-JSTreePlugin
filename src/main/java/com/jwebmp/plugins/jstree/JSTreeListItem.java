@@ -2,6 +2,7 @@ package com.jwebmp.plugins.jstree;
 
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.core.base.html.ListItem;
+import com.jwebmp.core.base.html.interfaces.children.ListItemChildren;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
 import com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
@@ -13,7 +14,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class JSTreeListItem<J extends JSTreeListItem<J>>
 		extends ListItem<J>
-		implements JSTreeChildren, com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem<J>
+		implements JSTreeChildren<ListItemChildren, J>, com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem<J>
 {
 	private Link<?> link;
 	private boolean asParent;
@@ -29,6 +30,12 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	public JSTreeListItem(String text)
 	{
 		super(text);
+	}
+
+	public JSTreeListItem(String text, JSTreeNodeOptions<?> options)
+	{
+		this(text);
+		this.options = options;
 	}
 
 	/**
@@ -66,57 +73,6 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	{
 		this.asLink = asLink;
 		return (J) this;
-	}
-
-	@Override
-	public JSTreeListItem<?> addItem(String textToAdd)
-	{
-		JSTreeListItem<?> item = new JSTreeListItem<>(textToAdd);
-		asParent = true;
-		childItems = new JSTreeList<>();
-		childItems.add(item);
-		return item;
-	}
-
-	public JSTreeListItem<?> addItem(String textToAdd, JSTreeNodeOptions<?> options)
-	{
-		JSTreeListItem<?> item = new JSTreeListItem<>(textToAdd);
-		item.setOptions(options);
-		asParent = true;
-		if (childItems == null)
-		{
-			childItems = new JSTreeList<>();
-		}
-		childItems.add(item);
-		return item;
-	}
-
-	@Override
-	public void preConfigure()
-	{
-		String dataValue = options == null ? STRING_EMPTY : options.toString(true);
-		if (asLink)
-		{
-			link = new Link<>();
-			if (!dataValue.isEmpty())
-			{
-				link.addAttribute(JSTreeAttributes.Data_JsTree.toString(), dataValue);
-			}
-			add(link);
-		}
-		else
-		{
-			if (!dataValue.isEmpty())
-			{
-				addAttribute(JSTreeAttributes.Data_JsTree.toString(), dataValue);
-			}
-			setInvertColonRender(true);
-		}
-		if (asParent)
-		{
-			add(childItems);
-		}
-		super.preConfigure();
 	}
 
 	@Override
@@ -165,14 +121,63 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	}
 
 	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
+
+	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
 	}
 
-	@Override
-	public int hashCode()
+	/**
+	 * Method add ...
+	 *
+	 * @param newChild
+	 * 		of type ListItemChildren
+	 *
+	 * @return J
+	 */
+	public @NotNull J add(@NotNull JSTreeListItem newChild)
 	{
-		return super.hashCode();
+		asParent = true;
+		getChildItems().add((JSTreeListItem) newChild);
+		return (J) this;
+	}
+
+	public JSTreeList<?> getChildItems()
+	{
+		if (childItems == null)
+		{
+			childItems = new JSTreeList<>();
+			add(childItems);
+		}
+		return childItems;
+	}
+
+	@Override
+	public void preConfigure()
+	{
+		String dataValue = options == null ? STRING_EMPTY : options.toString(true);
+		if (asLink)
+		{
+			link = new Link<>();
+			if (!dataValue.isEmpty())
+			{
+				link.addAttribute(JSTreeAttributes.Data_JsTree.toString(), dataValue);
+			}
+			add(link);
+		}
+		else
+		{
+			if (!dataValue.isEmpty())
+			{
+				addAttribute(JSTreeAttributes.Data_JsTree.toString(), dataValue);
+			}
+			setInvertColonRender(true);
+		}
+		super.preConfigure();
 	}
 }

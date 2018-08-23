@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 public class JSTreeList<J extends JSTreeList<J>>
 		extends List<ListChildren, JSTreeAttributes, GlobalEvents, J>
-		implements JSTreeChildren, com.jwebmp.plugins.jstree.interfaces.IJSTreeList<J>
+		implements JSTreeChildren<ListChildren, J>, com.jwebmp.plugins.jstree.interfaces.IJSTreeList<J>
 {
 	public JSTreeList()
 	{
@@ -77,14 +77,14 @@ public class JSTreeList<J extends JSTreeList<J>>
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 }

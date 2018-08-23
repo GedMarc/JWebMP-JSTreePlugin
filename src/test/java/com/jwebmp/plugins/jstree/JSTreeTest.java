@@ -72,10 +72,10 @@ public class JSTreeTest
 		    .setOpened(true);
 
 		tree.addRoot(root);
-		root.addItem("Item 1", null)
+/*		root.addItem("Item 1", null)
 		    .setID("node_id_1");
 		root.addItem("Item 2", null);
-		root.addItem("Item 3", null);
+		root.addItem("Item 3", null);*/
 
 		System.out.println(p.toString(true));
 	}

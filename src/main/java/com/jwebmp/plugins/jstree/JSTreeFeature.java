@@ -17,8 +17,6 @@
 package com.jwebmp.plugins.jstree;
 
 import com.jwebmp.core.Feature;
-import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
-import com.jwebmp.plugins.jstree.interfaces.JSTreeFeatures;
 
 /**
  * Adds on a ToolTip, String for custom text using header theme, Div for custom contents
@@ -28,8 +26,7 @@ import com.jwebmp.plugins.jstree.interfaces.JSTreeFeatures;
  * @since 2013/01/16
  */
 public class JSTreeFeature
-		extends Feature<JSTreeOptions, JSTreeFeature>
-		implements JSTreeFeatures, GlobalFeatures
+		extends Feature<JSTreeFeature, JSTreeOptions, JSTreeFeature>
 {
 	private static final long serialVersionUID = 1L;
 
