@@ -35,16 +35,16 @@ import javax.validation.constraints.NotNull;
 		pluginDependancyUniqueIDs = "jquery",
 		pluginCategories = "jquery, ui, tree, jstree, framework, web",
 		pluginSubtitle = "jsTree is jquery plugin, that provides interactive trees. ",
-		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-JSTreePlugin",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-JSTreePlugin",
 		pluginSourceUrl = "https://github.com/vakata/jstree/",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-JSTreePlugin/wiki",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-JSTreePlugin/wiki",
 		pluginOriginalHomepage = "https://www.jstree.com/",
 		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/JSTreePlugin.jar/download",
 		pluginIconUrl = "bower_components/jstree/icon.jpg",
 		pluginIconImageUrl = "bower_components/jstree/example.png",
 		pluginLastUpdatedDate = "2018/05/13")
 public class JSTreePageConfigurator
-		implements IPageConfigurator
+		implements IPageConfigurator<JSTreePageConfigurator>
 {
 	/**
 	 * If this configurator is enabled
