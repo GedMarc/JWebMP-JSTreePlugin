@@ -40,7 +40,7 @@ public class JSTreeCheckCallbackFunction<J extends JSTreeCheckCallbackFunction<J
 	public static final String CopyNode = "copy_node";
 	private static final String IfOperationString = "if(operation === '";
 	private static final String EndIfOperationString = "') return true;";
-	private static final long serialVersionUID = 1L;
+
 
 	private Boolean create;
 	private Boolean rename;

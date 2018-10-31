@@ -36,7 +36,7 @@ public abstract class JSTreeData<J extends JSTreeData<J>>
 		implements IDataComponent
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The list of nodes
 	 */

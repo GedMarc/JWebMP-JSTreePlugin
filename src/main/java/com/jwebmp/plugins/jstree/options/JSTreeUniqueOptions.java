@@ -37,7 +37,6 @@ public class JSTreeUniqueOptions<J extends JSTreeUniqueOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Indicates if the comparison should be case sensitive. Default is false.

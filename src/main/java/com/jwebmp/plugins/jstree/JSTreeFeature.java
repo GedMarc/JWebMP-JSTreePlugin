@@ -28,7 +28,7 @@ import com.jwebmp.core.Feature;
 public class JSTreeFeature
 		extends Feature<JSTreeFeature, JSTreeOptions, JSTreeFeature>
 {
-	private static final long serialVersionUID = 1L;
+
 
 	private JSTreeOptions options;
 

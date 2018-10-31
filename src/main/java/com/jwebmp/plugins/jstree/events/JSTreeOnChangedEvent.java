@@ -30,7 +30,6 @@ public class JSTreeOnChangedEvent
 		extends Event
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public JSTreeOnChangedEvent(JSTree tree)
 	{

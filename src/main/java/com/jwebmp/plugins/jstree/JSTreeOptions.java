@@ -45,7 +45,6 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * holds all the default options used when creating new instances

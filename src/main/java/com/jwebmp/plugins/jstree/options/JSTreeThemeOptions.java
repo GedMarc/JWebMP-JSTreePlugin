@@ -32,7 +32,7 @@ public class JSTreeThemeOptions<J extends JSTreeThemeOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * the name of the theme to use (if left as false the default theme is used)
 	 */

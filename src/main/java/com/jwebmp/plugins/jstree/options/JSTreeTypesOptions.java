@@ -48,7 +48,6 @@ public class JSTreeTypesOptions<J extends JSTreeTypesOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * a string - can be a path to an icon or a className, if using an image that is in the current directory use a ./ prefix, otherwise it will be detected as a class. Omit to use
@@ -121,9 +120,9 @@ public class JSTreeTypesOptions<J extends JSTreeTypesOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setIcon(String icon)
+	public J setIcon(Enum icon)
 	{
-		this.icon = icon;
+		this.icon = icon.toString();
 		return (J) this;
 	}
 
@@ -136,9 +135,9 @@ public class JSTreeTypesOptions<J extends JSTreeTypesOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setIcon(Enum icon)
+	public J setIcon(String icon)
 	{
-		this.icon = icon.toString();
+		this.icon = icon;
 		return (J) this;
 	}
 

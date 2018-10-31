@@ -48,7 +48,7 @@ public class JSTreeCheckboxOptions<J extends JSTreeCheckboxOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * a boolean indicating if checkboxes should be visible (can be changed at a later time using show_checkboxes() and hide_checkboxes). Defaults to true.
 	 */

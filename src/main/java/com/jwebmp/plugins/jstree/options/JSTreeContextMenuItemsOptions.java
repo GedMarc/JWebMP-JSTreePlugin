@@ -62,8 +62,6 @@ import javax.validation.constraints.NotNull;
 public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptions<J>>
 		extends JavaScriptPart<J>
 {
-
-	private static final long serialVersionUID = 1L;
 	/**
 	 * a boolean indicating if there should be a separator before this item
 	 */
@@ -280,9 +278,9 @@ public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptio
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setIcon(Enum icon)
+	public J setIcon(String icon)
 	{
-		this.icon = icon.toString();
+		this.icon = icon;
 		return (J) this;
 	}
 
@@ -295,9 +293,9 @@ public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptio
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setIcon(String icon)
+	public J setIcon(Enum icon)
 	{
-		this.icon = icon;
+		this.icon = icon.toString();
 		return (J) this;
 	}
 

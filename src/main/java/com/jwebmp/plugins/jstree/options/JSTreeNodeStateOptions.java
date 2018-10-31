@@ -33,7 +33,6 @@ public class JSTreeNodeStateOptions<J extends JSTreeNodeStateOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * is the node open

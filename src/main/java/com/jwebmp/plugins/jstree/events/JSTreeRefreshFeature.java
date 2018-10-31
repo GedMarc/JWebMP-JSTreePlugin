@@ -30,7 +30,6 @@ public class JSTreeRefreshFeature
 		extends Feature
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public JSTreeRefreshFeature(JSTree tree)
 	{

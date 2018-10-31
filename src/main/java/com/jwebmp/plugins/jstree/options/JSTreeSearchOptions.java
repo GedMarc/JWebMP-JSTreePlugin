@@ -36,7 +36,7 @@ public class JSTreeSearchOptions<J extends JSTreeSearchOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * a jQuery-like AJAX config, which jstree uses if a server should be queried for results. A str (which is the search string) parameter will be added with the request, an
 	 * optional inside parameter

@@ -38,7 +38,6 @@ public class JSTreeContextMenuOptions<J extends JSTreeContextMenuOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * a boolean indicating if the node should be selected when the context menu is invoked on it. Defaults to true.

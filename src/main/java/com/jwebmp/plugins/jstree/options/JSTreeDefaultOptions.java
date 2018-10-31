@@ -34,7 +34,6 @@ public class JSTreeDefaultOptions<J extends JSTreeDefaultOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
 
 	/**
 	 * configure which plugins will be active on an instance. Should be an array of strings, where each element is a plugin name. The default is

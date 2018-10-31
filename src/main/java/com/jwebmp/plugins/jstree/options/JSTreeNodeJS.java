@@ -33,7 +33,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 		extends JSTreeTypesOptions<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The ID of the node
 	 */

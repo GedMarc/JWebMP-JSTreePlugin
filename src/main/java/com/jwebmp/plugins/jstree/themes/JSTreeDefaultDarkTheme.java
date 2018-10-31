@@ -29,7 +29,6 @@ public class JSTreeDefaultDarkTheme
 		implements JSTreeTheme
 {
 
-	private static final long serialVersionUID = 1L;
 
 	public JSTreeDefaultDarkTheme()
 	{

@@ -33,7 +33,7 @@ public class JSTreeAjaxConfigOptions<J extends JSTreeAjaxConfigOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The Ajax url to retrieve data from.
 	 * <p>

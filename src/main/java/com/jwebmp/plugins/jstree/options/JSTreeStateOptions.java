@@ -32,7 +32,7 @@ public class JSTreeStateOptions<J extends JSTreeStateOptions<J>>
 		extends JavaScriptPart<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * A string for the key to use when saving the current tree (change if using multiple trees in your project). Defaults to jstree.
 	 */

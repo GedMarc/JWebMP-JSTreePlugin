@@ -57,7 +57,7 @@ public class JSTree<J extends JSTree<J>>
 		implements com.jwebmp.plugins.jstree.interfaces.IJSTree<J>
 {
 
-	private static final long serialVersionUID = 1L;
+
 	private final JSTreeList<?> rootList = new JSTreeList<>();
 	private JSTreeFeature feature;
 	private boolean renderTreeAsync;

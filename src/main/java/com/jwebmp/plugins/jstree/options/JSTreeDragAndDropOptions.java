@@ -36,7 +36,7 @@ public class JSTreeDragAndDropOptions
 		extends JavaScriptPart
 {
 
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * a boolean indicating if a copy should be possible while dragging (by pressint the meta key or Ctrl). Defaults to true.
 	 */
