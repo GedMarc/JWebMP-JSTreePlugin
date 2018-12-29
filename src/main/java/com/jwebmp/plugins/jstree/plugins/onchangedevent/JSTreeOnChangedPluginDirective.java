@@ -19,6 +19,7 @@ package com.jwebmp.plugins.jstree.plugins.onchangedevent;
 import com.jwebmp.core.FileTemplates;
 import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
 import com.jwebmp.core.plugins.ComponentInformation;
+import com.jwebmp.plugins.jstree.JSTreePageConfigurator;
 
 /**
  * Maps to the angular function of right click
@@ -30,10 +31,8 @@ import com.jwebmp.core.plugins.ComponentInformation;
 		description = "This plugin adds additional information about selection changes. Once included in the plugins config option, each changed.jstree event data will contain a new property named changed, which will give information about selected and deselected nodes since the last changed.jstree event",
 		url = "https://www.jstree.com/plugins/")
 public class JSTreeOnChangedPluginDirective
-		extends AngularDirectiveBase
+		extends AngularDirectiveBase<JSTreeOnChangedPluginDirective>
 {
-
-
 	/**
 	 * Constructs a new right click directive based on the angular object passed in
 	 */
@@ -54,4 +53,9 @@ public class JSTreeOnChangedPluginDirective
 		                    .toString();
 	}
 
+	@Override
+	public boolean enabled()
+	{
+		return JSTreePageConfigurator.isEnabled();
+	}
 }

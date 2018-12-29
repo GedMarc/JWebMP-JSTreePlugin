@@ -1,7 +1,9 @@
+import com.jwebmp.core.base.angular.services.IAngularDirective;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
 import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
 import com.jwebmp.plugins.jstree.JSTreePageConfigurator;
+import com.jwebmp.plugins.jstree.plugins.onchangedevent.JSTreeOnChangedPluginDirective;
 
 module com.jwebmp.plugins.jstree {
 
@@ -22,8 +24,10 @@ module com.jwebmp.plugins.jstree {
 	requires java.validation;
 	requires java.logging;
 	requires com.jwebmp.guicedinjection;
+	requires com.jwebmp.core.angularjs;
 
 	provides IPageConfigurator with JSTreePageConfigurator;
+	provides IAngularDirective with JSTreeOnChangedPluginDirective;
 
 	provides IGuiceScanJarExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
 	provides IGuiceScanModuleExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
