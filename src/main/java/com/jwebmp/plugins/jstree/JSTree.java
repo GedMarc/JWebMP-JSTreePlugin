@@ -23,7 +23,8 @@ import com.jwebmp.core.htmlbuilder.css.themes.Theme;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
-import com.jwebmp.plugins.jstree.events.JSTreeRefreshFeature;
+import com.jwebmp.plugins.jstree.enumerations.JSTreePlugins;
+import com.jwebmp.plugins.jstree.features.JSTreeRefreshFeature;
 import com.jwebmp.plugins.jstree.interfaces.IJSTree;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
@@ -33,7 +34,6 @@ import com.jwebmp.plugins.jstree.options.JSTreeSearchOptions;
 import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCoreDataFunction;
-import com.jwebmp.plugins.jstree.plugins.JSTreePlugins;
 import com.jwebmp.plugins.jstree.themes.JSTreeDefaultTheme;
 import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
 

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree.plugins;
+package com.jwebmp.plugins.jstree.enumerations;
 
 /**
  * jsTree has some functionality moved out of the core so you can only use it when you need it.

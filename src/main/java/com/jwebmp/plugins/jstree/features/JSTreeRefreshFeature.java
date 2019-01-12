@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree.events;
+package com.jwebmp.plugins.jstree.features;
 
-import com.jwebmp.core.Event;
+import com.jwebmp.core.Feature;
 import com.jwebmp.plugins.jstree.JSTree;
 
 /**
@@ -26,24 +26,20 @@ import com.jwebmp.plugins.jstree.JSTree;
  * @version 1.0
  * @since 29 Dec 2016
  */
-public class JSTreeOnChangedEvent
-		extends Event
+public class JSTreeRefreshFeature
+		extends Feature
 {
 
 
-	public JSTreeOnChangedEvent(JSTree tree)
+	public JSTreeRefreshFeature(JSTree tree)
 	{
-		super("JSTreeOnChangedEvent", tree);
+		super("JSTreeRefreshFeature", tree);
 	}
 
 	@Override
-	public void preConfigure()
+	protected void assignFunctionsToComponent()
 	{
-		if (!isConfigured())
-		{
-			getComponent().addAttribute("ng-jstree-onchanged", "");
-		}
-		super.preConfigure();
+		addQuery(new StringBuilder(getComponent()
+				                           .getJQueryID() + "jstree('refresh');"));
 	}
-
 }

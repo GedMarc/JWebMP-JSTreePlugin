@@ -14,16 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.jwebmp.plugins.jstree.plugins.onchangedevent;
+package com.jwebmp.plugins.jstree.events.onselectedevent;
 
 import com.jwebmp.core.Component;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
-import com.jwebmp.core.base.angular.AngularAttributes;
-import com.jwebmp.core.base.angular.AngularPageConfigurator;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.jwebmp.logger.LogFactory;
+import com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 
 import java.util.logging.Level;
@@ -35,8 +35,8 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  *
  * @author Marc Magon
  */
-public abstract class JSTreeOnChangedPluginAdapter
-		extends Event
+public abstract class JSTreeOnSelectedAdapter
+		extends Event<GlobalFeatures, JSTreeOnSelectedAdapter>
 		implements JSTreeEvents
 {
 
@@ -44,7 +44,7 @@ public abstract class JSTreeOnChangedPluginAdapter
 	 * Logger for the Component
 	 */
 	private static final java.util.logging.Logger LOG = LogFactory.getInstance()
-	                                                              .getLogger("JSTreeOnChangedPluginEvent");
+	                                                              .getLogger("JSTreeOnChangedAdapter");
 
 	private JSTreeOnChangedPluginDirective directive;
 
@@ -54,10 +54,9 @@ public abstract class JSTreeOnChangedPluginAdapter
 	 * @param component
 	 * 		The component this click is going to be acting on
 	 */
-	public JSTreeOnChangedPluginAdapter(Component component)
+	public JSTreeOnSelectedAdapter(Component component)
 	{
-		super(EventTypes.undefined, component);
-
+		super(EventTypes.selected, component);
 	}
 
 	@Override
@@ -65,7 +64,7 @@ public abstract class JSTreeOnChangedPluginAdapter
 	{
 		try
 		{
-			onChanged(call, response);
+			onSelected(call, response);
 		}
 		catch (Exception e)
 		{
@@ -93,9 +92,7 @@ public abstract class JSTreeOnChangedPluginAdapter
 	{
 		if (!isConfigured())
 		{
-			AngularPageConfigurator.setRequired(true);
-
-			getComponent().addAttribute(AngularAttributes.ngJSTreeOnChanged, STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().addAttribute("ng-jstree-on-select", STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -109,7 +106,7 @@ public abstract class JSTreeOnChangedPluginAdapter
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onChanged(AjaxCall call, AjaxResponse response);
+	public abstract void onSelected(AjaxCall call, AjaxResponse response);
 
 	/**
 	 * Returns the angular directive associated with the right click event

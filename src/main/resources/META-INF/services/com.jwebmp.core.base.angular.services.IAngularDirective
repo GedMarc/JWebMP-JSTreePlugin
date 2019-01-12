@@ -1,1 +1,2 @@
-com.jwebmp.plugins.jstree.plugins.onchangedevent.JSTreeOnChangedPluginDirective
+com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective
+com.jwebmp.plugins.jstree.events.onselectedevent.JSTreeOnSelectDirective

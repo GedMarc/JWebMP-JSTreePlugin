@@ -2,7 +2,7 @@ package com.jwebmp.plugins.jstree.interfaces;
 
 import com.jwebmp.core.htmlbuilder.css.themes.Theme;
 import com.jwebmp.plugins.jstree.*;
-import com.jwebmp.plugins.jstree.events.JSTreeRefreshFeature;
+import com.jwebmp.plugins.jstree.features.JSTreeRefreshFeature;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 import com.jwebmp.plugins.jstree.options.JSTreeSearchOptions;
 import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;

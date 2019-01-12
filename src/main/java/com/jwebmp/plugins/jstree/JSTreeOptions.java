@@ -19,9 +19,9 @@ package com.jwebmp.plugins.jstree;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
+import com.jwebmp.plugins.jstree.enumerations.JSTreePlugins;
+import com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedAdapter;
 import com.jwebmp.plugins.jstree.options.*;
-import com.jwebmp.plugins.jstree.plugins.JSTreePlugins;
-import com.jwebmp.plugins.jstree.plugins.onchangedevent.JSTreeOnChangedPluginAdapter;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -218,7 +218,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setExtendedChangeDetails(JSTree tree, boolean extendedChangeDetails, JSTreeOnChangedPluginAdapter event)
+	public J setExtendedChangeDetails(JSTree tree, boolean extendedChangeDetails, JSTreeOnChangedAdapter event)
 	{
 		this.extendedChangeDetails = extendedChangeDetails;
 		if (this.extendedChangeDetails)
