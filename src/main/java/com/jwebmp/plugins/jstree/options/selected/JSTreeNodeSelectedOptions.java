@@ -14,7 +14,8 @@ public class JSTreeNodeSelectedOptions<J extends JSTreeNodeSelectedOptions<J>>
 {
 	private List<String> parents;
 	private List<String> children;
-	private List<String> children_d;
+	@JsonIgnoreProperties("childrenD")
+	private List<String> childrenD;
 	private JSTreeNodeStateOptions state;
 	private String text;
 
@@ -61,24 +62,24 @@ public class JSTreeNodeSelectedOptions<J extends JSTreeNodeSelectedOptions<J>>
 	}
 
 	/**
-	 * Getter for property 'children_d'.
+	 * Getter for property 'childrenD'.
 	 *
-	 * @return Value for property 'children_d'.
+	 * @return Value for property 'childrenD'.
 	 */
-	public List<String> getChildren_d()
+	public List<String> getChildrenD()
 	{
-		return children_d;
+		return childrenD;
 	}
 
 	/**
-	 * Setter for property 'children_d'.
+	 * Setter for property 'childrenD'.
 	 *
-	 * @param children_d
-	 * 		Value to set for property 'children_d'.
+	 * @param childrenD
+	 * 		Value to set for property 'childrenD'.
 	 */
-	public void setChildren_d(List<String> children_d)
+	public void setChildrenD(List<String> childrenD)
 	{
-		this.children_d = children_d;
+		this.childrenD = childrenD;
 	}
 
 	/**
