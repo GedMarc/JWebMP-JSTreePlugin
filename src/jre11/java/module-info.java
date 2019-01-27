@@ -1,11 +1,3 @@
-import com.jwebmp.core.base.angular.services.IAngularDirective;
-import com.jwebmp.core.services.IPageConfigurator;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
-import com.jwebmp.plugins.jstree.JSTreePageConfigurator;
-import com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective;
-import com.jwebmp.plugins.jstree.events.onselectedevent.JSTreeOnSelectDirective;
-
 module com.jwebmp.plugins.jstree {
 
 	exports com.jwebmp.plugins.jstree;
@@ -31,11 +23,11 @@ module com.jwebmp.plugins.jstree {
 	requires com.jwebmp.guicedinjection;
 	requires com.jwebmp.core.angularjs;
 
-	provides IPageConfigurator with JSTreePageConfigurator;
-	provides IAngularDirective with JSTreeOnChangedPluginDirective, JSTreeOnSelectDirective;
+	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.jstree.JSTreePageConfigurator;
+	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective, com.jwebmp.plugins.jstree.events.onselectedevent.JSTreeOnSelectDirective;
 
-	provides IGuiceScanJarExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
-	provides IGuiceScanModuleExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
 
 	opens com.jwebmp.plugins.jstree to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.jstree.events.onchangedevent to com.fasterxml.jackson.databind, com.jwebmp.core, com.google.guice;
