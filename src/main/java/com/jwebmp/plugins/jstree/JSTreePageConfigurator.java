@@ -82,7 +82,7 @@ public class JSTreePageConfigurator
 	{
 		JQueryPageConfigurator.setRequired(true);
 		AngularPageConfigurator.setRequired(true);
-		if (!page.isConfigured())
+		if (!page.isConfigured() && enabled())
 		{
 			page.addJavaScriptReference(JSTreeReferencePool.JSTreeJavascript.getJavaScriptReference());
 			page.addCssReference(JSTreeReferencePool.JSTreeJavascript.getCssReference());
