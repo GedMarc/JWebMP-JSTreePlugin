@@ -16,7 +16,7 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.core.annotations.JWebMPSiteBinder;
+import com.jwebmp.core.implementations.JWebMPSiteBinder;
 import com.jwebmp.core.base.client.HttpMethodTypes;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.htmlbuilder.css.themes.Theme;
