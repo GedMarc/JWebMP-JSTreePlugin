@@ -14,20 +14,20 @@ module com.jwebmp.plugins.jstree {
 	exports com.jwebmp.plugins.jstree.themes;
 
 	requires com.jwebmp.core;
-	requires com.jwebmp.logmaster;
-	requires com.jwebmp.guicedservlets;
+	requires com.guicedee.logmaster;
+	requires com.guicedee.guicedservlets;
 	requires com.fasterxml.jackson.annotation;
 
 	requires java.validation;
 	requires java.logging;
-	requires com.jwebmp.guicedinjection;
+	requires com.guicedee.guicedinjection;
 	requires com.jwebmp.core.angularjs;
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.jstree.JSTreePageConfigurator;
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective, com.jwebmp.plugins.jstree.events.onselectedevent.JSTreeOnSelectDirective;
 
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
-	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
 
 	opens com.jwebmp.plugins.jstree to com.fasterxml.jackson.databind, com.jwebmp.core;
 	opens com.jwebmp.plugins.jstree.events.onchangedevent to com.fasterxml.jackson.databind, com.jwebmp.core, com.google.guice;

@@ -22,7 +22,7 @@ import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
-import com.jwebmp.logger.LogFactory;
+import com.guicedee.logger.LogFactory;
 import com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 

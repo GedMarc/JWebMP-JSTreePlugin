@@ -24,7 +24,7 @@ import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
-import com.jwebmp.logger.LogFactory;
+import com.guicedee.logger.LogFactory;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 
 import java.util.logging.Level;
