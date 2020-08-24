@@ -10,6 +10,7 @@ import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
 import javax.validation.constraints.NotNull;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_EMPTY;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class JSTreeListItem<J extends JSTreeListItem<J>>

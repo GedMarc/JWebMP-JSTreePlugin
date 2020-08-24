@@ -28,6 +28,7 @@ import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 
 import java.util.logging.Level;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**

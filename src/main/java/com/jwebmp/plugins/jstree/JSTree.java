@@ -39,6 +39,7 @@ import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
 
 import javax.validation.constraints.NotNull;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
