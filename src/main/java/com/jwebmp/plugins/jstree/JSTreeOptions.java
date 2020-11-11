@@ -23,7 +23,7 @@ import com.jwebmp.plugins.jstree.enumerations.JSTreePlugins;
 import com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedAdapter;
 import com.jwebmp.plugins.jstree.options.*;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

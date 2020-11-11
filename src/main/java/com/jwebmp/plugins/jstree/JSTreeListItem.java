@@ -8,7 +8,7 @@ import com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.STRING_EMPTY;
 import static com.jwebmp.core.utilities.StaticStrings.*;

@@ -19,7 +19,7 @@ package com.jwebmp.plugins.jstree.options;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * theme configuration object

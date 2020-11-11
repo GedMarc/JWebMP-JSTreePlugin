@@ -9,7 +9,7 @@ import com.jwebmp.plugins.jstree.options.JSTreeTypesOptions;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
 import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IJSTree<J extends JSTree<J>>
 {

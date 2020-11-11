@@ -5,7 +5,7 @@ import com.jwebmp.plugins.jstree.JSTreeList;
 import com.jwebmp.plugins.jstree.JSTreeListItem;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public interface IJSTreeListItem<J extends JSTreeListItem<J>>
 {

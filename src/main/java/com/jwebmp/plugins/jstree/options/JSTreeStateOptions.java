@@ -19,7 +19,7 @@ package com.jwebmp.plugins.jstree.options;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.core.htmlbuilder.javascript.JavascriptLiteralFunction;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * This plugin saves all opened and selected nodes in the user's browser, so when returning to the same tree the previous state will be restored.

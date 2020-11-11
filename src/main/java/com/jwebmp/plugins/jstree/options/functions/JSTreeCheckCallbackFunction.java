@@ -19,7 +19,7 @@ package com.jwebmp.plugins.jstree.options.functions;
 import com.jwebmp.core.htmlbuilder.javascript.JavascriptLiteralFunction;
 import com.jwebmp.core.plugins.ComponentInformation;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @author GedMarc

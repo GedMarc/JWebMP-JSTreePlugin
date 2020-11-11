@@ -18,7 +18,7 @@ package com.jwebmp.plugins.jstree.options;
 
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * You can set the state on a node using the state property.

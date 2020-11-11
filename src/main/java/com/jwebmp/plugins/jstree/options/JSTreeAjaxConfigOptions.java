@@ -20,7 +20,7 @@ import com.jwebmp.core.base.client.HttpMethodTypes;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * All the configuration options, this class should be the jquery ajax options class

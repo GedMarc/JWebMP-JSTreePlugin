@@ -8,7 +8,7 @@ import com.jwebmp.plugins.jstree.interfaces.IJSTreeList;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeChildren;
 import com.jwebmp.plugins.jstree.options.JSTreeNodeOptions;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public class JSTreeList<J extends JSTreeList<J>>
 		extends List<ListChildren, JSTreeAttributes, GlobalEvents, J>

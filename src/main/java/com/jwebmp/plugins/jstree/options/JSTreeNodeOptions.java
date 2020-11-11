@@ -2,7 +2,7 @@ package com.jwebmp.plugins.jstree.options;
 
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 public class JSTreeNodeOptions<J extends JSTreeNodeOptions<J>>
 		extends JavaScriptPart<J>
