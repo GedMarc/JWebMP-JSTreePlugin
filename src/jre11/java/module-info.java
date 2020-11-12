@@ -16,7 +16,7 @@ module com.jwebmp.plugins.jstree {
 	requires com.guicedee.logmaster;
 	requires com.guicedee.guicedservlets;
 
-	requires java.validation;
+	requires jakarta.validation;
 	requires java.logging;
 	requires com.guicedee.guicedinjection;
 	requires com.jwebmp.core.angularjs;
