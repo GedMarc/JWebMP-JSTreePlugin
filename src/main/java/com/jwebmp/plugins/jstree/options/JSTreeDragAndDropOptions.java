@@ -33,10 +33,8 @@ import com.jwebmp.plugins.jstree.options.enumerations.JSTreeDragAndDropInsidePos
 		description = "This plugin makes it possible to drag and drop tree nodes and rearrange the tree.",
 		url = "https://www.jstree.com/plugins/")
 public class JSTreeDragAndDropOptions
-		extends JavaScriptPart
+		extends JavaScriptPart<JSTreeDragAndDropOptions>
 {
-
-
 	/**
 	 * a boolean indicating if a copy should be possible while dragging (by pressint the meta key or Ctrl). Defaults to true.
 	 */
@@ -53,7 +51,7 @@ public class JSTreeDragAndDropOptions
 	 * return false to prevent dragging
 	 */
 	@JsonProperty("is_draggable")
-	private JavascriptLiteralFunction isDraggable;
+	private JavascriptLiteralFunction<?> isDraggable;
 	/**
 	 * a boolean indicating if checks should constantly be made while the user is dragging the node (as opposed to checking only on drop), default is true
 	 */
@@ -154,7 +152,7 @@ public class JSTreeDragAndDropOptions
 	 *
 	 * @return
 	 */
-	public JavascriptLiteralFunction getIsDraggable()
+	public JavascriptLiteralFunction<?> getIsDraggable()
 	{
 		return isDraggable;
 	}
@@ -166,7 +164,7 @@ public class JSTreeDragAndDropOptions
 	 *
 	 * @param isDraggable
 	 */
-	public void setIsDraggable(JavascriptLiteralFunction isDraggable)
+	public void setIsDraggable(JavascriptLiteralFunction<?> isDraggable)
 	{
 		this.isDraggable = isDraggable;
 	}

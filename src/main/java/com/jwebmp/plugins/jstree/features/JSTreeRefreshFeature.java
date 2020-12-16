@@ -17,6 +17,8 @@
 package com.jwebmp.plugins.jstree.features;
 
 import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
+import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 import com.jwebmp.plugins.jstree.JSTree;
 
 /**
@@ -27,19 +29,20 @@ import com.jwebmp.plugins.jstree.JSTree;
  * @since 29 Dec 2016
  */
 public class JSTreeRefreshFeature
-		extends Feature
+		extends Feature<GlobalFeatures, JavaScriptPart<?>, JSTreeRefreshFeature>
 {
-
-
+	
+	
 	public JSTreeRefreshFeature(JSTree tree)
 	{
 		super("JSTreeRefreshFeature", tree);
 	}
-
+	
 	@Override
 	protected void assignFunctionsToComponent()
 	{
 		addQuery(new StringBuilder(getComponent()
+				                           .asBase()
 				                           .getJQueryID() + "jstree('refresh');"));
 	}
 }

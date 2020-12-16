@@ -16,7 +16,7 @@ public interface IJSTreeList<J extends JSTreeList<J>>
 	 *
 	 * @return
 	 */
-	JSTreeListItem<? extends JSTreeListItem> addItem(String title, JSTreeNodeOptions<?> options);
+	JSTreeListItem<? extends JSTreeListItem<?>> addItem(String title, JSTreeNodeOptions<?> options);
 
 	/**
 	 * Adds a new static root object to the list

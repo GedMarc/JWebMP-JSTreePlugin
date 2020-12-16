@@ -15,7 +15,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class JSTreeListItem<J extends JSTreeListItem<J>>
 		extends ListItem<J>
-		implements JSTreeChildren<ListItemChildren, J>, com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem<J>
+		implements JSTreeChildren, com.jwebmp.plugins.jstree.interfaces.IJSTreeListItem<J>
 {
 	private Link<?> link;
 	private boolean asParent;
@@ -57,7 +57,7 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	 * @return
 	 */
 	@Override
-	public JSTreeList<? extends JSTreeList> asParent()
+	public JSTreeList<? extends JSTreeList<?>> asParent()
 	{
 		asParent = true;
 		if (childItems == null)
@@ -141,10 +141,11 @@ public class JSTreeListItem<J extends JSTreeListItem<J>>
 	 *
 	 * @return J
 	 */
-	public @NotNull J add(@NotNull JSTreeListItem newChild)
+	@SuppressWarnings("unchecked")
+	public @NotNull J add(@NotNull JSTreeListItem<?> newChild)
 	{
 		asParent = true;
-		getChildItems().add((JSTreeListItem) newChild);
+		getChildItems().add(newChild);
 		return (J) this;
 	}
 

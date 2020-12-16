@@ -129,7 +129,7 @@ public class JSTreeStateOptions<J extends JSTreeStateOptions<J>>
 	 *
 	 * @return
 	 */
-	public JavascriptLiteralFunction getFilter()
+	public JavascriptLiteralFunction<?> getFilter()
 	{
 		return filter;
 	}
@@ -141,7 +141,7 @@ public class JSTreeStateOptions<J extends JSTreeStateOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setFilter(JavascriptLiteralFunction filter)
+	public J setFilter(JavascriptLiteralFunction<?> filter)
 	{
 		this.filter = filter;
 		return (J) this;

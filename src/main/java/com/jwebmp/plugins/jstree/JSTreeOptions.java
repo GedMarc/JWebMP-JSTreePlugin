@@ -151,7 +151,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	{
 		if (defaults == null)
 		{
-			defaults = new JSTreeDefaultOptions();
+			defaults = new JSTreeDefaultOptions<>();
 		}
 		return defaults;
 	}
@@ -219,7 +219,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setExtendedChangeDetails(JSTree tree, boolean extendedChangeDetails, JSTreeOnChangedAdapter event)
+	public J setExtendedChangeDetails(JSTree<?> tree, boolean extendedChangeDetails, JSTreeOnChangedAdapter event)
 	{
 		this.extendedChangeDetails = extendedChangeDetails;
 		if (this.extendedChangeDetails)
@@ -282,7 +282,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	{
 		if (checkbox == null)
 		{
-			checkbox = new JSTreeCheckboxOptions();
+			checkbox = new JSTreeCheckboxOptions<>();
 			getPlugins().add(JSTreePlugins.Checkbox);
 		}
 		return checkbox;
@@ -390,7 +390,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	{
 		if (massLoad == null)
 		{
-			massLoad = new JSTreeAjaxConfigOptions();
+			massLoad = new JSTreeAjaxConfigOptions<>();
 			getPlugins().add(JSTreePlugins.Massload);
 			getPlugins().add(JSTreePlugins.State);
 		}
@@ -424,7 +424,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	{
 		if (search == null)
 		{
-			setSearch(new JSTreeSearchOptions());
+			setSearch(new JSTreeSearchOptions<>());
 		}
 		return search;
 	}
@@ -482,7 +482,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	{
 		if (state == null)
 		{
-			setState(new JSTreeStateOptions());
+			setState(new JSTreeStateOptions<>());
 		}
 		return state;
 	}
@@ -511,7 +511,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	 */
 	public JSTreeTypesOptions<?> addRootType()
 	{
-		JSTreeTypesOptions type = new JSTreeTypesOptions();
+		JSTreeTypesOptions<?> type = new JSTreeTypesOptions<>();
 		getTypes().put(STRING_HASH, type);
 		return type;
 	}
@@ -555,7 +555,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	 */
 	public JSTreeTypesOptions<?> addDefaultNodeType()
 	{
-		JSTreeTypesOptions type = new JSTreeTypesOptions();
+		JSTreeTypesOptions<?> type = new JSTreeTypesOptions<>();
 		getTypes().put("default", type);
 		return type;
 	}
@@ -571,7 +571,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	{
 		if (unique == null)
 		{
-			setUnique(new JSTreeUniqueOptions());
+			setUnique(new JSTreeUniqueOptions<>());
 		}
 		return unique;
 	}
@@ -631,7 +631,7 @@ public class JSTreeOptions<J extends JSTreeOptions<J>>
 	{
 		if (core == null)
 		{
-			core = new JSTreeCoreOptions();
+			core = new JSTreeCoreOptions<>();
 		}
 		return core;
 	}

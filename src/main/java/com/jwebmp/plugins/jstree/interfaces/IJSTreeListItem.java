@@ -22,9 +22,9 @@ public interface IJSTreeListItem<J extends JSTreeListItem<J>>
 	 *
 	 * @return
 	 */
-	JSTreeList<? extends JSTreeList> asParent();
+	JSTreeList<? extends JSTreeList<?>> asParent();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J asLink(boolean asLink);
 

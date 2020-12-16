@@ -29,7 +29,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J enableChangedEvents();
 
@@ -46,7 +46,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J enableCheckBoxes();
 
@@ -56,7 +56,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J enableConditionalSelect();
 
@@ -67,7 +67,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	JSTreeCheckCallbackFunction<?> enableContextMenu();
 
@@ -78,7 +78,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	JSTreeCheckCallbackFunction<?> enableDragAndDrop();
 
@@ -87,7 +87,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J enableClientSideSorting();
 
@@ -98,7 +98,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J enableStateKeeping(String stateKey);
 
@@ -122,7 +122,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J enableForcedUniqueness();
 
@@ -131,7 +131,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J enableWholeRowSelection();
 
@@ -144,7 +144,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	JSTreeCheckCallbackFunction<?> enableAjaxDataChildrenLazyLoading(Class<? extends JSTreeData<?>> renderDataClass);
 
@@ -155,7 +155,7 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	J setRenderAsync(Class<? extends JSTreeData<?>> dataProvider);
 
@@ -166,15 +166,15 @@ public interface IJSTree<J extends JSTree<J>>
 	 *
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	JSTreeSearchOptions<?> enableSearch();
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	JSTreeList<?> addRoot(JSTreeListItem<?> rootItem);
 
-	@SuppressWarnings("unchecked")
+	
 	@NotNull
 	JSTreeList<?> addRoot(JSTreeListItem<?> rootItem, JSTreeNodeOptions<?> options);
 

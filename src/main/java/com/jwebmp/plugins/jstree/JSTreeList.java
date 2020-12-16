@@ -12,7 +12,7 @@ import jakarta.validation.constraints.NotNull;
 
 public class JSTreeList<J extends JSTreeList<J>>
 		extends List<ListChildren, JSTreeAttributes, GlobalEvents, J>
-		implements JSTreeChildren<ListChildren, J>, com.jwebmp.plugins.jstree.interfaces.IJSTreeList<J>
+		implements JSTreeChildren, com.jwebmp.plugins.jstree.interfaces.IJSTreeList<J>
 {
 	public JSTreeList()
 	{
@@ -37,7 +37,7 @@ public class JSTreeList<J extends JSTreeList<J>>
 	 * @return
 	 */
 	@Override
-	public JSTreeListItem<? extends JSTreeListItem> addItem(String title, JSTreeNodeOptions<?> options)
+	public JSTreeListItem<? extends JSTreeListItem<?>> addItem(String title, JSTreeNodeOptions<?> options)
 	{
 		JSTreeListItem<?> item = new JSTreeListItem<>();
 		item.setText(title);

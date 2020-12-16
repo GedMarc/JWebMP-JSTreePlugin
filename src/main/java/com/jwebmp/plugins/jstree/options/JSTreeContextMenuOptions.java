@@ -118,7 +118,7 @@ public class JSTreeContextMenuOptions<J extends JSTreeContextMenuOptions<J>>
 	{
 		if (items == null)
 		{
-			items = new JSTreeContextMenuItemsOptions();
+			items = new JSTreeContextMenuItemsOptions<>();
 		}
 		return items;
 	}

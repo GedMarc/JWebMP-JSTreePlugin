@@ -47,7 +47,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 * <p>
 	 * Use any combination of the following: opened, selected, disabled.
 	 */
-	private JSTreeNodeStateOptions state;
+	private JSTreeNodeStateOptions<?> state;
 	/**
 	 * The type for the node
 	 */
@@ -58,7 +58,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 * All the child nodes, json ignored for ajax called rendering
 	 */
 	@JsonIgnore
-	private JSTreeData childNodes;
+	private JSTreeData<?> childNodes;
 
 	/**
 	 * Constructs an empty tree node
@@ -92,7 +92,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 * @param text
 	 * @param state
 	 */
-	public JSTreeNodeJS(String id, String text, JSTreeNodeStateOptions state)
+	public JSTreeNodeJS(String id, String text, JSTreeNodeStateOptions<?> state)
 	{
 		this.id = id;
 		this.text = text;
@@ -107,7 +107,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 * @param state
 	 * @param typeName
 	 */
-	public JSTreeNodeJS(String id, String text, JSTreeNodeStateOptions state, String typeName)
+	public JSTreeNodeJS(String id, String text, JSTreeNodeStateOptions<?> state, String typeName)
 	{
 		this.id = id;
 		this.text = text;
@@ -146,12 +146,14 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeData getChildNodes()
+	public JSTreeData<?> getChildNodes()
 	{
 		if (childNodes == null)
 		{
+			//noinspection rawtypes
 			setChildNodes(new JSTreeData()
 			{
+				//Lazy Fetch child nodes
 				@NotNull
 				@Override
 				public StringBuilder renderData()
@@ -176,7 +178,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeNodeJS setChildNodes(JSTreeData childNodes)
+	public JSTreeNodeJS<?> setChildNodes(JSTreeData<?> childNodes)
 	{
 		this.childNodes = childNodes;
 		return this;
@@ -199,7 +201,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeNodeJS setId(String id)
+	public JSTreeNodeJS<?> setId(String id)
 	{
 		this.id = id;
 		return this;
@@ -223,7 +225,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeNodeJS setText(String text)
+	public JSTreeNodeJS<?> setText(String text)
 	{
 		this.text = text;
 		return this;
@@ -237,11 +239,11 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeNodeStateOptions getState()
+	public JSTreeNodeStateOptions<?> getState()
 	{
 		if (state == null)
 		{
-			setState(new JSTreeNodeStateOptions());
+			setState(new JSTreeNodeStateOptions<>());
 		}
 		return state;
 	}
@@ -255,7 +257,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeNodeJS setState(JSTreeNodeStateOptions state)
+	public JSTreeNodeJS<?> setState(JSTreeNodeStateOptions<?> state)
 	{
 		this.state = state;
 		return this;
@@ -278,7 +280,7 @@ public class JSTreeNodeJS<J extends JSTreeNodeJS<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeNodeJS setTypeName(String typeName)
+	public JSTreeNodeJS<?> setTypeName(String typeName)
 	{
 		this.typeName = typeName;
 		return this;

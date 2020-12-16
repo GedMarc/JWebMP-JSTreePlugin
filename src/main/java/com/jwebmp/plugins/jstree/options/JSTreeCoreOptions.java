@@ -59,7 +59,7 @@ public class JSTreeCoreOptions<J extends JSTreeCoreOptions<J>>
 	 * control.
 	 */
 	@JsonProperty("check_callback")
-	private JSTreeCheckCallbackFunction checkCallback;
+	private JSTreeCheckCallbackFunction<?> checkCallback;
 	/**
 	 * the open / close animation duration in milliseconds - set this to false to disable the animation (default is 200)
 	 */
@@ -177,11 +177,11 @@ public class JSTreeCoreOptions<J extends JSTreeCoreOptions<J>>
 	 *
 	 * @return
 	 */
-	public JSTreeCheckCallbackFunction getCheckCallback()
+	public JSTreeCheckCallbackFunction<?> getCheckCallback()
 	{
 		if (checkCallback == null)
 		{
-			checkCallback = new JSTreeCheckCallbackFunction();
+			checkCallback = new JSTreeCheckCallbackFunction<>();
 		}
 		return checkCallback;
 	}
@@ -196,7 +196,7 @@ public class JSTreeCoreOptions<J extends JSTreeCoreOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setCheckCallback(JSTreeCheckCallbackFunction checkCallback)
+	public J setCheckCallback(JSTreeCheckCallbackFunction<?> checkCallback)
 	{
 		this.checkCallback = checkCallback;
 		return (J) this;
@@ -257,7 +257,7 @@ public class JSTreeCoreOptions<J extends JSTreeCoreOptions<J>>
 	{
 		if (themes == null)
 		{
-			themes = new JSTreeThemeOptions();
+			themes = new JSTreeThemeOptions<>();
 		}
 		return themes;
 	}

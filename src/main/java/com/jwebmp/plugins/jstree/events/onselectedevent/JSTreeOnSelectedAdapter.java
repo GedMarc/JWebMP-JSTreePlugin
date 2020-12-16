@@ -20,6 +20,7 @@ import com.jwebmp.core.Component;
 import com.jwebmp.core.Event;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
 import com.guicedee.logger.LogFactory;
@@ -61,7 +62,7 @@ public abstract class JSTreeOnSelectedAdapter
 	}
 
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		try
 		{
@@ -93,7 +94,7 @@ public abstract class JSTreeOnSelectedAdapter
 	{
 		if (!isConfigured())
 		{
-			getComponent().addAttribute("ng-jstree-on-select", STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
+			getComponent().asAttributeBase().addAttribute("ng-jstree-on-select", STRING_ANGULAR_EVENT_START_SHORT + renderVariables() + STRING_CLOSING_BRACKET_SEMICOLON);
 		}
 		super.preConfigure();
 	}
@@ -107,7 +108,7 @@ public abstract class JSTreeOnSelectedAdapter
 	 * @param response
 	 * 		The physical Ajax Receiver
 	 */
-	public abstract void onSelected(AjaxCall call, AjaxResponse response);
+	public abstract void onSelected(AjaxCall<?> call, AjaxResponse<?> response);
 
 	/**
 	 * Returns the angular directive associated with the right click event

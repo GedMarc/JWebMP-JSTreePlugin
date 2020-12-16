@@ -19,6 +19,7 @@ package com.jwebmp.plugins.jstree;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeReferencePool;
@@ -31,7 +32,7 @@ import jakarta.validation.constraints.NotNull;
 @PluginInformation(pluginName = "JS Tree",
 		pluginUniqueName = "js-tree",
 		pluginDescription = "jsTree functions properly in either box-model (content-box or border-box), can be loaded as an AMD module, and has a built in mobile theme for responsive design, that can easily be customized. It uses jQuery's event system, so binding callbacks on various events in the tree is familiar and easy.",
-		pluginVersion = "3.3.5",
+		pluginVersion = "3.3.10",
 		pluginDependancyUniqueIDs = "jquery",
 		pluginCategories = "jquery, ui, tree, jstree, framework, web",
 		pluginSubtitle = "jsTree is jquery plugin, that provides interactive trees. ",
@@ -39,10 +40,15 @@ import jakarta.validation.constraints.NotNull;
 		pluginSourceUrl = "https://github.com/vakata/jstree/",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-JSTreePlugin/wiki",
 		pluginOriginalHomepage = "https://www.jstree.com/",
-		pluginDownloadUrl = "https://sourceforge.net/projects/jwebswing/files/plugins/JSTreePlugin.jar/download",
-		pluginIconUrl = "bower_components/jstree/icon.jpg",
-		pluginIconImageUrl = "bower_components/jstree/example.png",
-		pluginLastUpdatedDate = "2018/05/13")
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.jquery/jwebmp-jstree",
+		pluginIconUrl = "",
+		pluginIconImageUrl = "",
+		pluginLastUpdatedDate = "2018/05/13",
+		pluginGroupId = "com.jwebmp.plugins.jquery",
+		pluginArtifactId = "jwebmp-jstree",
+		pluginModuleName = "com.jwebmp.plugins.jstree",
+		pluginStatus = PluginStatus.Released
+)
 public class JSTreePageConfigurator
 		implements IPageConfigurator<JSTreePageConfigurator>
 {

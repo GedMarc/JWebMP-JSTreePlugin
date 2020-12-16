@@ -90,7 +90,7 @@ public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptio
 	/**
 	 * a function to be executed if this item is chosen, the function will receive
 	 */
-	private JavascriptLiteralFunction action;
+	private JavascriptLiteralFunction<?> action;
 	/**
 	 * a string, can be a path to an icon or a className,
 	 * <p>
@@ -239,7 +239,7 @@ public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptio
 	 *
 	 * @return
 	 */
-	public JavascriptLiteralFunction getAction()
+	public JavascriptLiteralFunction<?> getAction()
 	{
 		return action;
 	}
@@ -251,7 +251,7 @@ public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptio
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setAction(JavascriptLiteralFunction action)
+	public J setAction(JavascriptLiteralFunction<?> action)
 	{
 		this.action = action;
 		return (J) this;
@@ -293,7 +293,7 @@ public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptio
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setIcon(Enum icon)
+	public J setIcon(Enum<?> icon)
 	{
 		this.icon = icon.toString();
 		return (J) this;
@@ -356,7 +356,7 @@ public class JSTreeContextMenuItemsOptions<J extends JSTreeContextMenuItemsOptio
 	{
 		if (submenu == null)
 		{
-			submenu = new JSTreeContextMenuItemsOptions();
+			submenu = new JSTreeContextMenuItemsOptions<>();
 		}
 		return submenu;
 	}

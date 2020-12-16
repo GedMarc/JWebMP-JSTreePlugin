@@ -120,7 +120,7 @@ public class JSTreeTypesOptions<J extends JSTreeTypesOptions<J>>
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setIcon(Enum icon)
+	public J setIcon(Enum<?> icon)
 	{
 		this.icon = icon.toString();
 		return (J) this;

@@ -26,11 +26,11 @@ import com.jwebmp.core.Feature;
  * @since 2013/01/16
  */
 public class JSTreeFeature
-		extends Feature<JSTreeFeature, JSTreeOptions, JSTreeFeature>
+		extends Feature<JSTreeFeature, JSTreeOptions<?>, JSTreeFeature>
 {
 
 
-	private JSTreeOptions options;
+	private JSTreeOptions<?> options;
 
 	/**
 	 * Constructs a new Tooltip ComponentFeatureBase for a component. Adds the tooltip text as the Title attribute to the component
@@ -38,7 +38,7 @@ public class JSTreeFeature
 	 *
 	 * @param forComponent
 	 */
-	public JSTreeFeature(JSTree forComponent)
+	public JSTreeFeature(JSTree<?> forComponent)
 	{
 		super("JSTreeFeature");
 		setComponent(forComponent);
@@ -63,11 +63,11 @@ public class JSTreeFeature
 	 * @return
 	 */
 	@Override
-	public JSTreeOptions getOptions()
+	public JSTreeOptions<?> getOptions()
 	{
 		if (options == null)
 		{
-			options = new JSTreeOptions();
+			options = new JSTreeOptions<>();
 		}
 		return options;
 	}
@@ -75,7 +75,7 @@ public class JSTreeFeature
 	@Override
 	public void assignFunctionsToComponent()
 	{
-		String requiredString = getComponent().getJQueryID() + "jstree(";
+		String requiredString = getComponent().asBase().getJQueryID() + "jstree(";
 		requiredString += getOptions().toString();
 		requiredString += ");" + getNewLine();
 		addQuery(requiredString);

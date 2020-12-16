@@ -90,9 +90,9 @@ public abstract class JSTreeData<J extends JSTreeData<J>>
 		return (J) this;
 	}
 
-	public JSTreeNodeJS findNode(String id)
+	public JSTreeNodeJS<?> findNode(String id)
 	{
-		JSTreeNodeJS found;
+		JSTreeNodeJS<?> found;
 		found = findNode(getNodes(), id);
 		return found;
 	}

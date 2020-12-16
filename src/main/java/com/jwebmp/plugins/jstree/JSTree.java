@@ -16,10 +16,10 @@
  */
 package com.jwebmp.plugins.jstree;
 
-import com.jwebmp.core.implementations.JWebMPSiteBinder;
 import com.jwebmp.core.base.client.HttpMethodTypes;
 import com.jwebmp.core.base.html.Div;
 import com.jwebmp.core.htmlbuilder.css.themes.Theme;
+import com.jwebmp.core.implementations.JWebMPSiteBinder;
 import com.jwebmp.core.plugins.ComponentInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.plugins.jstree.enumerations.JSTreeAttributes;
@@ -36,11 +36,9 @@ import com.jwebmp.plugins.jstree.options.functions.JSTreeCheckCallbackFunction;
 import com.jwebmp.plugins.jstree.options.functions.JSTreeCoreDataFunction;
 import com.jwebmp.plugins.jstree.themes.JSTreeDefaultTheme;
 import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
-
 import jakarta.validation.constraints.NotNull;
 
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
-import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * An implementation of the jsTree project.
@@ -57,8 +55,6 @@ public class JSTree<J extends JSTree<J>>
 		extends Div<JSTreeChildren, JSTreeAttributes, JSTreeFeatures, JSTreeEvents, J>
 		implements com.jwebmp.plugins.jstree.interfaces.IJSTree<J>
 {
-
-
 	private final JSTreeList<?> rootList = new JSTreeList<>();
 	private JSTreeFeature feature;
 	private boolean renderTreeAsync;
@@ -113,7 +109,7 @@ public class JSTree<J extends JSTree<J>>
 				                                                                                                                  .replace(CHAR_DOT, CHAR_UNDERSCORE));
 				getOptions().getCore()
 				            .getData()
-				            .setData(new JSTreeCoreDataFunction());
+				            .setData(new JSTreeCoreDataFunction<>());
 			}
 			else
 			{
@@ -133,11 +129,11 @@ public class JSTree<J extends JSTree<J>>
 	/**
 	 * Set the tree theme
 	 *
-	 * @param <J>
+	 * @param <T>
 	 * @param theme
 	 */
 	@Override
-	public <J extends Theme & JSTreeTheme> void setTheme(J theme)
+	public <T extends Theme & JSTreeTheme> void setTheme(T theme)
 	{
 		theme.getCssReferences()
 		     .forEach(this::addCssReference);
@@ -219,7 +215,6 @@ public class JSTree<J extends JSTree<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
 	public JSTreeCheckCallbackFunction<?> enableContextMenu()
 	{
@@ -240,7 +235,6 @@ public class JSTree<J extends JSTree<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
 	public JSTreeCheckCallbackFunction<?> enableDragAndDrop()
 	{
@@ -352,7 +346,6 @@ public class JSTree<J extends JSTree<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
 	public JSTreeCheckCallbackFunction<?> enableAjaxDataChildrenLazyLoading(Class<? extends JSTreeData<?>> renderDataClass)
 	{
@@ -371,7 +364,7 @@ public class JSTree<J extends JSTree<J>>
 		                                    .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 		                                                                                                                  .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		getOptions().getMassLoad()
-		            .setData(new JSTreeCoreDataFunction());
+		            .setData(new JSTreeCoreDataFunction<>());
 
 		JSTreeCheckCallbackFunction<?> context = new JSTreeCheckCallbackFunction<>();
 		getOptions().getCore()
@@ -404,14 +397,13 @@ public class JSTree<J extends JSTree<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
 	public JSTreeSearchOptions<?> enableSearch()
 	{
 		getOptions().getPlugins()
 		            .add(JSTreePlugins.Search);
 
-		JSTreeSearchOptions<?> searchOptions = new JSTreeSearchOptions();
+		JSTreeSearchOptions<?> searchOptions = new JSTreeSearchOptions<>();
 		searchOptions.getAjax()
 		             .setType(HttpMethodTypes.POST);
 		searchOptions.getAjax()
@@ -419,12 +411,11 @@ public class JSTree<J extends JSTree<J>>
 		                                     .replace(STRING_FORWARD_SLASH, STRING_EMPTY) + "?component=" + renderDataClass.getCanonicalName()
 		                                                                                                                   .replace(CHAR_DOT, CHAR_UNDERSCORE));
 		searchOptions.getAjax()
-		             .setData(new JSTreeCoreDataFunction());
+		             .setData(new JSTreeCoreDataFunction<>());
 		return searchOptions;
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
 	public JSTreeList<?> addRoot(JSTreeListItem<?> rootItem)
 	{
@@ -440,7 +431,6 @@ public class JSTree<J extends JSTree<J>>
 	 * @return
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	@NotNull
 	public JSTreeList<?> addRoot(JSTreeListItem<?> rootItem, JSTreeNodeOptions<?> options)
 	{

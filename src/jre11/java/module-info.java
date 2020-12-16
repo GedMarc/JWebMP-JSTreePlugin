@@ -1,3 +1,5 @@
+import com.jwebmp.plugins.jstree.implementations.JSTreeInclusionModule;
+
 module com.jwebmp.plugins.jstree {
 
 	exports com.jwebmp.plugins.jstree;
@@ -9,6 +11,8 @@ module com.jwebmp.plugins.jstree {
 	exports com.jwebmp.plugins.jstree.enumerations;
 	exports com.jwebmp.plugins.jstree.interfaces;
 	exports com.jwebmp.plugins.jstree.options;
+	exports com.jwebmp.plugins.jstree.options.functions;
+	exports com.jwebmp.plugins.jstree.options.enumerations;
 	exports com.jwebmp.plugins.jstree.options.selected;
 	exports com.jwebmp.plugins.jstree.themes;
 
@@ -23,7 +27,8 @@ module com.jwebmp.plugins.jstree {
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.jstree.JSTreePageConfigurator;
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective, com.jwebmp.plugins.jstree.events.onselectedevent.JSTreeOnSelectDirective;
-
+	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions with JSTreeInclusionModule;
+	
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.jstree.implementations.JSTreeExclusionsModule;
 
 	opens com.jwebmp.plugins.jstree to com.fasterxml.jackson.databind, com.jwebmp.core;
