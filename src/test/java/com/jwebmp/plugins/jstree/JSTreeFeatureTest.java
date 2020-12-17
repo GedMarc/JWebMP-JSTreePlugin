@@ -34,7 +34,7 @@ public class JSTreeFeatureTest
 	@SuppressWarnings("unchecked")
 	public void testGetOptions()
 	{
-		Page p = new Page();
+		Page<?> p = new Page();
 		JSTree tree = new JSTree();
 		p.getBody()
 		 .add(tree);
