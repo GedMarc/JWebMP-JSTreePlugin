@@ -37,9 +37,9 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  *
  * @author GedMarc
  */
-public abstract class JSTreeOnChangedAdapter
-		extends Event<GlobalFeatures, JSTreeOnChangedAdapter>
-		implements JSTreeEvents
+public abstract class JSTreeOnChangedAdapter<J extends JSTreeOnChangedAdapter<J>>
+		extends Event<GlobalFeatures, J>
+		implements JSTreeEvents<J>
 {
 	
 	/**

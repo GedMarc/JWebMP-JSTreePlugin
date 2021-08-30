@@ -37,9 +37,9 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  *
  * @author GedMarc
  */
-public abstract class JSTreeOnSelectedAdapter
-		extends Event<GlobalFeatures, JSTreeOnSelectedAdapter>
-		implements JSTreeEvents
+public abstract class JSTreeOnSelectedAdapter<J extends JSTreeOnSelectedAdapter<J>>
+		extends Event<GlobalFeatures, J>
+		implements JSTreeEvents<J>
 {
 
 	/**
