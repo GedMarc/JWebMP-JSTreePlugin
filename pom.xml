@@ -10,7 +10,7 @@
     <groupId>com.jwebmp.plugins.jquery</groupId>
     <artifactId>jwebmp-jstree</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>JSTree</name>
     <description>The JWebSwing implementation for JSTree</description>
     <url>https://github.com/GedMarc/JWebSwing-JSTreePlugin</url>
