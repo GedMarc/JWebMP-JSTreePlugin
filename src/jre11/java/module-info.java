@@ -23,7 +23,7 @@ module com.jwebmp.plugins.jstree {
 	requires jakarta.validation;
 	requires java.logging;
 	requires com.guicedee.guicedinjection;
-	requires com.jwebmp.core.angularjs;
+	requires com.jwebmp.core.angular;
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.jstree.JSTreePageConfigurator;
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective, com.jwebmp.plugins.jstree.events.onselectedevent.JSTreeOnSelectDirective;
