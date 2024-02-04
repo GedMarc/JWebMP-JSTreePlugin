@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_HASH;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_HASH;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**

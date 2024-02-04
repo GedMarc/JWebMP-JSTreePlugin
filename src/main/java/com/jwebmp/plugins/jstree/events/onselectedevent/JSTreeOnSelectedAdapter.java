@@ -23,13 +23,13 @@ import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.angular.AngularAttributes;
 import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.htmlbuilder.javascript.events.enumerations.EventTypes;
-import com.guicedee.logger.LogFactory;
+
 import com.jwebmp.plugins.jstree.events.onchangedevent.JSTreeOnChangedPluginDirective;
 import com.jwebmp.plugins.jstree.interfaces.JSTreeEvents;
 
 import java.util.logging.Level;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.STRING_CLOSING_BRACKET_SEMICOLON;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
@@ -70,7 +70,7 @@ public abstract class JSTreeOnSelectedAdapter<J extends JSTreeOnSelectedAdapter<
 		}
 		catch (Exception e)
 		{
-			LOG.log(Level.WARNING, "Error In Firing Event", e);
+			log.log(Level.WARNING, "Error In Firing Event", e);
 		}
 	}
 

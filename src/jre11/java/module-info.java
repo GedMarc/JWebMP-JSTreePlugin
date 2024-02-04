@@ -17,7 +17,7 @@ module com.jwebmp.plugins.jstree {
 	exports com.jwebmp.plugins.jstree.themes;
 
 	requires com.jwebmp.core;
-	requires com.guicedee.logmaster;
+	
 	requires com.guicedee.guicedservlets;
 
 	requires jakarta.validation;

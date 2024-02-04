@@ -38,7 +38,7 @@ import com.jwebmp.plugins.jstree.themes.JSTreeDefaultTheme;
 import com.jwebmp.plugins.jstree.themes.JSTreeTheme;
 import jakarta.validation.constraints.NotNull;
 
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
+import static com.guicedee.services.jsonrepresentation.json.StaticStrings.*;
 
 /**
  * An implementation of the jsTree project.
